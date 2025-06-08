@@ -1,3 +1,88 @@
+# Brands Web
+
+## 🚀 Tecnologias
+
+- React
+- TypeScript
+- Vite
+- ESLint
+- Prettier
+- Bun.js (Runtime)
+
+## 📦 Instalação
+
+```bash
+# Instalar dependências usando Bun
+bun install
+```
+
+## 🛠️ Comandos
+
+```bash
+# Iniciar o servidor de desenvolvimento
+bun run dev
+
+# Criar build de produção
+bun run build
+
+# Rodar os testes
+bun run test
+
+# Verificar formatação do código
+bun run format:check
+
+# Formatar o código
+bun run format
+
+# Verificar linting
+bun run lint
+```
+
+## ⚙️ Configurações
+
+### Prettier
+O projeto usa Prettier para formatação de código. As configurações estão no arquivo `.prettierrc`.
+
+### VS Code
+Para melhor experiência de desenvolvimento, instale as seguintes extensões:
+- Prettier - Code formatter
+- ESLint
+
+As configurações do VS Code estão em `.vscode/settings.json`.
+
+## 📝 Convenções
+
+- Use TypeScript para todo novo código
+- Siga as regras de formatação do Prettier
+- Mantenha os componentes pequenos e reutilizáveis
+- Use nomes descritivos para variáveis e funções
+- Documente funções e componentes complexos
+
+## 🔧 Scripts Disponíveis
+
+- `bun run dev` - Inicia o servidor de desenvolvimento
+- `bun run build` - Cria a build de produção
+- `bun run preview` - Visualiza a build de produção localmente
+- `bun run test` - Executa os testes
+- `bun run format` - Formata todos os arquivos
+- `bun run format:check` - Verifica se os arquivos estão formatados
+- `bun run lint` - Executa o linter
+
+## 🐰 Bun.js
+
+Este projeto utiliza o [Bun.js](https://bun.sh) como runtime JavaScript. O Bun é um runtime JavaScript all-in-one que oferece:
+
+- Performance superior ao Node.js
+- Gerenciador de pacotes integrado
+- Bundler nativo
+- Test runner
+- TypeScript suporte nativo
+
+Para instalar o Bun, execute:
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -5,13 +90,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

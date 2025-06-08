@@ -1,26 +1,81 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Definindo as variáveis CSS para as fontes importadas */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-comfortaa: 'Comfortaa', cursive;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Adiciona scroll suave para toda a página */
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Custom styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-comfortaa);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins);
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  max-height: 50vh;
+}
+
+/* Service card hover effects */
+.service-card {
+  @apply bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-300 cursor-pointer;
+}
+
+/* Modal styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4;
+}
+
+.modal-content {
+  @apply bg-white dark:bg-slate-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform transition-all duration-300;
+}
+
+/* Text styles */
+.text-content {
+  @apply tracking-wide;
+}
+
+/* Dark mode transitions */
+.dark-transition {
+  @apply transition-colors duration-200;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
 }
