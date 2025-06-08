@@ -1,6 +1,5 @@
-import React from 'react';
 import ServiceCard from './ServiceCard';
-import servicesData, { ServiceData } from '@/data/servicesData';
+import servicesData, { type ServiceData } from '@/data/servicesData';
 
 interface ServicesSectionProps {
   onServiceSelect: (service: ServiceData) => void;

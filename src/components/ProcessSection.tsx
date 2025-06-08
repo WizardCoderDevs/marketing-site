@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ProcessSection() {
   return (
     <section id="processo" className="py-20 bg-white dark:bg-slate-900">

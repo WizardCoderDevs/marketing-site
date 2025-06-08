@@ -65,6 +65,24 @@ const nextConfig: NextConfig = {
             priority: -10,
             reuseExistingChunk: true,
           },
+          chartjs: {
+            test: /[\\/]node_modules[\\/]chart\.js[\\/]/,
+            name: 'chartjs',
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          next: {
+            test: /[\\/]node_modules[\\/]next[\\/]/,
+            name: 'next',
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          nextThemes: {
+            test: /[\\/]node_modules[\\/]next-themes[\\/]/,
+            name: 'next-themes',
+            priority: 20,
+            reuseExistingChunk: true,
+          },
           default: {
             minChunks: 2,
             priority: -20,

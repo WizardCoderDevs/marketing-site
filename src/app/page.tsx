@@ -1,7 +1,7 @@
 'use client'; // Marca este componente como um Client Component para permitir interatividade.
 
 import { useState } from 'react';
-import { ServiceData } from '@/data/servicesData';
+import type { ServiceData } from '@/data/servicesData';
 import ServiceModal from '@/components/ServiceModal';
 import ServicesSection from '@/components/ServicesSection';
 import ImpactSection from '@/components/ImpactSection';

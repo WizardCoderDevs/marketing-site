@@ -21,6 +21,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@lhci/cli": "^0.14.0",
+    "@types/bun": "^1.2.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

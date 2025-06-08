@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { ServiceData } from '@/types/services';
+import { useEffect, useRef } from 'react';
+import type { ServiceData } from '@/types/services';
 import { formatMarkdown } from '@/utils/markdown';
 
 // Define as props para o componente ServiceModal

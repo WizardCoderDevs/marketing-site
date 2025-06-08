@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Footer() {
   return (
     <footer className="bg-violet-950 text-violet-400 py-6" role="contentinfo">

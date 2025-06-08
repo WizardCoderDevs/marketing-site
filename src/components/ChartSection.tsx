@@ -10,9 +10,8 @@ import {
   Tooltip,
   Legend,
   BarController,
-  ChartData,
-  ChartOptions,
 } from 'chart.js';
+import type { ChartData, ChartOptions } from 'chart.js';
 
 // Register Chart.js components
 ChartJS.register(
@@ -32,7 +31,9 @@ export default function ChartSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        if (entry) {
+          setIsVisible(entry.isIntersecting);
+        }
       },
       {
         threshold: 0.1, // Trigger when at least 10% of the element is visible
