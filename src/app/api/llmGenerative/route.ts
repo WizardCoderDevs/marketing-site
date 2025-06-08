@@ -88,8 +88,8 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-  } catch (error: any) {
-    // Captura o erro com tipo 'any' para flexibilidade
+  } catch (error: Error | unknown) {
+    // Captura o erro com tipo específico
     console.error('Erro na API de geração de ideias:', error);
     return NextResponse.json(
       { error: 'Ocorreu um erro interno ao processar sua requisição.' },

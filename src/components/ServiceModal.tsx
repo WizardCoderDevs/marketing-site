@@ -52,15 +52,6 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
     }
   }, [service]); // Dependência: `service` para re-executar a animação se o serviço mudar
 
-  // Função auxiliar para criar itens de lista formatados
-  const createListItems = (items: string[]) =>
-    items.map((item: string, index: number) => (
-      <li key={index} className="flex items-start">
-        <span className="text-violet-500 mr-3 mt-1 text-lg">✓</span>
-        <p dangerouslySetInnerHTML={{ __html: formatMarkdown(item) }}></p>
-      </li>
-    ));
-
   return (
     <div
       ref={modalRef}
