@@ -73,14 +73,12 @@ export async function POST(request: NextRequest) {
     const result: GeminiApiResponse = await response.json();
 
     // Processa a resposta da Gemini API
-    if (
-      result.candidates &&
-      result.candidates.length > 0 &&
-      result.candidates[0].content &&
-      result.candidates[0].content.parts &&
-      result.candidates[0].content.parts.length > 0
-    ) {
-      const text: string = result.candidates[0].content.parts[0].text || '';
+    const candidate = result.candidates?.[0];
+    const content = candidate?.content;
+    const parts = content?.parts;
+
+    if (parts?.[0]?.text !== undefined) {
+      const text: string = parts[0].text;
       return NextResponse.json({ text }); // Retorna o texto gerado
     } else {
       return NextResponse.json(

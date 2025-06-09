@@ -64,6 +64,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
       <div
         ref={modalContentRef}
         className="bg-white dark:bg-slate-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95"
+        role="document"
       >
         <div className="p-8">
           <div className="flex justify-between items-start mb-6">

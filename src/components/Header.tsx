@@ -38,47 +38,59 @@ export default function Header() {
           role="menubar"
           aria-label="Menu de navegação principal"
         >
-          <a
-            href="#servicos"
-            className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
-            role="menuitem"
-            aria-label="Ir para seção de serviços"
-          >
-            Serviços
-          </a>
-          <a
-            href="#impacto"
-            className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
-            role="menuitem"
-            aria-label="Ir para seção de impacto"
-          >
-            Impacto
-          </a>
-          <a
-            href="#ia-content-ideas"
-            className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
-            role="menuitem"
-            aria-label="Ir para seção de ideias com IA"
-          >
-            Ideias com IA
-          </a>
-          <a
-            href="#processo"
-            className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
-            role="menuitem"
-            aria-label="Ir para seção de processo"
-          >
-            Processo
-          </a>
-          <a
-            href="#contato"
-            className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
-            role="menuitem"
-            aria-label="Ir para seção de contato"
-          >
-            Contato
-          </a>
-          <ThemeToggle />
+          <div role="none">
+            <a
+              href="#servicos"
+              className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
+              role="menuitem"
+              aria-label="Ir para seção de serviços"
+            >
+              Serviços
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#impacto"
+              className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
+              role="menuitem"
+              aria-label="Ir para seção de impacto"
+            >
+              Impacto
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#ia-content-ideas"
+              className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
+              role="menuitem"
+              aria-label="Ir para seção de ideias com IA"
+            >
+              Ideias com IA
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#processo"
+              className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
+              role="menuitem"
+              aria-label="Ir para seção de processo"
+            >
+              Processo
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#contato"
+              className="text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 transition duration-300"
+              role="menuitem"
+              aria-label="Ir para seção de contato"
+            >
+              Contato
+            </a>
+          </div>
+          <div role="none">
+            <ThemeToggle />
+          </div>
         </div>
         <div className="flex items-center space-x-4 md:hidden">
           <ThemeToggle />
@@ -116,51 +128,61 @@ export default function Header() {
           aria-label="Menu mobile"
           aria-orientation="vertical"
         >
-          <a
-            href="#servicos"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
-            role="menuitem"
-            aria-label="Ir para seção de serviços"
-          >
-            Serviços
-          </a>
-          <a
-            href="#impacto"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
-            role="menuitem"
-            aria-label="Ir para seção de impacto"
-          >
-            Impacto
-          </a>
-          <a
-            href="#ia-content-ideas"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
-            role="menuitem"
-            aria-label="Ir para seção de ideias com IA"
-          >
-            Ideias com IA
-          </a>
-          <a
-            href="#processo"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
-            role="menuitem"
-            aria-label="Ir para seção de processo"
-          >
-            Processo
-          </a>
-          <a
-            href="#contato"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
-            role="menuitem"
-            aria-label="Ir para seção de contato"
-          >
-            Contato
-          </a>
+          <div role="none">
+            <a
+              href="#servicos"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
+              role="menuitem"
+              aria-label="Ir para seção de serviços"
+            >
+              Serviços
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#impacto"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
+              role="menuitem"
+              aria-label="Ir para seção de impacto"
+            >
+              Impacto
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#ia-content-ideas"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
+              role="menuitem"
+              aria-label="Ir para seção de ideias com IA"
+            >
+              Ideias com IA
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#processo"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
+              role="menuitem"
+              aria-label="Ir para seção de processo"
+            >
+              Processo
+            </a>
+          </div>
+          <div role="none">
+            <a
+              href="#contato"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-slate-600 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400"
+              role="menuitem"
+              aria-label="Ir para seção de contato"
+            >
+              Contato
+            </a>
+          </div>
         </div>
       )}
     </header>
