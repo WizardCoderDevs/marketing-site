@@ -51,6 +51,11 @@ export default function IdeasSection() {
     }
   };
 
+  const handleClear = (): void => {
+    setIdeaInput('');
+    setIdeaOutput('');
+  };
+
   const handleSendToWhatsApp = (): void => {
     const message = `Olá! Gostaria de solicitar o serviço de criação de conteúdo com base nas seguintes ideias:\n\n${ideaInput}\n\nIdeias geradas:\n${ideaOutput.replace(/<[^>]*>/g, '')}`;
     const encodedMessage = encodeURIComponent(message);
@@ -59,33 +64,46 @@ export default function IdeasSection() {
   };
 
   return (
-    <section id="ia-content-ideas" className="py-20 bg-stone-50 dark:bg-slate-800">
-      <div className="container mx-auto px-6 text-center">
-        <h3 className="text-3xl md:text-4xl font-poppins font-bold text-slate-900 dark:text-white mb-4">
-          ✨ Ideias de Conteúdo com IA ✨
-        </h3>
-        <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
-          Descreva seu negócio ou o objetivo da sua próxima campanha e a nossa
-          inteligência artificial gerará ideias criativas para suas redes sociais.
-        </p>
+    <section className="py-20 bg-violet-50 dark:bg-violet-900/30">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h3 className="text-3xl md:text-4xl font-poppins font-bold text-slate-900 dark:text-white">
+            Ideias com IA
+          </h3>
+          <p className="text-slate-600 dark:text-slate-300 mt-2">
+            Deixe a inteligência artificial ajudar a criar ideias criativas para seu
+            negócio.
+          </p>
+        </div>
         <div className="max-w-xl mx-auto bg-white dark:bg-slate-900 p-8 rounded-lg shadow-lg">
           <textarea
             id="idea-input"
-            className="w-full p-3 border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-700 mb-4 h-32 resize-y text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800"
+            className="w-full p-3 border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-700 mb-4 h-32 resize-y text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="Ex: 'Uma loja de cafés especiais buscando atrair clientes jovens com promoções de verão.'"
             value={ideaInput}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
               setIdeaInput(e.target.value)
             }
+            disabled={!!ideaOutput || loadingIdeas}
           ></textarea>
-          <button
-            id="generate-ideas-button"
-            onClick={handleGenerateIdeas}
-            disabled={loadingIdeas}
-            className="bg-violet-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-violet-800 transition duration-300 w-full mb-4 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loadingIdeas ? 'Gerando...' : 'Gerar Ideias'}
-          </button>
+          <div className="flex gap-4 mb-4">
+            <button
+              id="generate-ideas-button"
+              onClick={handleGenerateIdeas}
+              disabled={loadingIdeas || !!ideaOutput}
+              className="flex-1 bg-violet-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-violet-800 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loadingIdeas ? 'Gerando...' : 'Gerar Ideias'}
+            </button>
+            {ideaOutput && (
+              <button
+                onClick={handleClear}
+                className="flex-1 bg-slate-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-slate-700 transition duration-300"
+              >
+                Limpar
+              </button>
+            )}
+          </div>
           {loadingIdeas && (
             <div
               id="loading-indicator"

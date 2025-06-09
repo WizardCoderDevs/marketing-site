@@ -11,7 +11,7 @@ export default function ProcessSection() {
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
-          <div className="flex-1 text-center p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md md:rounded-r-none">
+          <div className="flex-1 text-center p-6 bg-violet-50 dark:bg-violet-900/30 rounded-lg shadow-md md:rounded-r-none">
             <div className="bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-poppins font-bold">
               1
             </div>
@@ -26,7 +26,7 @@ export default function ProcessSection() {
           <div className="hidden md:block text-violet-400 text-4xl font-light -mx-3 z-10">
             →
           </div>
-          <div className="flex-1 text-center p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md md:rounded-none">
+          <div className="flex-1 text-center p-6 bg-violet-50 dark:bg-violet-900/30 rounded-lg shadow-md md:rounded-none">
             <div className="bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-poppins font-bold">
               2
             </div>
@@ -40,7 +40,7 @@ export default function ProcessSection() {
           <div className="hidden md:block text-violet-400 text-4xl font-light -mx-3 z-10">
             →
           </div>
-          <div className="flex-1 text-center p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md md:rounded-l-none">
+          <div className="flex-1 text-center p-6 bg-violet-50 dark:bg-violet-900/30 rounded-lg shadow-md md:rounded-l-none">
             <div className="bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-poppins font-bold">
               3
             </div>
