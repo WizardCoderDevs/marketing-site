@@ -1,7 +1,7 @@
 export default function HeroSection() {
   return (
     <section
-      className="py-20 md:py-32 bg-white dark:bg-slate-900"
+      className="py-20 md:py-32 bg-white dark:bg-slate-800"
       aria-labelledby="hero-title"
     >
       <div className="container mx-auto px-6 text-center">
