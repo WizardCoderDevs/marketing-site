@@ -53,7 +53,7 @@ export default function Header() {
           >
             <div role="none">
               <Link
-                href={getNavigationLink('servicos')}
+                href={getNavigationLink('cta-grid')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
                 Serviços
@@ -61,15 +61,15 @@ export default function Header() {
             </div>
             <div role="none">
               <Link
-                href={getNavigationLink('ideias')}
+                href={getNavigationLink('impact-section')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Ideias
+                Impacto
               </Link>
             </div>
             <div role="none">
               <Link
-                href={getNavigationLink('processo')}
+                href={getNavigationLink('process-section')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
                 Processo
@@ -77,10 +77,10 @@ export default function Header() {
             </div>
             <div role="none">
               <Link
-                href={getNavigationLink('form-cta')}
+                href={getNavigationLink('contact-section')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Formulário
+                Contato
               </Link>
             </div>
             <div role="none">

@@ -6,7 +6,7 @@ const ChartSection = dynamic(() => import('./ChartSection'), {
 
 export default function ImpactSection() {
   return (
-    <section id="impacto" className="py-20 bg-stone-50 dark:bg-slate-900">
+    <section id="impact-section" className="py-20 bg-stone-50 dark:bg-slate-900">
       <div className="container mx-auto px-6 text-center">
         <h3 className="text-3xl md:text-4xl font-poppins font-bold text-slate-900 dark:text-white mb-4">
           O Impacto de uma Parceria Estratégica

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function CTAGrid() {
   return (
-    <section className="py-20 bg-stone-50 dark:bg-slate-800 dark-transition">
+    <section id="cta-grid" className="py-20 bg-stone-50 dark:bg-slate-800 dark-transition">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2

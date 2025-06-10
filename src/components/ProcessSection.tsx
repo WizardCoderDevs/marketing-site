@@ -1,6 +1,6 @@
 export default function ProcessSection() {
   return (
-    <section id="processo" className="py-20 bg-white dark:bg-slate-900">
+    <section id="process-section" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h3 className="text-3xl md:text-4xl font-poppins font-bold text-slate-900 dark:text-white">
