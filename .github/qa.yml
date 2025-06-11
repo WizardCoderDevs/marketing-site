@@ -71,8 +71,8 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2'
         with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER_QA }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT_QA }}
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
@@ -81,9 +81,9 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v2'
         with:
           path: 'dist'
-          destination: ${{ secrets.GCS_BUCKET }}
+          destination: ${{ secrets.GCS_BUCKET_QA }}
           parent: false
 
-      # - name: Invalidate CDN Cache
-      #   if: secrets.GCP_LOAD_BALANCER_NAME != ''
-      #   run: gcloud compute url-maps invalidate-cdn-cache ${{ secrets.GCP_LOAD_BALANCER_NAME }} --path "/*" --async
+      - name: Invalidate CDN Cache
+        if: secrets.GCP_LOAD_BALANCER_NAME_QA != ''
+        run: gcloud compute url-maps invalidate-cdn-cache ${{ secrets.GCP_LOAD_BALANCER_NAME_QA }} --path "/*" --async
