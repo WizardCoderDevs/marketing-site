@@ -1,0 +1,4 @@
+1. Always use the bun.js runtime as this project main runtime
+2. After you finished EVERY modification, update your context by reading the files you modified, 
+3. to be able to take the next modification I will request on the updated file on your context.
+4. The project is using the Next.js as front-end library. Consider that before start makin modifications
