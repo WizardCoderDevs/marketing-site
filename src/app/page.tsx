@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import type { ServiceData } from '@/data/servicesData';
 import ServiceModal from '@/components/ServiceModal';
-import ImpactSection from '@/components/ImpactSection';
-import ProcessSection from '@/components/ProcessSection';
+// import ImpactSection from '@/components/ImpactSection';
+// import ProcessSection from '@/components/ProcessSection';
 // import ContactSection from '@/components/ContactSection';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import Footer from '@/components/Footer';
-import ServicosPage from './servicos/page';
+// import Footer from '@/components/Footer';
+// import ServicosPage from './servicos/page';
 // import CTAGrid from '@/components/CTAGrid';
 
 // Componente principal da página (HomePage)
@@ -19,19 +19,19 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <main role="main">
         {/* Seções Principais */}
         <HeroSection />
-        <ImpactSection />
-        <ServicosPage />
+        {/* <ImpactSection /> */}
+        {/* <ServicosPage /> */}
         {/* <CTAGrid /> */}
-        <ProcessSection />
+        {/* <ProcessSection /> */}
         {/* <ContactSection /> */}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
 
       {/* Modal de Detalhes do Serviço */}
       {selectedService && (
