@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import type { ServiceData } from '@/data/servicesData';
 import ServicesSection from '@/components/ServicesSection';
-import Header from '@/components/Header';
+// import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceModal from '@/components/ServiceModal';
 
@@ -12,7 +12,7 @@ export default function ServicosPage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main role="main">
         <ServicesSection onServiceSelect={setSelectedService} />
       </main>

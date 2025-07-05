@@ -13,92 +13,92 @@ export interface ServiceData {
 
 // Array de dados de serviços, tipado com a interface ServiceData.
 const servicesData: ServiceData[] = [
-  {
-    id: 'gestao-trafego',
-    category: 'advertising',
-    title: 'Gestão de Tráfego Pago',
-    tagline: 'Alcance o público certo com Facebook & Instagram Ads.',
-    icon: '🎯',
-    description:
-      'A Gestão de Tráfego Pago com foco em Facebook Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios nas plataformas do Facebook e Instagram, otimizando o investimento para gerar o máximo retorno.',
-    how: [
-      '**Campanhas semanais:** Gerenciamento contínuo com ajustes e otimizações para performance.',
-      '**Conteúdo diário:** Duas postagens patrocinadas por dia, garantindo alta frequência e visibilidade.',
-      '**Criativos inclusos:** Desenvolvemos designs e textos atrativos para suas campanhas.',
-      '**Revisão e alinhamento:** As informações, logo da empresa e paleta de cores devem ser enviadas com uma semana de antecedência ao início da campanha para revisão e ajustes.',
-    ],
-    benefits: [
-      '**Aumento da Visibilidade:** Sua marca alcança milhares de pessoas no Instagram e Facebook.',
-      '**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio.',
-      '**Otimização do ROI:** Garantimos que cada centavo investido traga o melhor resultado.',
-      '**Segmentação Precisa:** Atinja o público certo, com base em interesses, comportamentos e localização.',
-      '**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado para seus canais de venda.',
-      '**Melhora do Relacionamento Online:** Fortaleça a conexão e a reputação da sua marca.',
-    ],
-    features: [
-      'Planejamento de Conteúdo',
-      'Design de Posts',
-      'Gestão de Comunidade',
-      'Relatórios de Performance',
-    ],
-  },
-  {
-    id: 'criativos-demanda',
-    category: 'advertising',
-    title: 'Criativos Sob Demanda',
-    tagline: 'Material visual de alta qualidade para suas campanhas.',
-    icon: '🎨',
-    description:
-      'Para empresas que já realizam sua própria gestão de tráfego, mas necessitam de material visual de alta qualidade. Nossos criativos são desenvolvidos para capturar a atenção e comunicar sua mensagem de forma eficaz no Facebook e Instagram.',
-    how: [
-      '**Criação Personalizada:** Designs e textos persuasivos, alinhados à identidade da sua marca.',
-      '**Foco em performance:** Criativos pensados para gerar engajamento e conversão.',
-      '**Demanda Mínima:** Requisição de no mínimo 2 criativos.',
-      '**Prazo de Entrega Flexível:** O prazo é informado após a requisição e acordado com o cliente.',
-      '**Alinhamento de Conteúdo:** Informações e identidade visual enviadas com antecedência.',
-    ],
-    benefits: [
-      '**Conteúdo Visual Impactante:** Criativos profissionais que se destacam no feed dos usuários.',
-      '**Mensagem Consistente e Poderosa:** Comunicação visual alinhada à sua estratégia de marketing.',
-      '**Engajamento Aumentado:** Designs atrativos que impulsionam o engajamento do público.',
-      '**Fortalecimento da Marca:** Reforce a identidade visual da sua empresa, tornando-a memorável.',
-      '**Eficiência na Produção:** Elimine a preocupação com a criação, focando no seu core business.',
-    ],
-    features: [
-      'Planejamento de Conteúdo',
-      'Design de Posts',
-      'Gestão de Comunidade',
-      'Relatórios de Performance',
-    ],
-  },
-  {
-    id: 'plano-anual',
-    category: 'advertising',
-    title: 'Plano Anual de Criativos',
-    tagline: 'Consistência e profissionalismo com 2 criativos por semana.',
-    icon: '🗓️',
-    description:
-      'Com nosso Plano Anual, sua empresa garante uma presença digital constante e profissional, com conteúdo visual fresco e relevante entregue semanalmente. Ideal para manter sua audiência engajada e sua marca sempre em evidência.',
-    how: [
-      '**Entrega Recorrente:** Dois novos criativos por semana, entregues pontualmente todas as segundas-feiras.',
-      '**Produção Dedicada:** Um profissional da BRANDS terá horário reservado para seus materiais.',
-      '**Responsabilidade do Cliente:** O cliente é responsável por fornecer as informações da semana com antecedência.',
-      '**Fluxo de Validação:** A produção depende da validação prévia. Não há acúmulo de criativos.',
-    ],
-    benefits: [
-      '**Presença Digital Consistente:** Mantenha sua marca sempre ativa e relevante nas redes sociais.',
-      '**Engajamento Sustentado:** Alimente sua audiência com material novo semanalmente.',
-      '**Planejamento Simplificado:** Planeje sua comunicação com antecedência e sem preocupações.',
-      '**Profissionalismo e Qualidade:** Todos os criativos são desenvolvidos por nossa equipe especializada.',
-      '**Fortalecimento da Autoridade da Marca:** Posicione-se como referência no seu segmento.',
-    ],
-    features: [
-      'Planejamento de Conteúdo',
-      'Design de Posts',
-      'Gestão de Comunidade',
-      'Relatórios de Performance',
-    ],
-  },
+  // {
+  //   id: 'gestao-trafego',
+  //   category: 'advertising',
+  //   title: 'Gestão de Tráfego Pago',
+  //   tagline: 'Alcance o público certo com Facebook & Instagram Ads.',
+  //   icon: '🎯',
+  //   description:
+  //     'A Gestão de Tráfego Pago com foco em Facebook Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios nas plataformas do Facebook e Instagram, otimizando o investimento para gerar o máximo retorno.',
+  //   how: [
+  //     '**Campanhas semanais:** Gerenciamento contínuo com ajustes e otimizações para performance.',
+  //     '**Conteúdo diário:** Duas postagens patrocinadas por dia, garantindo alta frequência e visibilidade.',
+  //     '**Criativos inclusos:** Desenvolvemos designs e textos atrativos para suas campanhas.',
+  //     '**Revisão e alinhamento:** As informações, logo da empresa e paleta de cores devem ser enviadas com uma semana de antecedência ao início da campanha para revisão e ajustes.',
+  //   ],
+  //   benefits: [
+  //     '**Aumento da Visibilidade:** Sua marca alcança milhares de pessoas no Instagram e Facebook.',
+  //     '**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio.',
+  //     '**Otimização do ROI:** Garantimos que cada centavo investido traga o melhor resultado.',
+  //     '**Segmentação Precisa:** Atinja o público certo, com base em interesses, comportamentos e localização.',
+  //     '**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado para seus canais de venda.',
+  //     '**Melhora do Relacionamento Online:** Fortaleça a conexão e a reputação da sua marca.',
+  //   ],
+  //   features: [
+  //     'Planejamento de Conteúdo',
+  //     'Design de Posts',
+  //     'Gestão de Comunidade',
+  //     'Relatórios de Performance',
+  //   ],
+  // },
+  // {
+  //   id: 'criativos-demanda',
+  //   category: 'advertising',
+  //   title: 'Criativos Sob Demanda',
+  //   tagline: 'Material visual de alta qualidade para suas campanhas.',
+  //   icon: '🎨',
+  //   description:
+  //     'Para empresas que já realizam sua própria gestão de tráfego, mas necessitam de material visual de alta qualidade. Nossos criativos são desenvolvidos para capturar a atenção e comunicar sua mensagem de forma eficaz no Facebook e Instagram.',
+  //   how: [
+  //     '**Criação Personalizada:** Designs e textos persuasivos, alinhados à identidade da sua marca.',
+  //     '**Foco em performance:** Criativos pensados para gerar engajamento e conversão.',
+  //     '**Demanda Mínima:** Requisição de no mínimo 2 criativos.',
+  //     '**Prazo de Entrega Flexível:** O prazo é informado após a requisição e acordado com o cliente.',
+  //     '**Alinhamento de Conteúdo:** Informações e identidade visual enviadas com antecedência.',
+  //   ],
+  //   benefits: [
+  //     '**Conteúdo Visual Impactante:** Criativos profissionais que se destacam no feed dos usuários.',
+  //     '**Mensagem Consistente e Poderosa:** Comunicação visual alinhada à sua estratégia de marketing.',
+  //     '**Engajamento Aumentado:** Designs atrativos que impulsionam o engajamento do público.',
+  //     '**Fortalecimento da Marca:** Reforce a identidade visual da sua empresa, tornando-a memorável.',
+  //     '**Eficiência na Produção:** Elimine a preocupação com a criação, focando no seu core business.',
+  //   ],
+  //   features: [
+  //     'Planejamento de Conteúdo',
+  //     'Design de Posts',
+  //     'Gestão de Comunidade',
+  //     'Relatórios de Performance',
+  //   ],
+  // },
+  // {
+  //   id: 'plano-anual',
+  //   category: 'advertising',
+  //   title: 'Plano Anual de Criativos',
+  //   tagline: 'Consistência e profissionalismo com 2 criativos por semana.',
+  //   icon: '🗓️',
+  //   description:
+  //     'Com nosso Plano Anual, sua empresa garante uma presença digital constante e profissional, com conteúdo visual fresco e relevante entregue semanalmente. Ideal para manter sua audiência engajada e sua marca sempre em evidência.',
+  //   how: [
+  //     '**Entrega Recorrente:** Dois novos criativos por semana, entregues pontualmente todas as segundas-feiras.',
+  //     '**Produção Dedicada:** Um profissional da BRANDS terá horário reservado para seus materiais.',
+  //     '**Responsabilidade do Cliente:** O cliente é responsável por fornecer as informações da semana com antecedência.',
+  //     '**Fluxo de Validação:** A produção depende da validação prévia. Não há acúmulo de criativos.',
+  //   ],
+  //   benefits: [
+  //     '**Presença Digital Consistente:** Mantenha sua marca sempre ativa e relevante nas redes sociais.',
+  //     '**Engajamento Sustentado:** Alimente sua audiência com material novo semanalmente.',
+  //     '**Planejamento Simplificado:** Planeje sua comunicação com antecedência e sem preocupações.',
+  //     '**Profissionalismo e Qualidade:** Todos os criativos são desenvolvidos por nossa equipe especializada.',
+  //     '**Fortalecimento da Autoridade da Marca:** Posicione-se como referência no seu segmento.',
+  //   ],
+  //   features: [
+  //     'Planejamento de Conteúdo',
+  //     'Design de Posts',
+  //     'Gestão de Comunidade',
+  //     'Relatórios de Performance',
+  //   ],
+  // },
   {
     id: 'site-single-page',
     category: 'web',
@@ -215,7 +215,7 @@ const servicesData: ServiceData[] = [
   },
   {
     id: 'social-media',
-    title: 'Gestão de Redes Sociais',
+    title: 'Social Media',
     description:
       'Criação e gestão de conteúdo para suas redes sociais, aumentando o engajamento e a visibilidade da sua marca.',
     icon: '📱',
@@ -310,32 +310,32 @@ const servicesData: ServiceData[] = [
       'Análise de comportamento do usuário',
     ],
   },
-  {
-    id: 'ecommerce',
-    title: 'E-commerce',
-    description: 'Lojas virtuais completas e otimizadas para vender seus produtos online.',
-    icon: '🛍️',
-    category: 'web',
-    features: [
-      'Catálogo de Produtos',
-      'Carrinho de Compras',
-      'Pagamentos Seguros',
-      'Gestão de Estoque',
-    ],
-    tagline: 'Venda seus produtos online com uma loja virtual completa',
-    how: [
-      'Planejamento da estrutura da loja',
-      'Desenvolvimento da plataforma',
-      'Integração com meios de pagamento',
-      'Configuração de logística',
-    ],
-    benefits: [
-      'Vendas 24/7',
-      'Gestão centralizada',
-      'Múltiplos meios de pagamento',
-      'Relatórios de vendas detalhados',
-    ],
-  },
+  // {
+  //   id: 'ecommerce',
+  //   title: 'E-commerce',
+  //   description: 'Lojas virtuais completas e otimizadas para vender seus produtos online.',
+  //   icon: '🛍️',
+  //   category: 'web',
+  //   features: [
+  //     'Catálogo de Produtos',
+  //     'Carrinho de Compras',
+  //     'Pagamentos Seguros',
+  //     'Gestão de Estoque',
+  //   ],
+  //   tagline: 'Venda seus produtos online com uma loja virtual completa',
+  //   how: [
+  //     'Planejamento da estrutura da loja',
+  //     'Desenvolvimento da plataforma',
+  //     'Integração com meios de pagamento',
+  //     'Configuração de logística',
+  //   ],
+  //   benefits: [
+  //     'Vendas 24/7',
+  //     'Gestão centralizada',
+  //     'Múltiplos meios de pagamento',
+  //     'Relatórios de vendas detalhados',
+  //   ],
+  // },
 ];
 
 export default servicesData;

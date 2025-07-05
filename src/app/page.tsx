@@ -5,11 +5,12 @@ import type { ServiceData } from '@/data/servicesData';
 import ServiceModal from '@/components/ServiceModal';
 import ImpactSection from '@/components/ImpactSection';
 import ProcessSection from '@/components/ProcessSection';
-import ContactSection from '@/components/ContactSection';
+// import ContactSection from '@/components/ContactSection';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import Footer from '@/components/Footer';
-import CTAGrid from '@/components/CTAGrid';
+import ServicosPage from './servicos/page';
+// import CTAGrid from '@/components/CTAGrid';
 
 // Componente principal da página (HomePage)
 export default function HomePage() {
@@ -24,9 +25,10 @@ export default function HomePage() {
         {/* Seções Principais */}
         <HeroSection />
         <ImpactSection />
-        <CTAGrid />
+        <ServicosPage />
+        {/* <CTAGrid /> */}
         <ProcessSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </main>
 
       <Footer />
