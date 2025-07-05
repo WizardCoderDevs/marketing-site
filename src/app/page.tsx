@@ -6,7 +6,7 @@ import ServiceModal from '@/components/ServiceModal';
 // import ImpactSection from '@/components/ImpactSection';
 // import ProcessSection from '@/components/ProcessSection';
 // import ContactSection from '@/components/ContactSection';
-import Header from '@/components/Header';
+// import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 // import Footer from '@/components/Footer';
 // import ServicosPage from './servicos/page';
