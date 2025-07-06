@@ -15,24 +15,22 @@ const CookiesPopup = () => {
       onClick={redirectToProDentim}
     >
       <div
-        className="bg-white dark:bg-slate-800 rounded-2xl p-8 max-w-md w-full shadow-2xl relative"
+        className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl relative border border-gray-100"
         onClick={e => e.stopPropagation()}
       >
         <button
           onClick={redirectToProDentim}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
         >
           <FaTimes className="w-6 h-6" />
         </button>
 
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-white text-2xl">🍪</span>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            Cookie Notice
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300">
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Cookie Notice</h3>
+          <p className="text-gray-600">
             We use cookies to enhance your experience and analyze our traffic. By
             continuing to use this site, you consent to our use of cookies.
           </p>
@@ -41,24 +39,24 @@ const CookiesPopup = () => {
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={redirectToProDentim}
-            className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+            className="flex-1 bg-green-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-green-700 transition-colors"
           >
             Accept All
           </button>
           <button
             onClick={redirectToProDentim}
-            className="flex-1 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
           >
             Reject
           </button>
         </div>
 
-        <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
+        <p className="text-xs text-gray-500 text-center mt-4">
           By clicking any button, you agree to our{' '}
           <a
             href="#"
             onClick={redirectToProDentim}
-            className="underline hover:text-blue-600"
+            className="underline hover:text-green-600"
           >
             Privacy Policy
           </a>{' '}
@@ -66,7 +64,7 @@ const CookiesPopup = () => {
           <a
             href="#"
             onClick={redirectToProDentim}
-            className="underline hover:text-blue-600"
+            className="underline hover:text-green-600"
           >
             Terms of Service
           </a>
