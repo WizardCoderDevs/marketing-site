@@ -3,7 +3,6 @@ import { Comfortaa, Poppins } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
 import React from 'react'; // Import React para tipos JSX
-import Head from 'next/head';
 import Script from 'next/script';
 
 // Configuração da fonte Comfortaa
@@ -84,19 +83,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-989188981"
-        ></script>
-      </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+        strategy="afterInteractive"
+      />
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-989188981');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
         `}
       </Script>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">

@@ -40,12 +40,12 @@ export default function ChartSection() {
       }
     );
 
-    if (chartRef.current) {
-      observer.observe(chartRef.current);
+    const currentRef = chartRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      const currentRef = chartRef.current;
       if (currentRef) {
         observer.unobserve(currentRef);
       }

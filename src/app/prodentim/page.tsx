@@ -2,8 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { FaCheckCircle, FaStar, FaShieldAlt, FaTruck, FaClock } from 'react-icons/fa';
 import CookiesPopup from '../../components/CookiesPopup';
-import Script from 'next/script';
-import Head from 'next/head';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title:
@@ -104,9 +103,11 @@ export default function ProDentimPage() {
 
             <div className="relative flex justify-center items-center">
               {/* Product Image */}
-              <img
+              <Image
                 src="/image.png"
                 alt="ProDentim Bottle"
+                width={400}
+                height={400}
                 className="w-full max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg drop-shadow-2xl rounded-3xl border border-green-100 bg-white z-0"
                 style={{ zIndex: 1 }}
               />
