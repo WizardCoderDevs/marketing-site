@@ -1,8 +1,8 @@
 'use client';
 
+import Footer from '@/components/Footer';
 import FormSection from '@/components/FormSection';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function FormularioPage() {
   return (

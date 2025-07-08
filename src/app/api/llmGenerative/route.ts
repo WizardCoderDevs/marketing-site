@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server'; // Importa o tipo específico para Request
+import { NextResponse } from 'next/server';
 
 // Rota de API para gerar ideias de conteúdo usando a Gemini API.
 // Esta função é executada no lado do servidor.
@@ -44,7 +44,6 @@ export async function POST(request: NextRequest) {
 
     // Verifica se a chave da API está configurada
     if (!apiKey) {
-      console.error('Gemini API Key não configurada.');
       return NextResponse.json(
         { error: 'Erro de configuração da API. A chave da API não está definida.' },
         { status: 500 }
@@ -86,9 +85,7 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-  } catch (error: Error | unknown) {
-    // Captura o erro com tipo específico
-    console.error('Erro na API de geração de ideias:', error);
+  } catch {
     return NextResponse.json(
       { error: 'Ocorreu um erro interno ao processar sua requisição.' },
       { status: 500 }

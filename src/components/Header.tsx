@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
+import { useState } from 'react';
+
 import Breadcrumbs from './Breadcrumbs';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);

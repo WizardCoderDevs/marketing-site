@@ -1,5 +1,6 @@
-import ServiceCard from './ServiceCard';
 import servicesData, { type ServiceData } from '@/data/servicesData';
+
+import ServiceCard from './ServiceCard';
 
 interface ServicesSectionProps {
   onServiceSelect: (service: ServiceData) => void;

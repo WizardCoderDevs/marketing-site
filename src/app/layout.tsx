@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Comfortaa, Poppins } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
-import './globals.css';
-import React from 'react'; // Import React para tipos JSX
 import Script from 'next/script';
+import { ThemeProvider } from 'next-themes';
+import React from 'react'; // Import React para tipos JSX
+import './globals.css';
 
 // Configuração da fonte Comfortaa
 const comfortaa = Comfortaa({
@@ -79,7 +79,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
-      lang="pt-br"
+      lang="en"
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >

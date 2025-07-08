@@ -3,23 +3,26 @@
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 
-const CookiesPopup = () => {
-  const redirectToProDentim = () => {
-    window.location.href =
-      'https://prodentim101.com/text.php?hopId=4f1f708a-4a1f-4808-a82a-df5032a91d1a&hop=ntnaraujo';
+interface CookiesPopupProps {
+  redirectUrl: string;
+}
+
+const CookiesPopup: React.FC<CookiesPopupProps> = ({ redirectUrl }) => {
+  const handleRedirect = () => {
+    window.location.href = redirectUrl;
   };
 
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-      onClick={redirectToProDentim}
+      onClick={handleRedirect}
     >
       <div
         className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl relative border border-gray-100"
         onClick={e => e.stopPropagation()}
       >
         <button
-          onClick={redirectToProDentim}
+          onClick={handleRedirect}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
         >
           <FaTimes className="w-6 h-6" />
@@ -38,13 +41,13 @@ const CookiesPopup = () => {
 
         <div className="flex flex-col sm:flex-row gap-3">
           <button
-            onClick={redirectToProDentim}
+            onClick={handleRedirect}
             className="flex-1 bg-green-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-green-700 transition-colors"
           >
             Accept All
           </button>
           <button
-            onClick={redirectToProDentim}
+            onClick={handleRedirect}
             className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
           >
             Reject
@@ -53,19 +56,11 @@ const CookiesPopup = () => {
 
         <p className="text-xs text-gray-500 text-center mt-4">
           By clicking any button, you agree to our{' '}
-          <a
-            href="#"
-            onClick={redirectToProDentim}
-            className="underline hover:text-green-600"
-          >
+          <a href="#" onClick={handleRedirect} className="underline hover:text-green-600">
             Privacy Policy
           </a>{' '}
           and{' '}
-          <a
-            href="#"
-            onClick={redirectToProDentim}
-            className="underline hover:text-green-600"
-          >
+          <a href="#" onClick={handleRedirect} className="underline hover:text-green-600">
             Terms of Service
           </a>
         </p>

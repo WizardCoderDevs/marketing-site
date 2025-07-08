@@ -1,8 +1,10 @@
-import React from 'react';
 import type { Metadata } from 'next';
-import { FaCheckCircle, FaStar, FaShieldAlt, FaTruck, FaClock } from 'react-icons/fa';
-import CookiesPopup from '../../components/CookiesPopup';
 import Image from 'next/image';
+import React from 'react';
+import { FaCheckCircle, FaStar, FaShieldAlt, FaTruck, FaClock } from 'react-icons/fa';
+
+import CookiesPopup from '../../components/CookiesPopup';
+
 
 export const metadata: Metadata = {
   title:
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
 export default function ProDentimPage() {
   return (
     <div className="min-h-screen bg-white">
-      <CookiesPopup />
+      <CookiesPopup redirectUrl="https://ba35bh3igicsmhcg2js9ulvcft.hop.clickbank.net" />
 
       {/* Header */}
       <header className="bg-white shadow-lg border-b border-gray-200">

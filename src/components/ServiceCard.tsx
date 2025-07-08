@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { ServiceData } from '@/data/servicesData'; // Importa a interface ServiceData
 
 // Define as props para o componente ServiceCard

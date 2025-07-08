@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
 
   // Optimize images and enable modern image formats
   images: {
+    unoptimized: true, // Required for static export
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

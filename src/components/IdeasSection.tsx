@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { formatMarkdown } from '@/utils/markdown';
 
 export default function IdeasSection() {
