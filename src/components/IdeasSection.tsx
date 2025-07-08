@@ -43,6 +43,7 @@ export default function IdeasSection() {
         );
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Erro ao chamar a API de geração de ideias:', error);
       setIdeaOutput(
         '<p class="text-red-600">Ocorreu um erro ao gerar as ideias. Verifique a conexão ou tente novamente mais tarde.</p>'

@@ -1,7 +1,8 @@
 'use client';
 
-import CookiesPopup from '@/components/CookiesPopup';
 import React from 'react';
+
+import CookiesPopup from '@/components/CookiesPopup';
 
 const JavaBurnPage: React.FC = () => {
   return (
