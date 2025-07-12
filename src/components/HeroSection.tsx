@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function HeroSection() {
   return (
     <section
@@ -11,9 +13,17 @@ export default function HeroSection() {
         >
           Site básico para campanhas gogole ADS
         </h2>
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
           Site básico para campanhas gogole ADS
         </p>
+        <Link
+          href="/servicos"
+          className="mx-auto bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-center inline-block"
+          role="button"
+          aria-label="Ver nossos serviços"
+        >
+          Ver Nossos Serviços
+        </Link>
       </div>
     </section>
   );

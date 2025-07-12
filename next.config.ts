@@ -38,12 +38,18 @@ const nextConfig: NextConfig = {
             value: '1; mode=block',
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
+          },
+        ],
+      },
+      // Allow iframe embedding for specific pages
+      {
+        source: '/protocoloneuroreconquista',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'ALLOWALL',
           },
         ],
       },
