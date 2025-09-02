@@ -1,30 +1,235 @@
-import Link from 'next/link';
+'use client';
+
+import { ArrowRightIcon, ChartBarIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('servicos');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contato');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
-      className="py-20 md:py-32 bg-white dark:bg-slate-800"
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-violet-50 dark:from-slate-900 dark:via-slate-800 dark:to-violet-900 overflow-hidden"
       aria-labelledby="hero-title"
     >
-      <div className="container mx-auto px-6 text-center">
-        <h2
-          id="hero-title"
-          className="text-4xl md:text-6xl font-poppins font-bold text-slate-900 dark:text-white mb-4"
-        >
-          Site básico para campanhas gogole ADS
-        </h2>
-        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
-          Site básico para campanhas gogole ADS
-        </p>
-        <Link
-          href="/servicos"
-          className="mx-auto bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-center inline-block"
-          role="button"
-          aria-label="Ver nossos serviços"
-        >
-          Ver Nossos Serviços
-        </Link>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-violet-200 dark:bg-violet-800 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-200 dark:bg-blue-800 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 dark:bg-purple-800 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-50 animate-pulse" style={{ animationDelay: '4s' }}></div>
       </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-center lg:text-left"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300 px-4 py-2 rounded-full text-sm font-medium mb-6"
+              >
+                <SparklesIcon className="w-4 h-4" />
+                Especialistas em Gestão de Tráfego
+              </motion.div>
+
+              {/* Main Headline */}
+              <motion.h1
+                id="hero-title"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-slate-900 dark:text-white leading-tight mb-6"
+              >
+                Acelere o{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600">
+                  Crescimento
+                </span>{' '}
+                da sua Marca
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed"
+              >
+                Transformamos tráfego em resultados reais. Nossa estratégia de{' '}
+                <strong className="text-slate-900 dark:text-white">gestão de tráfego pago</strong>{' '}
+                e{' '}
+                <strong className="text-slate-900 dark:text-white">desenvolvimento web</strong>{' '}
+                impulsiona marcas para o próximo nível.
+              </motion.p>
+
+              {/* Key Benefits */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8"
+              >
+                <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                  <div className="w-2 h-2 bg-violet-600 rounded-full"></div>
+                  <span className="text-sm font-medium">+300% ROI Médio</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <span className="text-sm font-medium">Resultados em 30 dias</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                  <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                  <span className="text-sm font-medium">Suporte 24/7</span>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              >
+                <button
+                  onClick={scrollToContact}
+                  className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                >
+                  Começar Agora
+                  <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={scrollToServices}
+                  className="group bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                >
+                  Ver Serviços
+                  <ChartBarIcon className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                </button>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Column - Visual Elements */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              {/* Main Visual Card */}
+              <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border border-slate-200 dark:border-slate-700">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span className="text-slate-500 dark:text-slate-400 text-sm ml-4">Dashboard BRANDS</span>
+                </div>
+
+                {/* Chart Area */}
+                <div className="space-y-6">
+                  {/* Growth Chart */}
+                  <div>
+                    <div className="flex justify-between items-center mb-3">
+                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Crescimento do Tráfego</h3>
+                      <span className="text-green-600 dark:text-green-400 text-sm font-medium">+247%</span>
+                    </div>
+                    <div className="h-32 bg-gradient-to-r from-violet-100 to-blue-100 dark:from-violet-900/30 dark:to-blue-900/30 rounded-lg p-4">
+                      <div className="h-full flex items-end gap-2">
+                        {[40, 65, 45, 80, 60, 90, 75, 95].map((height, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ height: 0 }}
+                            animate={{ height: `${height}%` }}
+                            transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
+                            className="bg-gradient-to-t from-violet-500 to-blue-500 rounded-sm flex-1"
+                          ></motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <RocketLaunchIcon className="w-5 h-5 text-violet-600" />
+                        <span className="text-sm text-slate-600 dark:text-slate-300">Conversões</span>
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900 dark:text-white">1,247</div>
+                      <div className="text-green-600 dark:text-green-400 text-sm">+23% vs mês anterior</div>
+                    </div>
+                    <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <ChartBarIcon className="w-5 h-5 text-blue-600" />
+                        <span className="text-sm text-slate-600 dark:text-slate-300">ROI</span>
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900 dark:text-white">347%</div>
+                      <div className="text-green-600 dark:text-green-400 text-sm">+45% vs mês anterior</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Elements */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="absolute -top-4 -right-4 bg-violet-600 text-white p-3 rounded-full shadow-lg"
+              >
+                <SparklesIcon className="w-6 h-6" />
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                className="absolute -bottom-4 -left-4 bg-blue-600 text-white p-3 rounded-full shadow-lg"
+              >
+                <RocketLaunchIcon className="w-6 h-6" />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-slate-400 dark:border-slate-500 rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-slate-400 dark:bg-slate-500 rounded-full mt-2"
+          ></motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

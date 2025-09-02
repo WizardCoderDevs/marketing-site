@@ -2,16 +2,17 @@
 
 import { useState } from 'react';
 
+import ContactSection from '@/components/ContactSection';
+import CTAGrid from '@/components/CTAGrid';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import ImpactSection from '@/components/ImpactSection';
+import ProcessSection from '@/components/ProcessSection';
 import ServiceModal from '@/components/ServiceModal';
 import type { ServiceData } from '@/data/servicesData';
-// import ImpactSection from '@/components/ImpactSection';
-// import ProcessSection from '@/components/ProcessSection';
-// import ContactSection from '@/components/ContactSection';
-// import Header from '@/components/Header';
-// import Footer from '@/components/Footer';
-// import ServicosPage from './servicos/page';
-// import CTAGrid from '@/components/CTAGrid';
+
+import ServicosPage from './servicos/page';
 
 // Componente principal da página (HomePage)
 export default function HomePage() {
@@ -20,19 +21,18 @@ export default function HomePage() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
 
       <main role="main">
-        {/* Seções Principais */}
         <HeroSection />
-        {/* <ImpactSection /> */}
-        {/* <ServicosPage /> */}
-        {/* <CTAGrid /> */}
-        {/* <ProcessSection /> */}
-        {/* <ContactSection /> */}
+        <ImpactSection />
+        <ServicosPage />
+        <CTAGrid />
+        <ProcessSection />
+        <ContactSection />
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
 
       {/* Modal de Detalhes do Serviço */}
       {selectedService && (
