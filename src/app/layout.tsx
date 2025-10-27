@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
 import Script from 'next/script';
+import { ThemeProvider } from 'next-themes';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
