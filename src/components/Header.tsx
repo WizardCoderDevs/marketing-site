@@ -35,15 +35,12 @@ export default function Header() {
               className="text-3xl font-extrabold font-poppins text-slate-900 dark:text-white flex items-center"
               aria-label="BRANDS - Página inicial"
             >
-              <svg
-                className="inline-block w-6 h-6 text-violet-700 dark:text-violet-400 mr-1 -mt-1 -rotate-90"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
+              <img
+                src="/lightning-icon.svg"
+                alt=""
+                className="inline-block w-6 h-6 mr-1 -mt-1"
                 aria-hidden="true"
-              >
-                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
-              </svg>
+              />
               BRANDS
             </Link>
           </h1>
@@ -66,14 +63,6 @@ export default function Header() {
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
                 Impacto
-              </Link>
-            </div>
-            <div role="none">
-              <Link
-                href={getNavigationLink('process-section')}
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-              >
-                Processo
               </Link>
             </div>
             <div role="none">
@@ -138,22 +127,16 @@ export default function Header() {
               Serviços
             </Link>
             <Link
-              href={getNavigationLink('ideias')}
+              href={getNavigationLink('impact-section')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Ideias
+              Impacto
             </Link>
             <Link
-              href={getNavigationLink('processo')}
+              href={getNavigationLink('contact-section')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Processo
-            </Link>
-            <Link
-              href={getNavigationLink('form-cta')}
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              Formulário
+              Contato
             </Link>
           </div>
         </div>

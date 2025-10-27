@@ -21,7 +21,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-violet-50 dark:from-slate-900 dark:via-slate-800 dark:to-violet-900 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-violet-50 dark:from-slate-900 dark:via-slate-800 dark:to-violet-900 overflow-hidden pb-16 md:pb-0"
       aria-labelledby="hero-title"
     >
       {/* Background decorative elements */}
@@ -109,19 +109,28 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <button
-                  onClick={scrollToContact}
+                <a
+                  href="https://wa.me/5528992783978"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                 >
-                  Começar Agora
-                  <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                  Falar no WhatsApp
+                  <svg 
+                    className="w-5 h-5 group-hover:scale-110 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  </svg>
+                </a>
                 <button
                   onClick={scrollToServices}
                   className="group bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                 >
                   Ver Serviços
-                  <ChartBarIcon className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                  <ChartBarIcon aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                 </button>
               </motion.div>
             </motion.div>
@@ -137,10 +146,10 @@ export default function HeroSection() {
               <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border border-slate-200 dark:border-slate-700">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-500 dark:text-slate-400 text-sm ml-4">Dashboard BRANDS</span>
+                  <div aria-hidden="true" className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div aria-hidden="true" className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div aria-hidden="true" className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span role="text" aria-label="Dashboard BRANDS" className="text-slate-500 dark:text-slate-400 text-sm ml-4">Dashboard BRANDS</span>
                 </div>
 
                 {/* Chart Area */}
@@ -148,8 +157,8 @@ export default function HeroSection() {
                   {/* Growth Chart */}
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Crescimento do Tráfego</h3>
-                      <span className="text-green-600 dark:text-green-400 text-sm font-medium">+247%</span>
+                      <h3 role="heading" aria-label="Crescimento do Tráfego" className="text-lg font-semibold text-slate-900 dark:text-white">Crescimento do Tráfego</h3>
+                      <span role="text" aria-label="247%" className="text-green-600 dark:text-green-400 text-sm font-medium">+247%</span>
                     </div>
                     <div className="h-32 bg-gradient-to-r from-violet-100 to-blue-100 dark:from-violet-900/30 dark:to-blue-900/30 rounded-lg p-4">
                       <div className="h-full flex items-end gap-2">
@@ -160,9 +169,11 @@ export default function HeroSection() {
                             animate={{ height: `${height}%` }}
                             transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
                             className="bg-gradient-to-t from-violet-500 to-blue-500 rounded-sm flex-1"
+                            aria-hidden="true"
                           ></motion.div>
                         ))}
                       </div>
+                      <span role="text" aria-label="40%" className="text-slate-500 dark:text-slate-400 text-sm font-medium">40%</span>
                     </div>
                   </div>
 
@@ -173,7 +184,7 @@ export default function HeroSection() {
                         <RocketLaunchIcon className="w-5 h-5 text-violet-600" />
                         <span className="text-sm text-slate-600 dark:text-slate-300">Conversões</span>
                       </div>
-                      <div className="text-2xl font-bold text-slate-900 dark:text-white">1,247</div>
+                      <div role="text" aria-label="1,247" className="text-2xl font-bold text-slate-900 dark:text-white">1,247</div>
                       <div className="text-green-600 dark:text-green-400 text-sm">+23% vs mês anterior</div>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
@@ -181,7 +192,7 @@ export default function HeroSection() {
                         <ChartBarIcon className="w-5 h-5 text-blue-600" />
                         <span className="text-sm text-slate-600 dark:text-slate-300">ROI</span>
                       </div>
-                      <div className="text-2xl font-bold text-slate-900 dark:text-white">347%</div>
+                      <div role="text" aria-label="347%" className="text-2xl font-bold text-slate-900 dark:text-white">347%</div>
                       <div className="text-green-600 dark:text-green-400 text-sm">+45% vs mês anterior</div>
                     </div>
                   </div>
@@ -190,6 +201,7 @@ export default function HeroSection() {
 
               {/* Floating Elements */}
               <motion.div
+                aria-hidden="true"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -199,6 +211,7 @@ export default function HeroSection() {
               </motion.div>
               
               <motion.div
+                aria-hidden="true"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
@@ -213,17 +226,20 @@ export default function HeroSection() {
 
       {/* Scroll Indicator */}
       <motion.div
+        aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
+          aria-hidden="true"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="w-6 h-10 border-2 border-slate-400 dark:border-slate-500 rounded-full flex justify-center"
         >
           <motion.div
+            aria-hidden="true"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="w-1 h-3 bg-slate-400 dark:bg-slate-500 rounded-full mt-2"

@@ -27,9 +27,6 @@ export default function HomePage() {
         <HeroSection />
         <ImpactSection />
         <ServicosPage />
-        <CTAGrid />
-        <ProcessSection />
-        <ContactSection />
       </main>
 
       <Footer />

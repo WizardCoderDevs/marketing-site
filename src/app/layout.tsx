@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
 import Script from 'next/script';
-import { ThemeProvider } from 'next-themes';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
@@ -38,6 +38,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://brands.ppg.br'),
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/lightning-icon.svg', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     title: 'BRANDS - Marketing Digital Estratégico',
@@ -96,7 +104,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         `}
       </Script>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>
