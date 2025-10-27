@@ -2,13 +2,10 @@
 
 import { useState } from 'react';
 
-import ContactSection from '@/components/ContactSection';
-import CTAGrid from '@/components/CTAGrid';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ImpactSection from '@/components/ImpactSection';
-import ProcessSection from '@/components/ProcessSection';
 import ServiceModal from '@/components/ServiceModal';
 import type { ServiceData } from '@/data/servicesData';
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -35,9 +36,11 @@ export default function Header() {
               className="text-3xl font-extrabold font-poppins text-slate-900 dark:text-white flex items-center"
               aria-label="BRANDS - Página inicial"
             >
-              <img
+              <Image
                 src="/lightning-icon.svg"
                 alt=""
+                width={24}
+                height={24}
                 className="inline-block w-6 h-6 mr-1 -mt-1"
                 aria-hidden="true"
               />

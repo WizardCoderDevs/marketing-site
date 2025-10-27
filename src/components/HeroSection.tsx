@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRightIcon, ChartBarIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { ChartBarIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
@@ -8,13 +8,6 @@ export default function HeroSection() {
     const servicesSection = document.getElementById('servicos');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contato');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
