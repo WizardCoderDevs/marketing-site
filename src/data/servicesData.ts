@@ -13,35 +13,35 @@ export interface ServiceData {
 
 // Array de dados de serviços, tipado com a interface ServiceData.
 const servicesData: ServiceData[] = [
-  // {
-  //   id: 'gestao-trafego',
-  //   category: 'advertising',
-  //   title: 'Gestão de Tráfego Pago',
-  //   tagline: 'Alcance o público certo com Facebook & Instagram Ads.',
-  //   icon: '🎯',
-  //   description:
-  //     'A Gestão de Tráfego Pago com foco em Facebook Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios nas plataformas do Facebook e Instagram, otimizando o investimento para gerar o máximo retorno.',
-  //   how: [
-  //     '**Campanhas semanais:** Gerenciamento contínuo com ajustes e otimizações para performance.',
-  //     '**Conteúdo diário:** Duas postagens patrocinadas por dia, garantindo alta frequência e visibilidade.',
-  //     '**Criativos inclusos:** Desenvolvemos designs e textos atrativos para suas campanhas.',
-  //     '**Revisão e alinhamento:** As informações, logo da empresa e paleta de cores devem ser enviadas com uma semana de antecedência ao início da campanha para revisão e ajustes.',
-  //   ],
-  //   benefits: [
-  //     '**Aumento da Visibilidade:** Sua marca alcança milhares de pessoas no Instagram e Facebook.',
-  //     '**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio.',
-  //     '**Otimização do ROI:** Garantimos que cada centavo investido traga o melhor resultado.',
-  //     '**Segmentação Precisa:** Atinja o público certo, com base em interesses, comportamentos e localização.',
-  //     '**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado para seus canais de venda.',
-  //     '**Melhora do Relacionamento Online:** Fortaleça a conexão e a reputação da sua marca.',
-  //   ],
-  //   features: [
-  //     'Planejamento de Conteúdo',
-  //     'Design de Posts',
-  //     'Gestão de Comunidade',
-  //     'Relatórios de Performance',
-  //   ],
-  // },
+  {
+    id: 'gestao-trafego',
+    category: 'advertising',
+    title: 'Gestão de Tráfego Pago',
+    tagline: 'Alcance o público certo com Facebook & Instagram Ads.',
+    icon: '🎯',
+    description:
+      'A Gestão de Tráfego Pago com foco em Facebook Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios nas plataformas do Facebook e Instagram, otimizando o investimento para gerar o máximo retorno.',
+    how: [
+      '**Campanhas semanais:** Gerenciamento contínuo com ajustes e otimizações para performance.',
+      '**Conteúdo diário:** Duas postagens patrocinadas por dia, garantindo alta frequência e visibilidade.',
+      '**Criativos inclusos:** Desenvolvemos designs e textos atrativos para suas campanhas.',
+      '**Revisão e alinhamento:** As informações, logo da empresa e paleta de cores devem ser enviadas com uma semana de antecedência ao início da campanha para revisão e ajustes.',
+    ],
+    benefits: [
+      '**Aumento da Visibilidade:** Sua marca alcança milhares de pessoas no Instagram e Facebook.',
+      '**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio.',
+      '**Otimização do ROI:** Garantimos que cada centavo investido traga o melhor resultado.',
+      '**Segmentação Precisa:** Atinja o público certo, com base em interesses, comportamentos e localização.',
+      '**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado para seus canais de venda.',
+      '**Melhora do Relacionamento Online:** Fortaleça a conexão e a reputação da sua marca.',
+    ],
+    features: [
+      'Planejamento de Conteúdo',
+      'Design de Posts',
+      'Gestão de Comunidade',
+      'Relatórios de Performance',
+    ],
+  },
   // {
   //   id: 'criativos-demanda',
   //   category: 'advertising',
@@ -240,50 +240,50 @@ const servicesData: ServiceData[] = [
       'Aumento de leads e conversões',
     ],
   },
-  {
-    id: 'google-ads',
-    title: 'Google Ads',
-    description:
-      'Campanhas publicitárias no Google para atrair clientes qualificados e aumentar suas conversões.',
-    icon: '🔍',
-    category: 'advertising',
-    features: ['Anúncios de Busca', 'Display Network', 'Remarketing', 'Otimização de Conversão'],
-    tagline: 'Atraia clientes qualificados através de campanhas no Google',
-    how: [
-      'Pesquisa de palavras-chave relevantes',
-      'Criação de campanhas otimizadas',
-      'Configuração de conversões e métricas',
-      'Otimização contínua de performance',
-    ],
-    benefits: [
-      'Tráfego qualificado para seu site',
-      'Maior taxa de conversão',
-      'ROI mensurável',
-      'Alcance de público com intenção de compra',
-    ],
-  },
-  {
-    id: 'meta-ads',
-    title: 'Meta Ads',
-    description:
-      'Publicidade no Facebook e Instagram para alcançar seu público-alvo e promover seus produtos.',
-    icon: '📢',
-    category: 'advertising',
-    features: ['Anúncios no Feed', 'Stories Ads', 'Carrossel', 'Campanhas de Conversão'],
-    tagline: 'Alcance seu público-alvo no Facebook e Instagram',
-    how: [
-      'Definição de público-alvo',
-      'Criação de campanhas segmentadas',
-      'Produção de anúncios criativos',
-      'Monitoramento e otimização',
-    ],
-    benefits: [
-      'Alcance de público qualificado',
-      'Maior engajamento com anúncios',
-      'Custo-benefício otimizado',
-      'Métricas detalhadas de performance',
-    ],
-  },
+  // {
+  //   id: 'google-ads',
+  //   title: 'Google Ads',
+  //   description:
+  //     'Campanhas publicitárias no Google para atrair clientes qualificados e aumentar suas conversões.',
+  //   icon: '🔍',
+  //   category: 'advertising',
+  //   features: ['Anúncios de Busca', 'Display Network', 'Remarketing', 'Otimização de Conversão'],
+  //   tagline: 'Atraia clientes qualificados através de campanhas no Google',
+  //   how: [
+  //     'Pesquisa de palavras-chave relevantes',
+  //     'Criação de campanhas otimizadas',
+  //     'Configuração de conversões e métricas',
+  //     'Otimização contínua de performance',
+  //   ],
+  //   benefits: [
+  //     'Tráfego qualificado para seu site',
+  //     'Maior taxa de conversão',
+  //     'ROI mensurável',
+  //     'Alcance de público com intenção de compra',
+  //   ],
+  // },
+  // {
+  //   id: 'meta-ads',
+  //   title: 'Meta Ads',
+  //   description:
+  //     'Publicidade no Facebook e Instagram para alcançar seu público-alvo e promover seus produtos.',
+  //   icon: '📢',
+  //   category: 'advertising',
+  //   features: ['Anúncios no Feed', 'Stories Ads', 'Carrossel', 'Campanhas de Conversão'],
+  //   tagline: 'Alcance seu público-alvo no Facebook e Instagram',
+  //   how: [
+  //     'Definição de público-alvo',
+  //     'Criação de campanhas segmentadas',
+  //     'Produção de anúncios criativos',
+  //     'Monitoramento e otimização',
+  //   ],
+  //   benefits: [
+  //     'Alcance de público qualificado',
+  //     'Maior engajamento com anúncios',
+  //     'Custo-benefício otimizado',
+  //     'Métricas detalhadas de performance',
+  //   ],
+  // },
   {
     id: 'landing-page',
     title: 'Landing Page',

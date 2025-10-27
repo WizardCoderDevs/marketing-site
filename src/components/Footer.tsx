@@ -15,7 +15,16 @@ export default function Footer() {
             <h4 role="heading" className="text-xl font-bold mb-4">Contato</h4>
             <div className="space-y-2">
               {/* <p role="text" aria-label="Email de contato" className="text-slate-200">contato@brands.ppg.br</p> */}
-              <p role="text" aria-label="Telefone de contato" className="text-slate-200">(12) 99999-9999</p>
+              <a
+                href="https://wa.me/5528992783978"
+                target="_blank"
+                rel="noopener noreferrer" 
+                role="text"
+                aria-label="Telefone de contato"
+                className="text-slate-200 hover:text-white transition-colors"
+              >
+                (28) 99278-3978
+              </a>
             </div>
           </div>
           {/* <div>
