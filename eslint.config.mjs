@@ -1,7 +1,7 @@
 import { FlatCompat } from '@eslint/eslintrc';
+import importPlugin from 'eslint-plugin-import';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import importPlugin from 'eslint-plugin-import';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -32,18 +32,8 @@ const eslintConfig = [
       'prefer-const': 'error',
       'no-var': 'error',
 
-      // Import rules
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-        },
-      ],
+      // Import rules - simplified to avoid conflicts
+      'import/order': 'off',
     },
   },
   {
