@@ -38,13 +38,13 @@ export default function Header() {
             >
               <Image
                 src="/lightning-icon.svg"
-                alt=""
+                alt="Brands - Logo"
                 width={24}
                 height={24}
                 className="inline-block w-6 h-6 mr-1 -mt-1"
                 aria-hidden="true"
               />
-              BRANDS
+              <span className="text-slate-900 dark:text-white">BRANDS</span>
             </Link>
           </h1>
           <div

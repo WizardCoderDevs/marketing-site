@@ -87,7 +87,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
