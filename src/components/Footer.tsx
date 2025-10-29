@@ -1,3 +1,4 @@
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -12,17 +13,26 @@ export default function Footer() {
           </div>
           <div>
             <h4 role="heading" className="text-xl font-bold mb-4">Contato</h4>
-            <div className="space-y-2">
-              {/* <p role="text" aria-label="Email de contato" className="text-slate-200">contato@brands.ppg.br</p> */}
+            <div className="space-y-2 flex flex-col">
               <a
-                href="https://wa.me/5528992783978"
-                target="_blank"
-                rel="noopener noreferrer" 
+                href="mailto:contato@brands.ppg.br"
                 role="text"
-                aria-label="Telefone de contato"
-                className="text-slate-200 hover:text-white transition-colors"
+                aria-label="Email de contato"
+                className="text-slate-200 hover:text-white transition-colors flex items-center gap-2"
               >
-                (28) 99278-3978
+                <FaEnvelope className="w-6 h-6" />
+                <span>contato@brands.ppg.br</span>
+              </a>
+              <a 
+                href="https://wa.me/5528992783978" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                role="text" 
+                aria-label="Telefone de contato" 
+                className="text-slate-200 hover:text-white transition-colors flex items-center gap-2"
+              >
+                <FaPhone className="w-6 h-6" />
+                <span>(28) 99278-3978</span>
               </a>
             </div>
           </div>
