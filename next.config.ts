@@ -1,6 +1,9 @@
+import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Configure `pageExtensions` para incluir arquivos MDX
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   output: 'export',
   // Enable React strict mode for better development experience
   reactStrictMode: true,
@@ -102,19 +105,16 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // Turbopack configuration (stable)
-  turbopack: {
-    rules: {
-      // Configure Turbopack rules
-      '*.svg': ['@svgr/webpack'],
-      '*.{png,jpg,jpeg,gif,webp,avif}': ['file-loader'],
-      '*.{woff,woff2,eot,ttf,otf}': ['file-loader'],
-    },
-    resolveAlias: {
-      // Add any path aliases here if needed
-      '@': './src',
-    },
-  },
+  // Turbopack configuration removida temporariamente
+  // devido a conflitos conhecidos com MDX no Next.js 15
+  // Para usar MDX, execute: pnpm dev (sem --turbopack)
+  // ou atualize o script dev no package.json
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Adicione extensões Markdown e MDX
+  extension: /\.mdx?$/,
+});
+
+// Mescla a configuração do MDX com a configuração do Next.js
+export default withMDX(nextConfig);
