@@ -22,42 +22,7 @@ const nextConfig: NextConfig = {
   // Enable source maps in production for better debugging
   productionBrowserSourceMaps: true,
 
-  // Configure headers for security
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-        ],
-      },
-      // Allow iframe embedding for specific pages
-      {
-        source: '/protocoloneuroreconquista',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'ALLOWALL',
-          },
-        ],
-      },
-    ];
-  },
+  // Note: security headers should be configured at the hosting layer for static export
 
   // Enable webpack optimizations
   webpack: (config, { dev, isServer }) => {
