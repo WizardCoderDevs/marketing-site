@@ -63,27 +63,27 @@
     },
     "gestao-trafego": {
       "title": "Gestão de Tráfego Pago",
-      "tagline": "Alcance o público certo com Facebook & Instagram Ads.",
-      "description": "A Gestão de Tráfego Pago com foco em Facebook Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios nas plataformas do Facebook e Instagram, otimizando o investimento para gerar o máximo retorno.",
+      "tagline": "Alcance o público certo com Google Ads.",
+      "description": "A Gestão de Tráfego Pago com foco em Google Ads é a chave para colocar sua marca em destaque, alcançando um público qualificado e interessado nos seus produtos ou serviços. Gerenciamos suas campanhas de anúncios no Google, otimizando o investimento para gerar o máximo retorno.",
       "how": [
         "**Campanhas semanais:** Gerenciamento contínuo com ajustes e otimizações para performance.",
-        "**Conteúdo diário:** Duas postagens patrocinadas por dia, garantindo alta frequência e visibilidade.",
-        "**Criativos inclusos:** Desenvolvemos designs e textos atrativos para suas campanhas.",
+        "**Anúncios estratégicos:** Campanhas otimizadas para busca, display e YouTube, garantindo alta visibilidade.",
+        "**Criativos inclusos:** Desenvolvemos anúncios e textos atrativos para suas campanhas.",
         "**Revisão e alinhamento:** As informações, logo da empresa e paleta de cores devem ser enviadas com uma semana de antecedência ao início da campanha para revisão e ajustes."
       ],
       "benefits": [
-        "**Aumento da Visibilidade:** Sua marca alcança milhares de pessoas no Instagram e Facebook.",
-        "**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio.",
+        "**Aumento da Visibilidade:** Sua marca aparece quando seus clientes procuram por você no Google.",
+        "**Geração de Leads Qualificados:** Atraia pessoas que realmente se interessam pelo seu negócio no momento da busca.",
         "**Otimização do ROI:** Garantimos que cada centavo investido traga o melhor resultado.",
-        "**Segmentação Precisa:** Atinja o público certo, com base em interesses, comportamentos e localização.",
-        "**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado para seus canais de venda.",
-        "**Melhora do Relacionamento Online:** Fortaleça a conexão e a reputação da sua marca."
+        "**Segmentação Precisa:** Atinja o público certo, com base em palavras-chave, localização e comportamento de busca.",
+        "**Aumento do Faturamento e Vendas:** Direcione tráfego qualificado e com intenção de compra para seus canais de venda.",
+        "**Visibilidade em Múltiplos Formatos:** Anúncios em busca, display, YouTube e Shopping."
       ],
       "features": [
-        "Planejamento de Conteúdo",
-        "Design de Posts",
-        "Gestão de Comunidade",
-        "Relatórios de Performance"
+        "Gestão de Campanhas",
+        "Otimização de Palavras-chave",
+        "Análise de Performance",
+        "Relatórios Detalhados"
       ]
     },
     "site-single-page": {
@@ -232,4 +232,3 @@
     }
   }
 }
-
