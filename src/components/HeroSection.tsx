@@ -2,8 +2,10 @@
 
 import { ChartBarIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const scrollToServices = () => {
     const servicesSection = document.getElementById('servicos');
     if (servicesSection) {
@@ -42,7 +44,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-2 bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300 px-4 py-2 rounded-full text-sm font-medium mb-6"
               >
                 <SparklesIcon className="w-4 h-4" />
-                Especialistas em Gestão de Tráfego
+                {t('hero.badge')}
               </motion.div>
 
               {/* Main Headline */}
@@ -53,11 +55,11 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-slate-900 dark:text-white leading-tight mb-6"
               >
-                Acelere o{' '}
+                {t('hero.titlePart1')}{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600">
-                  Crescimento
-                </span>{' '}
-                da sua Marca
+                  {t('hero.titleHighlight')}
+                </span>
+                {t('hero.titlePart2') && ` ${t('hero.titlePart2')}`}
               </motion.h1>
 
               {/* Subtitle */}
@@ -67,11 +69,17 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed"
               >
-                Transformamos tráfego em resultados reais. Nossa estratégia de{' '}
-                <strong className="text-slate-900 dark:text-white">gestão de tráfego pago</strong>{' '}
-                e{' '}
-                <strong className="text-slate-900 dark:text-white">desenvolvimento web</strong>{' '}
-                impulsiona marcas para o próximo nível.
+                <Trans
+                  i18nKey="hero.subtitle"
+                  components={{
+                    paidTraffic: <strong className="text-slate-900 dark:text-white" />,
+                    webDevelopment: <strong className="text-slate-900 dark:text-white" />,
+                  }}
+                  values={{
+                    paidTraffic: t('hero.paidTraffic'),
+                    webDevelopment: t('hero.webDevelopment'),
+                  }}
+                />
               </motion.p>
 
               {/* Key Benefits */}
@@ -83,15 +91,15 @@ export default function HeroSection() {
               >
                 <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <div className="w-2 h-2 bg-violet-600 rounded-full"></div>
-                  <span className="text-sm font-medium">+300% ROI Médio</span>
+                  <span className="text-sm font-medium">{t('hero.roi')}</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-sm font-medium">Resultados em 30 dias</span>
+                  <span className="text-sm font-medium">{t('hero.results')}</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
                   <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  <span className="text-sm font-medium">Suporte 24/7</span>
+                  <span className="text-sm font-medium">{t('hero.support')}</span>
                 </div>
               </motion.div>
 
@@ -108,7 +116,7 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                 >
-                  Falar no WhatsApp
+                  {t('hero.cta')}
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform"
                     fill="currentColor"
@@ -122,7 +130,7 @@ export default function HeroSection() {
                   onClick={scrollToServices}
                   className="group bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                 >
-                  Ver Serviços
+                  {t('hero.ctaSecondary')}
                   <ChartBarIcon aria-hidden="true" className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                 </button>
               </motion.div>
@@ -142,7 +150,7 @@ export default function HeroSection() {
                   <div aria-hidden="true" className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div aria-hidden="true" className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div aria-hidden="true" className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span role="text" aria-label="Dashboard BRANDS" className="text-slate-500 dark:text-slate-400 text-sm ml-4">Dashboard BRANDS</span>
+                  <span role="text" aria-label={t('hero.dashboard.title')} className="text-slate-500 dark:text-slate-400 text-sm ml-4">{t('hero.dashboard.title')}</span>
                 </div>
 
                 {/* Chart Area */}
@@ -150,7 +158,7 @@ export default function HeroSection() {
                   {/* Growth Chart */}
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <h3 role="heading" aria-label="Crescimento do Tráfego" className="text-lg font-semibold text-slate-900 dark:text-white">Crescimento do Tráfego</h3>
+                      <h3 role="heading" aria-label={t('hero.dashboard.trafficGrowth')} className="text-lg font-semibold text-slate-900 dark:text-white">{t('hero.dashboard.trafficGrowth')}</h3>
                       <span role="text" aria-label="247%" className="text-green-600 dark:text-green-400 text-sm font-medium">+247%</span>
                     </div>
                     <div className="h-32 bg-gradient-to-r from-violet-100 to-blue-100 dark:from-violet-900/30 dark:to-blue-900/30 rounded-lg p-4">
@@ -175,18 +183,18 @@ export default function HeroSection() {
                     <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <RocketLaunchIcon className="w-5 h-5 text-violet-600" />
-                        <span className="text-sm text-slate-600 dark:text-slate-300">Conversões</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{t('hero.dashboard.conversions')}</span>
                       </div>
                       <div role="text" aria-label="1,247" className="text-2xl font-bold text-slate-900 dark:text-white">1,247</div>
-                      <div className="text-green-600 dark:text-green-400 text-sm">+23% vs mês anterior</div>
+                      <div className="text-green-600 dark:text-green-400 text-sm">+23% {t('hero.dashboard.vsPreviousMonth')}</div>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <ChartBarIcon className="w-5 h-5 text-blue-600" />
-                        <span className="text-sm text-slate-600 dark:text-slate-300">ROI</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{t('hero.dashboard.roi')}</span>
                       </div>
                       <div role="text" aria-label="347%" className="text-2xl font-bold text-slate-900 dark:text-white">347%</div>
-                      <div className="text-green-600 dark:text-green-400 text-sm">+45% vs mês anterior</div>
+                      <div className="text-green-600 dark:text-green-400 text-sm">+45% {t('hero.dashboard.vsPreviousMonth')}</div>
                     </div>
                   </div>
                 </div>

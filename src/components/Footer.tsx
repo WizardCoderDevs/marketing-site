@@ -1,6 +1,10 @@
+'use client';
+
 import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer role="contentinfo" className="text-white py-12 bg-violet-900">
       <div className="container mx-auto px-6">
@@ -8,11 +12,11 @@ export default function Footer() {
           <div>
             <h4 role="heading" className="text-xl font-bold mb-4">BRANDS</h4>
             <p className="text-slate-200">
-              Transformando presença digital em resultados reais.
+              {t('footer.description')}
             </p>
           </div>
           <div>
-            <h4 role="heading" className="text-xl font-bold mb-4">Contato</h4>
+            <h4 role="heading" className="text-xl font-bold mb-4">{t('footer.contact')}</h4>
             <div className="space-y-2 flex flex-col">
               <a
                 href="mailto:contato@brands.ppg.br"

@@ -1,4 +1,9 @@
-import servicesData, { type ServiceData } from '@/data/servicesData';
+'use client';
+
+import { useTranslation } from 'react-i18next';
+
+import type { ServiceData } from '@/data/servicesData';
+import { useTranslatedServices } from '@/utils/getTranslatedServices';
 
 import ServiceCard from './ServiceCard';
 
@@ -7,6 +12,8 @@ interface ServicesSectionProps {
 }
 
 export default function ServicesSection({ onServiceSelect }: ServicesSectionProps) {
+  const { t } = useTranslation();
+  const servicesData = useTranslatedServices();
   return (
     <section
       id="servicos"
@@ -19,15 +26,15 @@ export default function ServicesSection({ onServiceSelect }: ServicesSectionProp
             id="servicos-title"
             className="text-3xl md:text-4xl font-poppins font-bold text-slate-900 dark:text-white"
           >
-            Nossas Soluções para o seu Negócio
+            {t('services.title')}
           </h3>
           <p className="text-slate-600 dark:text-slate-300 mt-2">
-            Clique em um serviço para ver todos os detalhes e benefícios.
+            {t('services.subtitle')}
           </p>
         </div>
 
         <h4 className="text-2xl font-poppins font-semibold text-slate-800 dark:text-slate-200 mb-6 border-l-4 border-violet-600 pl-4">
-          Publicidade Online e Conteúdo
+          {t('services.category.advertising')}
         </h4>
         <div
           id="advertising-services"
@@ -43,7 +50,7 @@ export default function ServicesSection({ onServiceSelect }: ServicesSectionProp
         </div>
 
         <h4 className="text-2xl font-poppins font-semibold text-slate-800 dark:text-slate-200 mb-6 border-l-4 border-violet-600 pl-4">
-          Desenvolvimento Web
+          {t('services.category.web')}
         </h4>
         <div
           id="web-services"

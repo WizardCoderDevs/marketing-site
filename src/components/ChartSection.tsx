@@ -1,17 +1,18 @@
 'use client';
 
+import type { ChartData, ChartOptions } from 'chart.js';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
+  BarController,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
-  BarController,
 } from 'chart.js';
-import type { ChartData, ChartOptions } from 'chart.js';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Register Chart.js components
 ChartJS.register(
@@ -25,6 +26,7 @@ ChartJS.register(
 );
 
 export default function ChartSection() {
+  const { t } = useTranslation();
   const chartRef = useRef<HTMLCanvasElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -65,15 +67,15 @@ export default function ChartSection() {
       // Chart data
       const chartData: ChartData<'bar'> = {
         labels: [
-          'Aumento da Visibilidade',
-          'Geração de Leads',
-          'Otimização de ROI',
-          'Regeneração da Marca',
-          'Crescimento de Vendas',
+          t('impact.chart.labels.visibility'),
+          t('impact.chart.labels.leads'),
+          t('impact.chart.labels.roi'),
+          t('impact.chart.labels.brand'),
+          t('impact.chart.labels.sales'),
         ],
         datasets: [
           {
-            label: 'Impacto Potencial (%)',
+            label: t('impact.chart.datasetLabel'),
             data: [95, 85, 90, 88, 75],
             backgroundColor: 'rgba(109, 40, 217, 0.6)',
             borderColor: 'rgba(109, 40, 217, 1)',
@@ -134,7 +136,7 @@ export default function ChartSection() {
         options: chartOptions,
       });
     }
-  }, [isVisible]);
+  }, [isVisible, t]);
 
   return <canvas ref={chartRef} id="impactChart" />;
 }

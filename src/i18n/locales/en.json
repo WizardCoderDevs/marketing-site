@@ -1,0 +1,235 @@
+{
+  "header": {
+    "services": "Services",
+    "impact": "Impact",
+    "contact": "Contact",
+    "home": "Home"
+  },
+  "hero": {
+    "badge": "Traffic Management Experts",
+    "titlePart1": "Accelerate Your Brand's",
+    "titleHighlight": "Growth",
+    "titlePart2": "",
+    "subtitle": "We transform traffic into real results. Our <paidTraffic>{{paidTraffic}}</paidTraffic> and <webDevelopment>{{webDevelopment}}</webDevelopment> strategy drives brands to the next level.",
+    "paidTraffic": "paid traffic management",
+    "webDevelopment": "web development",
+    "roi": "+300% Average ROI",
+    "results": "Results in 30 days",
+    "support": "24/7 Support",
+    "cta": "Talk on WhatsApp",
+    "ctaSecondary": "View Services",
+    "dashboard": {
+      "title": "Dashboard BRANDS",
+      "trafficGrowth": "Traffic Growth",
+      "conversions": "Conversions",
+      "roi": "ROI",
+      "vsPreviousMonth": "vs previous month"
+    }
+  },
+  "impact": {
+    "title": "The Impact of a Strategic Partnership",
+    "description": "We visualize the results we can achieve together, focusing on metrics that really matter for your company's growth.",
+    "chart": {
+      "labels": {
+        "visibility": "Increased Visibility",
+        "leads": "Lead Generation",
+        "roi": "ROI Optimization",
+        "brand": "Brand Regeneration",
+        "sales": "Sales Growth"
+      },
+      "datasetLabel": "Potential Impact (%)"
+    }
+  },
+  "footer": {
+    "description": "Transforming digital presence into real results.",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Our Solutions for Your Business",
+    "subtitle": "Click on a service to see all details and benefits.",
+    "category": {
+      "advertising": "Online Advertising and Content",
+      "web": "Web Development"
+    },
+    "card": {
+      "clickToLearnMore": "Click to learn more"
+    },
+    "modal": {
+      "howItWorks": "How It Works",
+      "benefits": "Benefits",
+      "features": "Included Features",
+      "close": "Close",
+      "closeLabel": "Close modal"
+    },
+    "gestao-trafego": {
+      "title": "Paid Traffic Management",
+      "tagline": "Reach the right audience with Facebook & Instagram Ads.",
+      "description": "Paid Traffic Management focused on Facebook Ads is the key to putting your brand in the spotlight, reaching a qualified audience interested in your products or services. We manage your ad campaigns on Facebook and Instagram platforms, optimizing investment to generate maximum return.",
+      "how": [
+        "**Weekly campaigns:** Continuous management with adjustments and optimizations for performance.",
+        "**Daily content:** Two sponsored posts per day, ensuring high frequency and visibility.",
+        "**Creatives included:** We develop attractive designs and texts for your campaigns.",
+        "**Review and alignment:** Information, company logo and color palette must be sent one week in advance of the campaign start for review and adjustments."
+      ],
+      "benefits": [
+        "**Increased Visibility:** Your brand reaches thousands of people on Instagram and Facebook.",
+        "**Qualified Lead Generation:** Attract people who are really interested in your business.",
+        "**ROI Optimization:** We ensure every penny invested brings the best result.",
+        "**Precise Targeting:** Reach the right audience based on interests, behaviors and location.",
+        "**Increased Revenue and Sales:** Direct qualified traffic to your sales channels.",
+        "**Improved Online Relationship:** Strengthen your brand's connection and reputation."
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "site-single-page": {
+      "title": "Single Page Website",
+      "tagline": "A professional, clear and concise landing page.",
+      "description": "A single page website is the ideal solution to present your company clearly, concisely and professionally. Perfect for those seeking an elegant and efficient online presence, focused on transmitting the essence of your business.",
+      "how": [
+        "**Optimized Structure:** Up to 5 sections, top navigation bar and footer.",
+        "**Responsive Design:** Adaptable to all devices for an impeccable user experience.",
+        "**Variable Price and Deadline:** Cost and delivery time are defined by complexity.",
+        "**Post-Contract Start:** Development begins after contract validation."
+      ],
+      "benefits": [
+        "**Professional Digital Presence:** Build an image of credibility and professionalism.",
+        "**Memorable First Impression:** A modern and intuitive design makes an excellent impression.",
+        "**Contact Capture Channel:** Provide an easy and direct point of contact.",
+        "**Product/Service Promotion:** Effectively present your portfolio and differentiators.",
+        "**Promotion Opportunities:** Have an exclusive space for promotions and coupons.",
+        "**Credibility and Trust:** A well-built site increases consumer confidence."
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "site-multi-page": {
+      "title": "Multi-Page Website",
+      "tagline": "Robust online presence with up to 5 detailed pages.",
+      "description": "For companies that need a more robust and detailed online presence, the multi-page institutional website allows you to explore every aspect of your business in depth, offering a complete experience to the visitor.",
+      "how": [
+        "**Complete Navigation:** Structure with up to 5 pages linked by navigation and footer.",
+        "**Custom Design:** We create an exclusive layout that reflects your brand identity.",
+        "**Flexible Price and Deadline:** Cost and deadline vary according to complexity.",
+        "**Post-Contract Start:** Development begins after contract validation."
+      ],
+      "benefits": [
+        "**Detailed Information:** Offer your customers a comprehensive view of your company.",
+        "**Improved User Experience:** Intuitive navigation facilitates the visitor's journey.",
+        "**Market Positioning:** A complete website demonstrates professionalism and solidity.",
+        "**SEO Opportunities:** Optimized pages increase visibility on Google.",
+        "**Multiple Communication Channels:** Integrate forms, maps and social networks."
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "site-cms": {
+      "title": "Website with CMS (WordPress)",
+      "tagline": "Full autonomy to manage your content and blog.",
+      "description": "A website with CMS (Content Management System), such as WordPress, offers full autonomy for your company to manage and update its own content, such as blog posts and articles, without depending on programmers.",
+      "how": [
+        "**Robust Platform:** Developed in WordPress, flexible and scalable.",
+        "**Content Control:** Ability to publish posts and articles (content is client's responsibility).",
+        "**Flexible Design:** Price and deadline vary according to visual complexity and usability.",
+        "**Post-Contract Start:** Service begins after contract validation."
+      ],
+      "benefits": [
+        "**Full Autonomy:** Update texts, images and publish articles at any time.",
+        "**Content Strategy and SEO:** Create a blog to attract organic traffic and generate leads.",
+        "**Scalability:** The platform allows adding new features easily.",
+        "**Proactive Communication:** Keep your customers informed about news.",
+        "**Long-term Cost Reduction:** Less dependence on third parties for updates."
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "site-leads": {
+      "title": "Lead Generation Website",
+      "tagline": "Transform visitors into valuable business opportunities.",
+      "description": "This service is designed to transform visitors into valuable business leads. With strategic features, such as registration pop-ups, your website will become a contact capture machine.",
+      "how": [
+        "**Capture Mechanisms:** Website optimized with pop-up for email, name and WhatsApp registration.",
+        "**Database Integration:** Includes system for secure storage and data collection.",
+        "**Customization:** Price and deadline depend on visual complexity and system requirements.",
+        "**Post-Contract Start:** Service begins after contract validation."
+      ],
+      "benefits": [
+        "**Increased Lead Base:** Transform your site traffic into a list of potential customers.",
+        "**Lead Nurturing:** Implement email marketing and WhatsApp communication strategies.",
+        "**Accelerated Conversion:** Facilitate the conversion process with clear forms.",
+        "**Valuable Sales Data:** Collect crucial information for your sales team.",
+        "**Revenue Growth:** More leads mean more sales opportunities.",
+        "**Remarketing Opportunity:** Create targeted campaigns for those who showed interest."
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "social-media": {
+      "title": "Social Media",
+      "tagline": "Increase engagement and visibility of your brand on social media",
+      "description": "Content creation and management for your social networks, increasing engagement and visibility of your brand.",
+      "how": [
+        "Analysis of current profile and goal setting",
+        "Creation of personalized editorial calendar",
+        "Production of visual and textual content",
+        "Monitoring and performance reports"
+      ],
+      "benefits": [
+        "Greater brand visibility",
+        "Engagement with target audience",
+        "Building authority in the segment",
+        "Increased leads and conversions"
+      ],
+      "features": [
+        "Content Planning",
+        "Post Design",
+        "Community Management",
+        "Performance Reports"
+      ]
+    },
+    "landing-page": {
+      "title": "Landing Page",
+      "tagline": "Transform visitors into customers with optimized pages",
+      "description": "Conversion-optimized pages to transform visitors into customers.",
+      "how": [
+        "Analysis of objectives and target audience",
+        "Conversion-focused design",
+        "Responsive development",
+        "Integration with marketing tools"
+      ],
+      "benefits": [
+        "Higher conversion rate",
+        "Mobile-optimized experience",
+        "Integration with marketing tools",
+        "User behavior analysis"
+      ],
+      "features": [
+        "Responsive Design",
+        "SEO Optimization",
+        "Capture Forms",
+        "CRM Integration"
+      ]
+    }
+  }
+}
+

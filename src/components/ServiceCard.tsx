@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslation } from 'react-i18next';
 
 import type { ServiceData } from '@/data/servicesData'; // Importa a interface ServiceData
 
@@ -9,6 +12,7 @@ interface ServiceCardProps {
 
 // Componente funcional ServiceCard
 export default function ServiceCard({ service, onClick }: ServiceCardProps) {
+  const { t } = useTranslation();
   return (
     <div className="service-card group cursor-pointer flex flex-col h-full" onClick={() => onClick(service)}>
       <div className="flex-1">
@@ -33,7 +37,7 @@ export default function ServiceCard({ service, onClick }: ServiceCardProps) {
         </div>
       </div>
       <div className="mt-auto flex justify-end items-center gap-2 text-violet-600 dark:text-violet-400 font-semibold group-hover:gap-3 transition-all duration-300">
-        <span>Clique e saiba mais</span>
+        <span>{t('services.card.clickToLearnMore')}</span>
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>

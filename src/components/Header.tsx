@@ -1,14 +1,19 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Breadcrumbs from './Breadcrumbs';
+import LanguageToggle from './LanguageToggle';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   const isHomePage = pathname === '/';
 
@@ -27,14 +32,14 @@ export default function Header() {
       <nav
         className="container mx-auto px-6 py-3"
         role="navigation"
-        aria-label="Menu principal"
+        aria-label={t('header.home')}
       >
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
             <Link
               href="/"
               className="text-3xl font-extrabold font-poppins text-slate-900 dark:text-white flex items-center"
-              aria-label="BRANDS - Página inicial"
+              aria-label={`BRANDS - ${t('header.home')}`}
             >
               <Image
                 src="/lightning-icon.svg"
@@ -57,7 +62,7 @@ export default function Header() {
                 href={getNavigationLink('servicos')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Serviços
+                {t('header.services')}
               </Link>
             </div>
             <div role="none">
@@ -65,7 +70,7 @@ export default function Header() {
                 href={getNavigationLink('impact-section')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Impacto
+                {t('header.impact')}
               </Link>
             </div>
             <div role="none">
@@ -73,14 +78,18 @@ export default function Header() {
                 href={getNavigationLink('contact-section')}
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Contato
+                {t('header.contact')}
               </Link>
+            </div>
+            <div role="none">
+              <LanguageToggle />
             </div>
             <div role="none">
               <ThemeToggle />
             </div>
           </div>
           <div className="flex items-center space-x-4 md:hidden">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -127,19 +136,19 @@ export default function Header() {
               href={getNavigationLink('servicos')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Serviços
+              {t('header.services')}
             </Link>
             <Link
               href={getNavigationLink('impact-section')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Impacto
+              {t('header.impact')}
             </Link>
             <Link
               href={getNavigationLink('contact-section')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Contato
+              {t('header.contact')}
             </Link>
           </div>
         </div>

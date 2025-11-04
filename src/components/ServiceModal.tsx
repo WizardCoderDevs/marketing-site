@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { ServiceData } from '@/types/services';
 import { formatMarkdown } from '@/utils/markdown';
@@ -11,6 +14,7 @@ interface ServiceModalProps {
 
 // Componente funcional ServiceModal
 export default function ServiceModal({ service, onClose }: ServiceModalProps) {
+  const { t } = useTranslation();
   const modalRef = useRef<HTMLDivElement>(null); // Ref para o div principal do modal, tipado como HTMLDivElement
   const modalContentRef = useRef<HTMLDivElement>(null); // Ref para o conteúdo do modal, tipado como HTMLDivElement
 
@@ -91,7 +95,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             <button
               onClick={onClose}
               className="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-              aria-label="Fechar modal"
+              aria-label={t('services.modal.closeLabel')}
             >
               <svg
                 className="w-6 h-6"
@@ -117,7 +121,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 id="how-it-works-title"
                 className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-4"
               >
-                Como Funciona
+                {t('services.modal.howItWorks')}
               </h4>
               <ul className="space-y-3" role="list">
                 {service.how.map((step: string, index: number) => (
@@ -142,7 +146,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
                 id="benefits-title"
                 className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-4"
               >
-                Benefícios
+                {t('services.modal.benefits')}
               </h4>
               <ul className="space-y-3" role="list">
                 {service.benefits.map((benefit: string, index: number) => (
@@ -168,7 +172,7 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               id="features-title"
               className="text-xl font-poppins font-semibold text-slate-900 dark:text-white mb-4"
             >
-              Recursos Incluídos
+              {t('services.modal.features')}
             </h4>
             <div
               className="flex flex-wrap gap-2"
@@ -191,9 +195,9 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
             <button
               onClick={onClose}
               className="bg-violet-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-violet-800 transition duration-300"
-              aria-label="Fechar modal"
+              aria-label={t('services.modal.closeLabel')}
             >
-              Fechar
+              {t('services.modal.close')}
             </button>
           </div>
         </div>
