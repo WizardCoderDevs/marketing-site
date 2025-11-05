@@ -1,16 +1,23 @@
 'use client';
 
+import { useConversion } from '@/hooks/useConversion';
 import { ChartBarIcon, RocketLaunchIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { Trans, useTranslation } from 'react-i18next';
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const { trackWhatsAppClick } = useConversion();
+  
   const scrollToServices = () => {
     const servicesSection = document.getElementById('servicos');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick('Hero Section');
   };
 
   return (
@@ -114,6 +121,7 @@ export default function HeroSection() {
                   href="https://wa.me/5528992783978"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={handleWhatsAppClick}
                   className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                 >
                   {t('hero.cta')}

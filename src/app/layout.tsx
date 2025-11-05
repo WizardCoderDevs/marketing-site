@@ -1,9 +1,10 @@
+import { ConversionProvider } from '@/contexts/ConversionContext';
+import I18nProvider from '@/i18n/I18nProvider';
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
 import Script from 'next/script';
-import { ThemeProvider } from 'next-themes';
 import React from 'react'; // Import React para tipos JSX
-import I18nProvider from '@/i18n/I18nProvider';
 import './globals.css';
 
 // Configuração da fonte Comfortaa
@@ -112,7 +113,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            {children}
+            <ConversionProvider>
+              {children}
+            </ConversionProvider>
           </ThemeProvider>
         </I18nProvider>
       </body>

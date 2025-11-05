@@ -1,10 +1,12 @@
 'use client';
 
-import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { useConversion } from '@/hooks/useConversion';
 import { useTranslation } from 'react-i18next';
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
   const { t } = useTranslation();
+  const { trackWhatsAppClick } = useConversion();
   return (
     <footer role="contentinfo" className="text-white py-12 bg-violet-900">
       <div className="container mx-auto px-6">
@@ -33,6 +35,7 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 role="text" 
                 aria-label="Telefone de contato" 
+                onClick={() => trackWhatsAppClick('Footer')}
                 className="text-slate-200 hover:text-white transition-colors flex items-center gap-2"
               >
                 <FaPhone className="w-6 h-6" />
