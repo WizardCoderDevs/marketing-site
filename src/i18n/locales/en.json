@@ -44,6 +44,32 @@
     "description": "Transforming digital presence into real results.",
     "contact": "Contact"
   },
+  "cookies": {
+    "title": "We Use Cookies",
+    "description": "We use cookies to improve your experience, analyze our traffic and personalize content. By continuing to browse, you agree to our cookie policy.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject All",
+    "customize": "Customize",
+    "savePreferences": "Save Preferences",
+    "close": "Close",
+    "required": "Required",
+    "necessary": {
+      "name": "Necessary Cookies",
+      "description": "Essential for the website to function. Cannot be disabled."
+    },
+    "analytics": {
+      "name": "Analytics Cookies",
+      "description": "Help us understand how visitors interact with the site by collecting information anonymously."
+    },
+    "marketing": {
+      "name": "Marketing Cookies",
+      "description": "Used to display relevant ads and measure the effectiveness of advertising campaigns."
+    },
+    "preferences": {
+      "name": "Preference Cookies",
+      "description": "Remember your preferences and settings to provide a personalized experience."
+    }
+  },
   "services": {
     "title": "Our Solutions for Your Business",
     "subtitle": "Click on a service to see all details and benefits.",

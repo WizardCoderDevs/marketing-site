@@ -44,6 +44,32 @@
     "description": "Transformando presença digital em resultados reais.",
     "contact": "Contato"
   },
+  "cookies": {
+    "title": "Utilizamos Cookies",
+    "description": "Utilizamos cookies para melhorar sua experiência, analisar nosso tráfego e personalizar conteúdo. Ao continuar navegando, você concorda com nossa política de cookies.",
+    "acceptAll": "Aceitar Todos",
+    "rejectAll": "Rejeitar Todos",
+    "customize": "Personalizar",
+    "savePreferences": "Salvar Preferências",
+    "close": "Fechar",
+    "required": "Obrigatório",
+    "necessary": {
+      "name": "Cookies Necessários",
+      "description": "Essenciais para o funcionamento do site. Não podem ser desativados."
+    },
+    "analytics": {
+      "name": "Cookies de Análise",
+      "description": "Nos ajudam a entender como os visitantes interagem com o site, coletando informações de forma anônima."
+    },
+    "marketing": {
+      "name": "Cookies de Marketing",
+      "description": "Usados para exibir anúncios relevantes e medir a eficácia das campanhas publicitárias."
+    },
+    "preferences": {
+      "name": "Cookies de Preferências",
+      "description": "Lembram suas preferências e configurações para proporcionar uma experiência personalizada."
+    }
+  },
   "services": {
     "title": "Nossas Soluções para o seu Negócio",
     "subtitle": "Clique em um serviço para ver todos os detalhes e benefícios.",
