@@ -84,30 +84,52 @@ export function CookieProvider({ children }: CookieProviderProps) {
   useEffect(() => {
     if (!isInitialized || typeof window === 'undefined') return;
 
-    if ((window as any).gtag) {
-      if (cookiePreferences.analytics) {
-        // Habilitar Google Analytics
-        (window as any).gtag('consent', 'update', {
-          analytics_storage: 'granted',
-        });
-      } else {
-        // Desabilitar Google Analytics
-        (window as any).gtag('consent', 'update', {
-          analytics_storage: 'denied',
-        });
-      }
+    // Aguarda um pouco para garantir que o gtag esteja carregado
+    const updateGtag = () => {
+      if ((window as any).gtag) {
+        const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+        
+        if (cookiePreferences.analytics) {
+          // Habilitar Google Analytics
+          (window as any).gtag('consent', 'update', {
+            analytics_storage: 'granted',
+          });
+          
+          // Reconfigura o Google Tag quando o consentimento é concedido
+          // Isso envia automaticamente um page_view e ajuda o Google a detectar o tag
+          if (googleTagId) {
+            (window as any).gtag('config', googleTagId, {
+              page_path: window.location.pathname + window.location.search,
+            });
+          }
+        } else {
+          // Desabilitar Google Analytics
+          (window as any).gtag('consent', 'update', {
+            analytics_storage: 'denied',
+          });
+        }
 
-      if (cookiePreferences.marketing) {
-        // Habilitar cookies de marketing
-        (window as any).gtag('consent', 'update', {
-          ad_storage: 'granted',
-        });
-      } else {
-        // Desabilitar cookies de marketing
-        (window as any).gtag('consent', 'update', {
-          ad_storage: 'denied',
-        });
+        if (cookiePreferences.marketing) {
+          // Habilitar cookies de marketing
+          (window as any).gtag('consent', 'update', {
+            ad_storage: 'granted',
+          });
+        } else {
+          // Desabilitar cookies de marketing
+          (window as any).gtag('consent', 'update', {
+            ad_storage: 'denied',
+          });
+        }
       }
+    };
+
+    // Tenta atualizar imediatamente
+    updateGtag();
+    
+    // Se o gtag não estiver disponível, tenta novamente após um delay
+    if (!(window as any).gtag) {
+      const timeout = setTimeout(updateGtag, 500);
+      return () => clearTimeout(timeout);
     }
   }, [cookiePreferences, isInitialized]);
 

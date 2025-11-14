@@ -94,30 +94,43 @@ interface RootLayoutProps {
 
 // Componente RootLayout, que envolve todo o conteúdo da aplicação
 export default function RootLayout({ children }: RootLayoutProps) {
+  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+
   return (
     <html
       lang="pt-BR"
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          // Configuração inicial de consentimento (deny all até o usuário consentir)
-          gtag('consent', 'default', {
-            'analytics_storage': 'denied',
-            'ad_storage': 'denied',
-            'wait_for_update': 500
-          });
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
-        `}
-      </Script>
+      {googleTagId && (
+        <>
+          {/* Google Tag Manager - Carregado no head para melhor detecção */}
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+            strategy="afterInteractive"
+          />
+          <Script 
+            id="gtag-init" 
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                // Configuração inicial de consentimento (deny all até o usuário consentir)
+                // Isso permite que o Google detecte o tag, mas não coleta dados até o consentimento
+                gtag('consent', 'default', {
+                  'analytics_storage': 'denied',
+                  'ad_storage': 'denied',
+                  'wait_for_update': 500
+                });
+                // Configura o Google Tag - send_page_view será controlado pelo consentimento
+                gtag('config', '${googleTagId}');
+              `,
+            }}
+          />
+        </>
+      )}
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
