@@ -4,6 +4,7 @@ import type { CookieCategory } from '@/contexts/CookieContext';
 import { useCookies } from '@/hooks/useCookies';
 import { Cog6ToothIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -79,8 +80,18 @@ export default function CookieBanner() {
                   >
                     {t('cookies.title')}
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">
                     {t('cookies.description')}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                    Ao continuar, você concorda com nossa{' '}
+                    <Link
+                      href="/politica-de-privacidade"
+                      className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 underline"
+                    >
+                      Política de Privacidade
+                    </Link>
+                    .
                   </p>
 
                   {/* Detalhes Expandidos */}

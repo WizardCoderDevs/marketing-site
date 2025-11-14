@@ -82,6 +82,14 @@ export default function Header() {
               </Link>
             </div>
             <div role="none">
+              <Link
+                href="/politica-de-privacidade"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
+              >
+                Política de Privacidade
+              </Link>
+            </div>
+            <div role="none">
               <LanguageToggle />
             </div>
             <div role="none">
@@ -149,6 +157,12 @@ export default function Header() {
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
               {t('header.contact')}
+            </Link>
+            <Link
+              href="/politica-de-privacidade"
+              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
+            >
+              Política de Privacidade
             </Link>
           </div>
         </div>

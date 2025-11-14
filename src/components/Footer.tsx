@@ -2,6 +2,7 @@
 
 import { useConversion } from '@/hooks/useConversion';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
@@ -63,8 +64,17 @@ export default function Footer() {
             </div>
           </div> */}
         </div>
-        <div role="contentinfo" className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-200">
-          <p>&copy; {new Date().getFullYear()} BRANDS. Todos os direitos reservados.</p>
+        <div role="contentinfo" className="border-t border-slate-800 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-slate-200">
+            <p>&copy; {new Date().getFullYear()} BRANDS. Todos os direitos reservados.</p>
+            <span className="hidden md:inline">|</span>
+            <Link
+              href="/politica-de-privacidade"
+              className="text-slate-200 hover:text-white transition-colors underline"
+            >
+              Política de Privacidade
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
