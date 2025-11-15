@@ -34,9 +34,10 @@ export function ConversionProvider({ children }: ConversionProviderProps) {
       };
 
       // Evento de conversão para Google Ads (se configurado)
-      if (options?.send_to || process.env.NEXT_PUBLIC_GOOGLE_TAG_ID) {
+      const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+      if (options?.send_to || googleAdsId) {
         (window as any).gtag('event', 'conversion', {
-          send_to: options?.send_to || process.env.NEXT_PUBLIC_GOOGLE_TAG_ID,
+          send_to: options?.send_to || googleAdsId,
           event_category: defaultOptions.event_category,
           event_label: defaultOptions.event_label || eventName,
           value: defaultOptions.value,

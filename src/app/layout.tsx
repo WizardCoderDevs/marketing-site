@@ -95,6 +95,7 @@ interface RootLayoutProps {
 // Componente RootLayout, que envolve todo o conteúdo da aplicação
 export default function RootLayout({ children }: RootLayoutProps) {
   const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
   return (
     <html
@@ -102,13 +103,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      {googleTagId && (
+      {(googleTagId || googleAdsId) && (
         <>
           {/* Google Tag Manager - Carregado no head para melhor detecção */}
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-            strategy="afterInteractive"
-          />
+          {googleTagId && (
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+              strategy="afterInteractive"
+            />
+          )}
+          {googleAdsId && (
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+              strategy="afterInteractive"
+            />
+          )}
           <Script 
             id="gtag-init" 
             strategy="afterInteractive"
@@ -124,8 +133,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   'ad_storage': 'denied',
                   'wait_for_update': 500
                 });
-                // Configura o Google Tag - send_page_view será controlado pelo consentimento
-                gtag('config', '${googleTagId}');
+                ${googleTagId ? `gtag('config', '${googleTagId}');` : ''}
+                ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}
               `,
             }}
           />
