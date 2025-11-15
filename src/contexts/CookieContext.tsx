@@ -44,10 +44,16 @@ export function CookieProvider({ children }: CookieProviderProps) {
   const [hasConsent, setHasConsent] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState<CookiePreferences>(defaultPreferences);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Garante que só acessa localStorage após a montagem no cliente
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Carregar preferências do localStorage na inicialização
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (!mounted || typeof window === 'undefined') return;
 
     try {
       const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
@@ -66,7 +72,7 @@ export function CookieProvider({ children }: CookieProviderProps) {
     } finally {
       setIsInitialized(true);
     }
-  }, []);
+  }, [mounted]);
 
   // Salvar preferências no localStorage
   const savePreferences = useCallback((preferences: CookiePreferences) => {

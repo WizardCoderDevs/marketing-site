@@ -35,40 +35,28 @@ const detectBrowserLanguage = (): string => {
   return 'en';
 };
 
-// Função para obter o idioma salvo ou detectar automaticamente
-const getSavedLanguage = (): string => {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('language');
-    
-    // Se já existe um idioma salvo, usa ele
-    if (saved && (saved === 'pt-BR' || saved === 'en')) {
-      return saved;
-    }
-    
-    // Se não existe, detecta o idioma do navegador
-    const detectedLang = detectBrowserLanguage();
-    
-    // Salva o idioma detectado para futuras visitas
-    localStorage.setItem('language', detectedLang);
-    
-    return detectedLang;
-  }
-  return 'pt-BR';
-};
+// Inicializa o i18n com um idioma padrão (sempre 'pt-BR' no servidor)
+// O idioma será atualizado no cliente após a montagem via I18nProvider
+// IMPORTANTE: Sempre inicializa com 'pt-BR' para evitar problemas de hidratação
+// O idioma correto será carregado no cliente via I18nProvider
+const defaultLanguage = 'pt-BR';
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: getSavedLanguage(),
-    fallbackLng: 'pt-BR',
-    interpolation: {
-      escapeValue: false,
-    },
-    react: {
-      useSuspense: false,
-    },
-  });
+// Verifica se já está inicializado para evitar reinicialização
+if (!i18n.isInitialized) {
+  i18n
+    .use(initReactI18next)
+    .init({
+      resources,
+      lng: defaultLanguage,
+      fallbackLng: defaultLanguage,
+      interpolation: {
+        escapeValue: false,
+      },
+      react: {
+        useSuspense: false,
+      },
+    });
+}
 
 export default i18n;
 
