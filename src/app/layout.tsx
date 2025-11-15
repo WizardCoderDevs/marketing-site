@@ -102,28 +102,28 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      {/* Google tag (gtag.js) */}
-      {googleTagId && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-            strategy="beforeInteractive"
-          />
-          <Script
-            id="gtag-init"
-            strategy="beforeInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+      <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
+        {/* Google tag (gtag.js) */}
+        {googleTagId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+              strategy="beforeInteractive"
+            />
+            <Script
+              id="gtag-init"
+              strategy="beforeInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${googleTagId}');
               `,
-            }}
-          />
-        </>
-      )}
-      <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
+              }}
+            />
+          </>
+        )}
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <CookieProvider>
