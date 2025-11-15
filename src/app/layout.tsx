@@ -5,6 +5,7 @@ import I18nProvider from '@/i18n/I18nProvider';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
+import Script from 'next/script';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
@@ -93,12 +94,35 @@ interface RootLayoutProps {
 
 // Componente RootLayout, que envolve todo o conteúdo da aplicação
 export default function RootLayout({ children }: RootLayoutProps) {
+  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+
   return (
     <html
       lang="pt-BR"
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
+      {/* Google tag (gtag.js) */}
+      {googleTagId && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+            strategy="beforeInteractive"
+          />
+          <Script
+            id="gtag-init"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${googleTagId}');
+              `,
+            }}
+          />
+        </>
+      )}
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
