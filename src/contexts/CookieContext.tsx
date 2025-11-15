@@ -88,7 +88,6 @@ export function CookieProvider({ children }: CookieProviderProps) {
     const updateGtag = () => {
       if ((window as any).gtag) {
         const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
-        const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
         
         if (cookiePreferences.analytics) {
           // Habilitar Google Analytics
@@ -115,14 +114,6 @@ export function CookieProvider({ children }: CookieProviderProps) {
           (window as any).gtag('consent', 'update', {
             ad_storage: 'granted',
           });
-          
-          // Reconfigura o Google Ads quando o consentimento é concedido
-          // Isso ajuda o Google a detectar o tag corretamente
-          if (googleAdsId) {
-            (window as any).gtag('config', googleAdsId, {
-              page_path: window.location.pathname + window.location.search,
-            });
-          }
         } else {
           // Desabilitar cookies de marketing
           (window as any).gtag('consent', 'update', {

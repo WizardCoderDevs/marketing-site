@@ -95,7 +95,6 @@ interface RootLayoutProps {
 // Componente RootLayout, que envolve todo o conteúdo da aplicação
 export default function RootLayout({ children }: RootLayoutProps) {
   const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
-  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
   return (
     <html
@@ -103,21 +102,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      {(googleTagId || googleAdsId) && (
+      {googleTagId && (
         <>
           {/* Google Tag Manager - Carregado no head para melhor detecção */}
-          {googleTagId && (
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-              strategy="afterInteractive"
-            />
-          )}
-          {googleAdsId && (
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
-              strategy="afterInteractive"
-            />
-          )}
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+            strategy="afterInteractive"
+          />
           <Script 
             id="gtag-init" 
             strategy="afterInteractive"
@@ -127,14 +118,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 // Configuração inicial de consentimento (deny all até o usuário consentir)
-                // Isso permite que o Google detecte o tag, mas não coleta dados até o consentimento
+                // Configuramos ANTES dos tags para garantir que o consentimento seja respeitado
                 gtag('consent', 'default', {
                   'analytics_storage': 'denied',
                   'ad_storage': 'denied',
                   'wait_for_update': 500
                 });
-                ${googleTagId ? `gtag('config', '${googleTagId}');` : ''}
-                ${googleAdsId ? `gtag('config', '${googleAdsId}');` : ''}
+                // Configura o tag - o Google precisa ver o gtag('config') para detectá-lo
+                // Mesmo com consentimento negado, o Google consegue detectar a presença do tag
+                gtag('config', '${googleTagId}');
               `,
             }}
           />
