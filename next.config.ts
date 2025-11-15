@@ -4,7 +4,6 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` para incluir arquivos MDX
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  output: 'export',
   // Enable React strict mode for better development experience
   reactStrictMode: true,
 
