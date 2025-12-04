@@ -256,6 +256,97 @@
         "CRM Integration"
       ]
     }
+  },
+  "presentation": {
+    "slides": {
+      "intro": {
+        "title": "BRANDS",
+        "subtitle": "B2B Scale & Dropshipping",
+        "content": "Transforming idle inventory into recurring cash flow.",
+        "highlight": "Full Stack Method"
+      },
+      "problem": {
+        "title": "The Invisible Problem",
+        "subtitle": "Why do 80% of wholesale operations fail in digital?",
+        "content": "Most try to sell wholesale using retail strategies. The result? Unqualified leads, curious visitors, and low LTV.",
+        "highlight": "Traffic without structure is cost, not investment."
+      },
+      "method": {
+        "title": "The Sales Organism",
+        "subtitle": "Marketing is not just 'running ads'.",
+        "content": "We act as a 'General Practitioner' of your operation. Before prescribing the medicine (Traffic), we analyze the patient's health.",
+        "points": [
+          "Management",
+          "Data",
+          "Branding",
+          "Growth"
+        ]
+      },
+      "pillars": {
+        "title": "The 4 Pillars of Scale",
+        "subtitle": "Our mandatory checklist before traffic.",
+        "content": "If one pillar fails, the structure falls.",
+        "grid": {
+          "gestao": {
+            "title": "Management",
+            "desc": "Commercial policy and Sales Filter"
+          },
+          "dados": {
+            "title": "Data",
+            "desc": "B2B Site and Tracking"
+          },
+          "branding": {
+            "title": "Branding",
+            "desc": "Support Material (Drive) and Authority"
+          },
+          "growth": {
+            "title": "Growth",
+            "desc": "Qualified Traffic (Google/Meta)"
+          }
+        }
+      },
+      "solution": {
+        "title": "The Solution: Setup + Growth",
+        "subtitle": "How we guarantee your success",
+        "content": "We don't start traffic management without first ensuring the house is ready.",
+        "phases": {
+          "setup": {
+            "name": "PHASE 1: SETUP",
+            "desc": "Asset Structuring",
+            "items": [
+              "B2B Capture Page",
+              "Drive Organization",
+              "Sales Script"
+            ],
+            "prerequisite": "*MANDATORY PREREQUISITE"
+          },
+          "growth": {
+            "name": "PHASE 2: GROWTH",
+            "desc": "Traffic Management",
+            "items": [
+              "Google/Meta Campaigns",
+              "LTV Optimization",
+              "ROI Reports"
+            ]
+          }
+        },
+        "flow": {
+          "start": "Structuring",
+          "end": "Recurring Management"
+        }
+      },
+      "offer": {
+        "title": "Next Steps",
+        "subtitle": "Diagnosis and Implementation",
+        "content": "We will transform your operation into a reseller capture machine.",
+        "highlight": "We start with Setup."
+      }
+    },
+    "controls": {
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "enterFullscreen": "Enter fullscreen mode",
+      "exitFullscreen": "Exit fullscreen mode"
+    }
   }
 }
-
