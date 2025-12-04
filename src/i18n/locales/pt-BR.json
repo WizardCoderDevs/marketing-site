@@ -256,5 +256,97 @@
         "Integração com CRM"
       ]
     }
+  },
+  "presentation": {
+    "slides": {
+      "intro": {
+        "title": "BRANDS",
+        "subtitle": "Escala B2B & Dropshipping",
+        "content": "Transformando estoque parado em fluxo de caixa recorrente.",
+        "highlight": "Método Full Stack"
+      },
+      "problem": {
+        "title": "O Problema Invisível",
+        "subtitle": "Por que 80% das operações de atacado falham no digital?",
+        "content": "A maioria tenta vender no atacado usando estratégias de varejo. O resultado? Leads desqualificados, curiosos e baixo LTV.",
+        "highlight": "Tráfego sem estrutura é custo, não investimento."
+      },
+      "method": {
+        "title": "O Organismo de Vendas",
+        "subtitle": "Marketing não é apenas 'rodar anúncios'.",
+        "content": "Atuamos como um 'Clínico Geral' da sua operação. Antes de prescrever o remédio (Tráfego), analisamos a saúde do paciente.",
+        "points": [
+          "Gestão",
+          "Dados",
+          "Branding",
+          "Growth"
+        ]
+      },
+      "pillars": {
+        "title": "Os 4 Pilares da Escala",
+        "subtitle": "Nosso checklist obrigatório antes do tráfego.",
+        "content": "Se um pilar falha, a estrutura cai.",
+        "grid": {
+          "gestao": {
+            "title": "Gestão",
+            "desc": "Política comercial e Filtro de Vendas"
+          },
+          "dados": {
+            "title": "Dados",
+            "desc": "Site B2B e Rastreamento"
+          },
+          "branding": {
+            "title": "Branding",
+            "desc": "Material de Apoio (Drive) e Autoridade"
+          },
+          "growth": {
+            "title": "Growth",
+            "desc": "Tráfego Qualificado (Google/Meta)"
+          }
+        }
+      },
+      "solution": {
+        "title": "A Solução: Setup + Growth",
+        "subtitle": "Como garantimos o seu sucesso",
+        "content": "Nós não começamos a gestão de tráfego sem antes garantir que a casa está pronta.",
+        "phases": {
+          "setup": {
+            "name": "FASE 1: SETUP",
+            "desc": "Estruturação dos Ativos",
+            "items": [
+              "Página de Captura B2B",
+              "Organização do Drive",
+              "Script de Vendas"
+            ],
+            "prerequisite": "*PRÉ-REQUISITO OBRIGATÓRIO"
+          },
+          "growth": {
+            "name": "FASE 2: GROWTH",
+            "desc": "Gestão de Tráfego",
+            "items": [
+              "Campanhas Google/Meta",
+              "Otimização de LTV",
+              "Relatórios de ROI"
+            ]
+          }
+        },
+        "flow": {
+          "start": "Estruturação",
+          "end": "Gestão Recorrente"
+        }
+      },
+      "offer": {
+        "title": "Próximos Passos",
+        "subtitle": "Diagnóstico e Implementação",
+        "content": "Vamos transformar sua operação em uma máquina de captação de revendedores.",
+        "highlight": "Começamos pelo Setup."
+      }
+    },
+    "controls": {
+      "previous": "Slide anterior",
+      "next": "Próximo slide",
+      "enterFullscreen": "Entrar no modo tela cheia",
+      "exitFullscreen": "Sair do modo tela cheia"
+    }
   }
 }
