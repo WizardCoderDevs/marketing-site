@@ -68,7 +68,7 @@ export function getStrapiImageUrl(
         
         // Tenta medium primeiro (melhor para cards)
         if (formats.medium?.url) {
-          let url = formats.medium.url;
+          const url = formats.medium.url;
           if (process.env.NODE_ENV === 'development') {
             console.log('getStrapiImageUrl: URL original do medium:', url);
             console.log('getStrapiImageUrl: baseUrl:', baseUrl);
