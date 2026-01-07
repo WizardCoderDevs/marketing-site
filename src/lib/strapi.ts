@@ -228,62 +228,167 @@ export async function fetchStrapiPostBySlug(
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
+  console.log('[fetchStrapiPostBySlug] Iniciando busca por slug:', {
+    slug,
+    tag,
+    hasApiUrl: !!apiUrl,
+    hasApiKey: !!apiKey,
+  });
+
   if (!apiUrl || !apiKey) {
-    console.error('Configuração da API do Strapi não encontrada');
+    console.error('[fetchStrapiPostBySlug] Configuração da API do Strapi não encontrada');
     return null;
   }
+
+  // Normaliza a URL
+  const normalizedApiUrl = apiUrl.trim().replace(/\/$/, '');
 
   try {
     // Se o slug for um número, tenta buscar diretamente por ID (compatibilidade com URLs antigas)
     const slugAsNumber = parseInt(slug, 10);
     if (!isNaN(slugAsNumber)) {
+      console.log('[fetchStrapiPostBySlug] Slug é um número, buscando por ID:', slugAsNumber);
       return await fetchStrapiPostById(slugAsNumber);
     }
 
-    // Se temos a tag, busca apenas posts dessa categoria (mais eficiente)
+    // Estratégia 1: Buscar todos os posts e encontrar pelo slug gerado
     if (tag) {
+      console.log('[fetchStrapiPostBySlug] Buscando posts da categoria:', tag);
       const posts = await fetchStrapiPosts(tag);
+      console.log('[fetchStrapiPostBySlug] Posts encontrados na categoria:', {
+        tag,
+        count: posts.length,
+        slugs: posts.map(p => p.generatedSlug).slice(0, 5), // Primeiros 5 slugs para debug
+      });
+      
       const postWithSlug = posts.find((post) => post.generatedSlug === slug);
       
       if (postWithSlug) {
+        console.log('[fetchStrapiPostBySlug] Post encontrado pelo slug gerado:', {
+          id: postWithSlug.id,
+          title: postWithSlug.attributes.title,
+          slug: postWithSlug.generatedSlug,
+        });
         return await fetchStrapiPostById(postWithSlug.id);
+      } else {
+        console.log('[fetchStrapiPostBySlug] Post não encontrado pelo slug gerado na categoria:', tag);
       }
     } else {
       // Se não temos a tag, busca em todas as categorias
+      console.log('[fetchStrapiPostBySlug] Buscando em todas as categorias...');
       const articlePosts = await fetchStrapiPosts('article');
       const newsPosts = await fetchStrapiPosts('news');
       const allPosts = [...articlePosts, ...newsPosts];
       
+      console.log('[fetchStrapiPostBySlug] Total de posts encontrados:', {
+        articles: articlePosts.length,
+        news: newsPosts.length,
+        total: allPosts.length,
+      });
+      
       const postWithSlug = allPosts.find((post) => post.generatedSlug === slug);
       
       if (postWithSlug) {
+        console.log('[fetchStrapiPostBySlug] Post encontrado pelo slug gerado:', {
+          id: postWithSlug.id,
+          title: postWithSlug.attributes.title,
+          slug: postWithSlug.generatedSlug,
+        });
         return await fetchStrapiPostById(postWithSlug.id);
+      } else {
+        console.log('[fetchStrapiPostBySlug] Post não encontrado pelo slug gerado em nenhuma categoria');
       }
     }
 
-    // Fallback: tenta buscar pelo slug original do Strapi
-    const strapiUrl = `${apiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
-    const response = await fetch(strapiUrl, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store',
-    });
+    // Estratégia 2: Fallback - tenta buscar pelo slug original do Strapi
+    console.log('[fetchStrapiPostBySlug] Tentando fallback: buscar pelo slug original do Strapi');
+    const strapiUrl = `${normalizedApiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
-    if (response.ok) {
-      const data: StrapiResponse = await response.json();
-      const post = data.data?.[0] || null;
+    try {
+      const response = await fetch(strapiUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store',
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      console.log('[fetchStrapiPostBySlug] Resposta do fallback:', {
+        status: response.status,
+        ok: response.ok,
+      });
+
+      if (response.ok) {
+        const data: StrapiResponse = await response.json();
+        const post = data.data?.[0] || null;
+        
+        if (post) {
+          console.log('[fetchStrapiPostBySlug] Post encontrado pelo slug original:', {
+            id: post.id,
+            title: post.attributes.title,
+            slug: post.attributes.slug,
+          });
+          return post;
+        } else {
+          console.log('[fetchStrapiPostBySlug] Nenhum post encontrado pelo slug original');
+        }
+      } else {
+        const errorText = await response.text().catch(() => 'Erro desconhecido');
+        console.error('[fetchStrapiPostBySlug] Erro na resposta do fallback:', {
+          status: response.status,
+          error: errorText.substring(0, 200),
+        });
+      }
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+        console.error('[fetchStrapiPostBySlug] Timeout no fallback');
+      } else {
+        console.error('[fetchStrapiPostBySlug] Erro no fallback:', {
+          error: fetchError instanceof Error ? fetchError.message : String(fetchError),
+        });
+      }
+    }
+
+    // Estratégia 3: Último fallback - busca todos os posts e compara títulos (mais lento, mas mais confiável)
+    console.log('[fetchStrapiPostBySlug] Tentando último fallback: busca por título');
+    if (tag) {
+      const allPosts = await fetchStrapiPosts(tag);
+      // Tenta encontrar pelo título (slug pode ter pequenas diferenças)
+      const postByTitle = allPosts.find((post) => {
+        const postSlug = generateSlugFromTitle(post.attributes.title);
+        return postSlug === slug || postSlug.includes(slug) || slug.includes(postSlug);
+      });
       
-      if (post) {
-        return post;
+      if (postByTitle) {
+        console.log('[fetchStrapiPostBySlug] Post encontrado pelo título:', {
+          id: postByTitle.id,
+          title: postByTitle.attributes.title,
+        });
+        return await fetchStrapiPostById(postByTitle.id);
       }
     }
+
+    console.error('[fetchStrapiPostBySlug] Post não encontrado após todas as tentativas:', {
+      slug,
+      tag,
+    });
 
     return null;
   } catch (error) {
-    console.error('Erro ao processar requisição do Strapi:', error);
+    console.error('[fetchStrapiPostBySlug] Erro ao processar requisição do Strapi:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      slug,
+      tag,
+    });
     return null;
   }
 }

@@ -17,8 +17,16 @@ interface NoticiaPageProps {
 }
 
 async function getNoticia(slug: string): Promise<StrapiPost | null> {
+  console.log('[NoticiaPage] Buscando notícia com slug:', slug);
   // Busca o post pelo slug gerado, passando 'news' como tag para otimizar a busca
-  return fetchStrapiPostBySlug(slug, 'news');
+  const post = await fetchStrapiPostBySlug(slug, 'news');
+  console.log('[NoticiaPage] Resultado da busca:', {
+    slug,
+    found: !!post,
+    postId: post?.id,
+    postTitle: post?.attributes.title,
+  });
+  return post;
 }
 
 /**

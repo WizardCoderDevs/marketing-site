@@ -17,8 +17,16 @@ interface ArtigoPageProps {
 }
 
 async function getArtigo(slug: string): Promise<StrapiPost | null> {
+  console.log('[ArtigoPage] Buscando artigo com slug:', slug);
   // Busca o post pelo slug gerado, passando 'article' como tag para otimizar a busca
-  return fetchStrapiPostBySlug(slug, 'article');
+  const post = await fetchStrapiPostBySlug(slug, 'article');
+  console.log('[ArtigoPage] Resultado da busca:', {
+    slug,
+    found: !!post,
+    postId: post?.id,
+    postTitle: post?.attributes.title,
+  });
+  return post;
 }
 
 /**
