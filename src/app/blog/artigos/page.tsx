@@ -5,7 +5,7 @@ import { fetchStrapiPosts, type StrapiPost } from '@/lib/strapi';
 import { getPostImageUrl } from '@/utils/strapiImage';
 
 async function getArtigos() {
-  return fetchStrapiPosts('articles');
+  return fetchStrapiPosts('article');
 }
 
 export default async function ArtigosPage() {

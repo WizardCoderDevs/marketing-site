@@ -4,11 +4,11 @@ import { fetchStrapiPosts } from '@/lib/strapi';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const tag = searchParams.get('tag') as 'articles' | 'news' | null;
+  const tag = searchParams.get('tag') as 'article' | 'news' | null;
 
-  if (!tag || (tag !== 'articles' && tag !== 'news')) {
+  if (!tag || (tag !== 'article' && tag !== 'news')) {
     return NextResponse.json(
-      { error: 'Parâmetro "tag" é obrigatório. Use "articles" ou "news".' },
+      { error: 'Parâmetro "tag" é obrigatório. Use "article" ou "news".' },
       { status: 400 }
     );
   }

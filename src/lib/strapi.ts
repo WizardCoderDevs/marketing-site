@@ -34,7 +34,7 @@ interface StrapiResponse {
   };
 }
 
-export async function fetchStrapiPosts(tag: 'articles' | 'news'): Promise<StrapiPost[]> {
+export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<StrapiPost[]> {
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
