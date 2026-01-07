@@ -1,9 +1,44 @@
-import type { Metadata } from 'next';
 import type { StrapiPost } from '@/lib/strapi';
 import { getPostImageUrl } from '@/utils/strapiImage';
+import type { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br';
 const siteName = 'BRANDS';
+
+/**
+ * Extrai texto puro do conteúdo para descrições e snippets
+ * Lida com strings, arrays, objetos e rich text blocks do Strapi
+ */
+export function extractPlainText(content: any): string {
+  if (typeof content === 'string') {
+    // Remove tags HTML
+    return content.replace(/<[^>]*>/g, '').trim();
+  }
+  
+  if (Array.isArray(content)) {
+    return content
+      .map((block) => {
+        if (typeof block === 'string') return block;
+        if (block?.text) return block.text;
+        if (block?.children) {
+          return extractPlainText(block.children);
+        }
+        return '';
+      })
+      .join(' ')
+      .trim();
+  }
+  
+  if (content?.text) {
+    return content.text;
+  }
+  
+  if (content?.children) {
+    return extractPlainText(content.children);
+  }
+  
+  return '';
+}
 
 /**
  * Gera metadata otimizada para GEO (Generative Engine Optimization)
@@ -15,9 +50,11 @@ export function generatePostMetadata(
   slug: string
 ): Metadata {
   const title = post.attributes.title;
+  
+  // Usa extractPlainText para lidar com todos os tipos de conteúdo (string, array, objeto)
   const description = 
     post.attributes.description || 
-    post.attributes.text?.substring(0, 160) ||
+    extractPlainText(post.attributes.content || post.attributes.body || post.attributes.text).substring(0, 160) ||
     `Leia ${type === 'article' ? 'o artigo' : 'a notícia'}: ${title}`;
   
   // Obtém a URL da imagem com a base URL da API do Strapi
@@ -82,38 +119,3 @@ export function generatePostMetadata(
     },
   };
 }
-
-/**
- * Extrai texto puro do conteúdo para descrições e snippets
- */
-export function extractPlainText(content: any): string {
-  if (typeof content === 'string') {
-    // Remove tags HTML
-    return content.replace(/<[^>]*>/g, '').trim();
-  }
-  
-  if (Array.isArray(content)) {
-    return content
-      .map((block) => {
-        if (typeof block === 'string') return block;
-        if (block?.text) return block.text;
-        if (block?.children) {
-          return extractPlainText(block.children);
-        }
-        return '';
-      })
-      .join(' ')
-      .trim();
-  }
-  
-  if (content?.text) {
-    return content.text;
-  }
-  
-  if (content?.children) {
-    return extractPlainText(content.children);
-  }
-  
-  return '';
-}
-
