@@ -66,70 +66,107 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
     return [];
   }
 
+  // Normaliza a URL (remove barra final se existir)
+  const normalizedApiUrl = apiUrl.trim().replace(/\/$/, '');
+  
+  // Valida se a URL começa com http:// ou https://
+  if (!normalizedApiUrl.startsWith('http://') && !normalizedApiUrl.startsWith('https://')) {
+    console.error('[fetchStrapiPosts] URL inválida - deve começar com http:// ou https://', {
+      apiUrl: normalizedApiUrl.substring(0, 50),
+    });
+    return [];
+  }
+
   try {
-    const strapiUrl = `${apiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc`;
+    const strapiUrl = `${normalizedApiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc`;
 
     console.log('[fetchStrapiPosts] Buscando posts:', { 
       tag, 
-      url: strapiUrl.replace(apiKey, '***REDACTED***') // Não loga a API key completa
+      url: strapiUrl.replace(apiKey, '***REDACTED***'), // Não loga a API key completa
+      normalizedApiUrl: normalizedApiUrl.substring(0, 50) + '...',
     });
 
-    const response = await fetch(strapiUrl, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store', // Para sempre buscar dados atualizados
-    } as RequestInit);
+    // Cria um AbortController para timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 segundos de timeout
 
-    console.log('[fetchStrapiPosts] Resposta recebida:', {
-      tag,
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok,
-    });
+    try {
+      const response = await fetch(strapiUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store', // Para sempre buscar dados atualizados
+        signal: controller.signal, // Para permitir cancelamento
+      } as RequestInit);
 
-    if (!response.ok) {
-      const errorText = await response.text().catch(() => 'Erro desconhecido');
-      console.error('[fetchStrapiPosts] Erro ao buscar posts do Strapi:', {
+      clearTimeout(timeoutId);
+
+      console.log('[fetchStrapiPosts] Resposta recebida:', {
+        tag,
         status: response.status,
         statusText: response.statusText,
-        error: errorText.substring(0, 500), // Limita o tamanho do log
-        url: strapiUrl.replace(apiKey, '***REDACTED***'),
-        tag,
+        ok: response.ok,
+        headers: Object.fromEntries(response.headers.entries()),
       });
+
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => 'Erro desconhecido');
+        console.error('[fetchStrapiPosts] Erro ao buscar posts do Strapi:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorText.substring(0, 500), // Limita o tamanho do log
+          url: strapiUrl.replace(apiKey, '***REDACTED***'),
+          tag,
+        });
+        return [];
+      }
+
+      const data: StrapiResponse = await response.json();
+      const posts = data.data || [];
+      
+      console.log('[fetchStrapiPosts] Posts encontrados:', { 
+        tag, 
+        count: posts.length,
+        hasData: !!data.data,
+        metaTotal: data.meta?.pagination?.total,
+        dataStructure: data.data ? 'array' : 'null/undefined',
+      });
+      
+      // Processa os posts para adicionar slug gerado a partir do título
+      const processedPosts = posts.map((post) => ({
+        ...post,
+        generatedSlug: generateSlugFromTitle(post.attributes.title),
+      }));
+
+      console.log('[fetchStrapiPosts] Posts processados:', {
+        tag,
+        count: processedPosts.length,
+      });
+
+      return processedPosts;
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+        console.error('[fetchStrapiPosts] Timeout ao buscar posts do Strapi:', {
+          tag,
+          timeout: '30s',
+          url: strapiUrl.replace(apiKey, '***REDACTED***'),
+        });
+      } else {
+        throw fetchError; // Re-lança o erro para ser capturado pelo catch externo
+      }
       return [];
     }
-
-    const data: StrapiResponse = await response.json();
-    const posts = data.data || [];
-    
-    console.log('[fetchStrapiPosts] Posts encontrados:', { 
-      tag, 
-      count: posts.length,
-      hasData: !!data.data,
-      metaTotal: data.meta?.pagination?.total,
-    });
-    
-    // Processa os posts para adicionar slug gerado a partir do título
-    const processedPosts = posts.map((post) => ({
-      ...post,
-      generatedSlug: generateSlugFromTitle(post.attributes.title),
-    }));
-
-    console.log('[fetchStrapiPosts] Posts processados:', {
-      tag,
-      count: processedPosts.length,
-    });
-
-    return processedPosts;
   } catch (error) {
     console.error('[fetchStrapiPosts] Erro ao processar requisição do Strapi:', {
       error: error instanceof Error ? error.message : String(error),
+      errorName: error instanceof Error ? error.name : 'Unknown',
       stack: error instanceof Error ? error.stack : undefined,
       tag,
-      apiUrl: apiUrl ? `${apiUrl.substring(0, 20)}...` : 'não definido',
+      apiUrl: normalizedApiUrl ? `${normalizedApiUrl.substring(0, 30)}...` : 'não definido',
     });
     return [];
   }
