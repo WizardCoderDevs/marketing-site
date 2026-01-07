@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 import { fetchStrapiPostBySlug, type StrapiPost } from '@/lib/strapi';
 import { StrapiContent } from '@/utils/strapiContent';
 import { getPostImageUrl } from '@/utils/strapiImage';
+import { generatePostMetadata } from '@/utils/geoMetadata';
+import { StructuredData } from '@/components/StructuredData';
 
 interface NoticiaPageProps {
   params: Promise<{ slug: string }>;
@@ -13,6 +16,22 @@ interface NoticiaPageProps {
 async function getNoticia(slug: string): Promise<StrapiPost | null> {
   // Busca o post pelo slug gerado, passando 'news' como tag para otimizar a busca
   return fetchStrapiPostBySlug(slug, 'news');
+}
+
+/**
+ * Gera metadata dinâmica para otimização GEO
+ */
+export async function generateMetadata({ params }: NoticiaPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getNoticia(slug);
+
+  if (!post) {
+    return {
+      title: 'Notícia não encontrada',
+    };
+  }
+
+  return generatePostMetadata(post, 'news', slug);
 }
 
 export default async function NoticiaPage({ params }: NoticiaPageProps) {
@@ -24,13 +43,17 @@ export default async function NoticiaPage({ params }: NoticiaPageProps) {
   }
 
   return (
-    <article className="max-w-4xl mx-auto">
-      <Link
-        href="/blog/noticias"
-        className="inline-block mb-6 text-violet-700 dark:text-violet-400 hover:underline font-medium"
-      >
-        ← Voltar para Notícias
-      </Link>
+    <>
+      {/* JSON-LD Structured Data para GEO */}
+      <StructuredData post={post} type="news" slug={slug} />
+      
+      <article className="max-w-4xl mx-auto" itemScope itemType="https://schema.org/NewsArticle">
+        <Link
+          href="/blog/noticias"
+          className="inline-block mb-6 text-violet-700 dark:text-violet-400 hover:underline font-medium"
+        >
+          ← Voltar para Notícias
+        </Link>
 
       {(() => {
         const imageUrl = getPostImageUrl(post);
@@ -50,7 +73,10 @@ export default async function NoticiaPage({ params }: NoticiaPageProps) {
               </div>
             )}
             <header className="mb-8">
-              <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h1 
+                className="text-4xl font-bold mb-4 text-slate-900 dark:text-white"
+                itemProp="headline"
+              >
                 {post.attributes.title}
               </h1>
               {post.attributes.publishedAt && (
@@ -95,7 +121,8 @@ export default async function NoticiaPage({ params }: NoticiaPageProps) {
           </div>
         );
       })()}
-    </article>
+      </article>
+    </>
   );
 }
 

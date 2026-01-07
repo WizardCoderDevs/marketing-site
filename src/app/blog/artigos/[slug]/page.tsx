@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 import { fetchStrapiPostBySlug, type StrapiPost } from '@/lib/strapi';
 import { StrapiContent } from '@/utils/strapiContent';
 import { getPostImageUrl } from '@/utils/strapiImage';
+import { generatePostMetadata } from '@/utils/geoMetadata';
+import { StructuredData } from '@/components/StructuredData';
 
 interface ArtigoPageProps {
   params: Promise<{ slug: string }>;
@@ -13,6 +16,22 @@ interface ArtigoPageProps {
 async function getArtigo(slug: string): Promise<StrapiPost | null> {
   // Busca o post pelo slug gerado, passando 'article' como tag para otimizar a busca
   return fetchStrapiPostBySlug(slug, 'article');
+}
+
+/**
+ * Gera metadata dinâmica para otimização GEO
+ */
+export async function generateMetadata({ params }: ArtigoPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getArtigo(slug);
+
+  if (!post) {
+    return {
+      title: 'Artigo não encontrado',
+    };
+  }
+
+  return generatePostMetadata(post, 'article', slug);
 }
 
 export default async function ArtigoPage({ params }: ArtigoPageProps) {
@@ -29,13 +48,17 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
   }
 
   return (
-    <article className="max-w-4xl mx-auto">
-      <Link
-        href="/blog/artigos"
-        className="inline-block mb-6 text-violet-700 dark:text-violet-400 hover:underline font-medium"
-      >
-        ← Voltar para Artigos
-      </Link>
+    <>
+      {/* JSON-LD Structured Data para GEO */}
+      <StructuredData post={post} type="article" slug={slug} />
+      
+      <article className="max-w-4xl mx-auto" itemScope itemType="https://schema.org/Article">
+        <Link
+          href="/blog/artigos"
+          className="inline-block mb-6 text-violet-700 dark:text-violet-400 hover:underline font-medium"
+        >
+          ← Voltar para Artigos
+        </Link>
 
       {(() => {
         const imageUrl = getPostImageUrl(post);
@@ -55,7 +78,10 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
               </div>
             )}
             <header className="mb-8">
-              <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+              <h1 
+                className="text-4xl font-bold mb-4 text-slate-900 dark:text-white"
+                itemProp="headline"
+              >
                 {post.attributes.title}
               </h1>
               {post.attributes.publishedAt && (
@@ -100,7 +126,8 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
           </div>
         );
       })()}
-    </article>
+      </article>
+    </>
   );
 }
 
