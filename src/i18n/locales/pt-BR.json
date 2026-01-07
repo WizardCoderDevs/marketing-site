@@ -9,7 +9,7 @@
     "badge": "Especialistas em Gestão de Tráfego",
     "titlePart1": "Acelere o",
     "titleHighlight": "Crescimento",
-    "titlePart2": "da sua Marca",
+    "titlePart2": "do seu Negócio",
     "subtitle": "Transformamos tráfego em resultados reais. Nossa estratégia de <paidTraffic>{{paidTraffic}}</paidTraffic> e <webDevelopment>{{webDevelopment}}</webDevelopment> impulsiona marcas para o próximo nível.",
     "paidTraffic": "gestão de tráfego pago",
     "webDevelopment": "desenvolvimento web",
@@ -143,7 +143,7 @@
       "description": "Para empresas que necessitam de uma presença online mais robusta e detalhada, o website institucional com múltiplas páginas permite explorar cada aspecto do seu negócio com profundidade, oferecendo uma experiência completa ao visitante.",
       "how": [
         "**Navegação Completa:** Estrutura com até 5 páginas interligadas por navegação e footer.",
-        "**Design Personalizado:** Criamos um layout exclusivo que reflete a identidade da sua marca.",
+        "**Design Personalizado:** Criamos um layout exclusivo que reflete a identidade do seu negócio.",
         "**Valor e Prazo Flexíveis:** O custo e o prazo variam de acordo com a complexidade.",
         "**Início Pós-Contrato:** O desenvolvimento começa após a validação do contrato."
       ],
@@ -212,8 +212,8 @@
     },
     "social-media": {
       "title": "Social Media",
-      "tagline": "Aumente o engajamento e a visibilidade da sua marca nas redes sociais",
-      "description": "Criação e gestão de conteúdo para suas redes sociais, aumentando o engajamento e a visibilidade da sua marca.",
+      "tagline": "Aumente o engajamento e a visibilidade do seu negócio nas redes sociais",
+      "description": "Criação e gestão de conteúdo para suas redes sociais, aumentando o engajamento e a visibilidade do seu negócio.",
       "how": [
         "Análise do perfil atual e definição de objetivos",
         "Criação de calendário editorial personalizado",

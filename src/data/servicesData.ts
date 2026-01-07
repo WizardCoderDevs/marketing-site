@@ -81,7 +81,7 @@ const servicesData: ServiceData[] = [
       'Para empresas que necessitam de uma presença online mais robusta e detalhada, o website institucional com múltiplas páginas permite explorar cada aspecto do seu negócio com profundidade, oferecendo uma experiência completa ao visitante.',
     how: [
       '**Navegação Completa:** Estrutura com até 5 páginas interligadas por navegação e footer.',
-      '**Design Personalizado:** Criamos um layout exclusivo que reflete a identidade da sua marca.',
+      '**Design Personalizado:** Criamos um layout exclusivo que reflete a identidade do seu negócio.',
       '**Valor e Prazo Flexíveis:** O custo e o prazo variam de acordo com a complexidade.',
       '**Início Pós-Contrato:** O desenvolvimento começa após a validação do contrato.',
     ],
@@ -160,7 +160,7 @@ const servicesData: ServiceData[] = [
     id: 'social-media',
     title: 'Social Media',
     description:
-      'Criação e gestão de conteúdo para suas redes sociais, aumentando o engajamento e a visibilidade da sua marca.',
+      'Criação e gestão de conteúdo para suas redes sociais, aumentando o engajamento e a visibilidade do seu negócio.',
     icon: '📱',
     category: 'advertising',
     features: [
@@ -169,7 +169,7 @@ const servicesData: ServiceData[] = [
       'Gestão de Comunidade',
       'Relatórios de Performance',
     ],
-    tagline: 'Aumente o engajamento e a visibilidade da sua marca nas redes sociais',
+    tagline: 'Aumente o engajamento e a visibilidade do seu negócio nas redes sociais',
     how: [
       'Análise do perfil atual e definição de objetivos',
       'Criação de calendário editorial personalizado',
