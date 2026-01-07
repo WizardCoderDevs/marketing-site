@@ -1,6 +1,6 @@
 import type { StrapiPost } from '@/lib/strapi';
-import { getPostImageUrl } from '@/utils/strapiImage';
 import { extractPlainText } from '@/utils/geoMetadata';
+import { getPostImageUrl } from '@/utils/strapiImage';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br';
 const siteName = 'BRANDS';
