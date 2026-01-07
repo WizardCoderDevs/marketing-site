@@ -49,11 +49,12 @@ export default async function NoticiasPage() {
     
     console.log(`[NoticiasPage] Total de notícias encontradas: ${posts.length}`);
     
-    if (posts.length > 0) {
+    const firstPost = posts[0];
+    if (firstPost) {
       console.log('[NoticiasPage] Primeira notícia:', {
-        id: posts[0].id,
-        title: posts[0].attributes.title,
-        hasContent: !!posts[0].attributes.content,
+        id: firstPost.id,
+        title: firstPost.attributes.title,
+        hasContent: !!firstPost.attributes.content,
       });
     }
     
@@ -63,11 +64,12 @@ export default async function NoticiasPage() {
     
     console.log(`[NoticiasPage] Notícias processadas com imagens: ${processedPosts.length}`);
     
-    if (processedPosts.length > 0) {
+    const firstProcessedPost = processedPosts[0];
+    if (firstProcessedPost) {
       console.log('[NoticiasPage] Primeira notícia processada:', {
-        id: processedPosts[0].id,
-        title: processedPosts[0].attributes.title,
-        hasImage: !!processedPosts[0].imageUrl,
+        id: firstProcessedPost.id,
+        title: firstProcessedPost.attributes.title,
+        hasImage: !!firstProcessedPost.imageUrl,
       });
     }
   } catch (error) {
