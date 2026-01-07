@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import { fetchStrapiPosts, type StrapiPost } from '@/lib/strapi';
+import { fetchStrapiPosts, type ProcessedStrapiPost } from '@/lib/strapi';
 import { getPostImageUrl } from '@/utils/strapiImage';
 
-interface PostWithImage extends StrapiPost {
+interface PostWithImage extends ProcessedStrapiPost {
   imageUrl: string | null;
 }
 
@@ -14,7 +14,7 @@ async function getNoticias() {
 /**
  * Processa os posts no servidor e adiciona as URLs das imagens
  */
-async function processPostsWithImages(posts: StrapiPost[]): Promise<PostWithImage[]> {
+async function processPostsWithImages(posts: ProcessedStrapiPost[]): Promise<PostWithImage[]> {
   const apiBaseUrl = process.env.NEXT_STRAPI_API_URL || '';
   
   return posts.map((post) => {
@@ -34,7 +34,7 @@ async function processPostsWithImages(posts: StrapiPost[]): Promise<PostWithImag
 }
 
 export default async function NoticiasPage() {
-  let posts: StrapiPost[] = [];
+  let posts: ProcessedStrapiPost[] = [];
   let processedPosts: PostWithImage[] = [];
 
   try {
@@ -79,7 +79,7 @@ export default async function NoticiasPage() {
                 className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow flex flex-col md:flex-row"
               >
                 <Link 
-                  href={`/blog/noticias/${post.attributes.slug || post.id}`}
+                  href={`/blog/noticias/${post.generatedSlug}`}
                   className="flex-shrink-0"
                 >
                   <div className="relative w-full h-48 md:w-48 md:h-48 bg-slate-200 dark:bg-slate-800 overflow-hidden">
@@ -101,7 +101,7 @@ export default async function NoticiasPage() {
                 <div className="p-6 flex-1">
                   <h2 className="text-2xl font-semibold mb-3 text-slate-900 dark:text-white">
                     <Link
-                      href={`/blog/noticias/${post.attributes.slug || post.id}`}
+                      href={`/blog/noticias/${post.generatedSlug}`}
                       className="hover:text-violet-700 dark:hover:text-violet-400 transition-colors"
                     >
                       {post.attributes.title}
@@ -127,7 +127,7 @@ export default async function NoticiasPage() {
                     />
                   )}
                   <Link
-                    href={`/blog/noticias/${post.attributes.slug || post.id}`}
+                    href={`/blog/noticias/${post.generatedSlug}`}
                     className="inline-block mt-4 text-violet-700 dark:text-violet-400 hover:underline font-medium"
                   >
                     Ler mais →

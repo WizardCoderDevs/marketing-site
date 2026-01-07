@@ -11,7 +11,8 @@ interface ArtigoPageProps {
 }
 
 async function getArtigo(slug: string): Promise<StrapiPost | null> {
-  return fetchStrapiPostBySlug(slug);
+  // Busca o post pelo slug gerado, passando 'article' como tag para otimizar a busca
+  return fetchStrapiPostBySlug(slug, 'article');
 }
 
 export default async function ArtigoPage({ params }: ArtigoPageProps) {

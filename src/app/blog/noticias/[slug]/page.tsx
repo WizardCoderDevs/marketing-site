@@ -11,7 +11,8 @@ interface NoticiaPageProps {
 }
 
 async function getNoticia(slug: string): Promise<StrapiPost | null> {
-  return fetchStrapiPostBySlug(slug);
+  // Busca o post pelo slug gerado, passando 'news' como tag para otimizar a busca
+  return fetchStrapiPostBySlug(slug, 'news');
 }
 
 export default async function NoticiaPage({ params }: NoticiaPageProps) {

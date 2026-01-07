@@ -1,3 +1,5 @@
+import { generateSlugFromTitle } from '@/utils/slug';
+
 interface StrapiPost {
   id: number;
   attributes: {
@@ -22,6 +24,13 @@ interface StrapiPost {
   };
 }
 
+/**
+ * Post processado com slug gerado a partir do título
+ */
+export interface ProcessedStrapiPost extends StrapiPost {
+  generatedSlug: string; // Slug gerado a partir do título
+}
+
 interface StrapiResponse {
   data: StrapiPost[];
   meta: {
@@ -34,7 +43,7 @@ interface StrapiResponse {
   };
 }
 
-export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<StrapiPost[]> {
+export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<ProcessedStrapiPost[]> {
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
@@ -61,14 +70,23 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<StrapiP
     }
 
     const data: StrapiResponse = await response.json();
-    return data.data || [];
+    const posts = data.data || [];
+    
+    // Processa os posts para adicionar slug gerado a partir do título
+    return posts.map((post) => ({
+      ...post,
+      generatedSlug: generateSlugFromTitle(post.attributes.title),
+    }));
   } catch (error) {
     console.error('Erro ao processar requisição do Strapi:', error);
     return [];
   }
 }
 
-export async function fetchStrapiPostBySlug(slug: string): Promise<StrapiPost | null> {
+/**
+ * Busca um post pelo ID
+ */
+export async function fetchStrapiPostById(id: number): Promise<StrapiPost | null> {
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
@@ -78,14 +96,7 @@ export async function fetchStrapiPostBySlug(slug: string): Promise<StrapiPost | 
   }
 
   try {
-    // Tenta buscar por slug primeiro com populate completo
-    let strapiUrl = `${apiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
-    
-    // Se o slug for um número, também tenta buscar por ID
-    const slugAsNumber = parseInt(slug, 10);
-    if (!isNaN(slugAsNumber)) {
-      strapiUrl = `${apiUrl}/api/posts?filters[id][$eq]=${slugAsNumber}&populate=*`;
-    }
+    const strapiUrl = `${apiUrl}/api/posts?filters[id][$eq]=${id}&populate=*`;
 
     const response = await fetch(strapiUrl, {
       method: 'GET',
@@ -106,7 +117,7 @@ export async function fetchStrapiPostBySlug(slug: string): Promise<StrapiPost | 
     
     // Debug: log para verificar a estrutura dos dados
     if (process.env.NODE_ENV === 'development' && post) {
-      console.log('Post encontrado:', JSON.stringify(post, null, 2));
+      console.log('Post encontrado por ID:', JSON.stringify(post, null, 2));
     }
     
     return post;
@@ -116,5 +127,77 @@ export async function fetchStrapiPostBySlug(slug: string): Promise<StrapiPost | 
   }
 }
 
-export type { StrapiPost };
+/**
+ * Busca um post pelo slug gerado a partir do título
+ * Primeiro busca todos os posts da mesma categoria, depois encontra o que tem o slug correspondente
+ * e então busca o post pelo ID
+ */
+export async function fetchStrapiPostBySlug(
+  slug: string,
+  tag?: 'article' | 'news'
+): Promise<StrapiPost | null> {
+  const apiUrl = process.env.NEXT_STRAPI_API_URL;
+  const apiKey = process.env.NEXT_STRAPI_API_KEY;
+
+  if (!apiUrl || !apiKey) {
+    console.error('Configuração da API do Strapi não encontrada');
+    return null;
+  }
+
+  try {
+    // Se o slug for um número, tenta buscar diretamente por ID (compatibilidade com URLs antigas)
+    const slugAsNumber = parseInt(slug, 10);
+    if (!isNaN(slugAsNumber)) {
+      return await fetchStrapiPostById(slugAsNumber);
+    }
+
+    // Se temos a tag, busca apenas posts dessa categoria (mais eficiente)
+    if (tag) {
+      const posts = await fetchStrapiPosts(tag);
+      const postWithSlug = posts.find((post) => post.generatedSlug === slug);
+      
+      if (postWithSlug) {
+        return await fetchStrapiPostById(postWithSlug.id);
+      }
+    } else {
+      // Se não temos a tag, busca em todas as categorias
+      const articlePosts = await fetchStrapiPosts('article');
+      const newsPosts = await fetchStrapiPosts('news');
+      const allPosts = [...articlePosts, ...newsPosts];
+      
+      const postWithSlug = allPosts.find((post) => post.generatedSlug === slug);
+      
+      if (postWithSlug) {
+        return await fetchStrapiPostById(postWithSlug.id);
+      }
+    }
+
+    // Fallback: tenta buscar pelo slug original do Strapi
+    const strapiUrl = `${apiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
+    const response = await fetch(strapiUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (response.ok) {
+      const data: StrapiResponse = await response.json();
+      const post = data.data?.[0] || null;
+      
+      if (post) {
+        return post;
+      }
+    }
+
+    return null;
+  } catch (error) {
+    console.error('Erro ao processar requisição do Strapi:', error);
+    return null;
+  }
+}
+
+export type { StrapiPost, ProcessedStrapiPost };
 
