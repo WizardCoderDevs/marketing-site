@@ -48,12 +48,20 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
   if (!apiUrl || !apiKey) {
-    console.error('Configuração da API do Strapi não encontrada');
+    console.error('[fetchStrapiPosts] Configuração da API do Strapi não encontrada', {
+      hasApiUrl: !!apiUrl,
+      hasApiKey: !!apiKey,
+      nodeEnv: process.env.NODE_ENV,
+    });
     return [];
   }
 
   try {
     const strapiUrl = `${apiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc`;
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[fetchStrapiPosts] Buscando posts:', { tag, url: strapiUrl });
+    }
 
     const response = await fetch(strapiUrl, {
       method: 'GET',
@@ -62,15 +70,25 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
         'Content-Type': 'application/json',
       },
       cache: 'no-store', // Para sempre buscar dados atualizados
-    });
+    } as RequestInit);
 
     if (!response.ok) {
-      console.error('Erro ao buscar posts do Strapi:', response.status);
+      const errorText = await response.text().catch(() => 'Erro desconhecido');
+      console.error('[fetchStrapiPosts] Erro ao buscar posts do Strapi:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorText,
+        url: strapiUrl,
+      });
       return [];
     }
 
     const data: StrapiResponse = await response.json();
     const posts = data.data || [];
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[fetchStrapiPosts] Posts encontrados:', { tag, count: posts.length });
+    }
     
     // Processa os posts para adicionar slug gerado a partir do título
     return posts.map((post) => ({
@@ -78,7 +96,11 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
       generatedSlug: generateSlugFromTitle(post.attributes.title),
     }));
   } catch (error) {
-    console.error('Erro ao processar requisição do Strapi:', error);
+    console.error('[fetchStrapiPosts] Erro ao processar requisição do Strapi:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+      tag,
+    });
     return [];
   }
 }

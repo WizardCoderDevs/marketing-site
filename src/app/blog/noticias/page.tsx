@@ -41,21 +41,22 @@ export default async function NoticiasPage() {
     // Busca os posts do Strapi (server-side)
     posts = await getNoticias();
     
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[SERVER] Total de notícias encontradas: ${posts.length}`);
-    }
+    console.log(`[SERVER] Total de notícias encontradas: ${posts.length}`);
     
     // Processa as imagens no servidor antes de renderizar
     processedPosts = await processPostsWithImages(posts);
     
+    console.log(`[SERVER] Notícias processadas com imagens: ${processedPosts.length}`);
     if (process.env.NODE_ENV === 'development') {
-      console.log(`[SERVER] Notícias processadas com imagens: ${processedPosts.length}`);
       processedPosts.forEach((post) => {
         console.log(`[SERVER] - ${post.attributes.title}: ${post.imageUrl ? '✅ Tem imagem' : '❌ Sem imagem'}`);
       });
     }
   } catch (error) {
-    console.error('[SERVER] Erro ao carregar notícias:', error);
+    console.error('[SERVER] Erro ao carregar notícias:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
   }
 
   return (

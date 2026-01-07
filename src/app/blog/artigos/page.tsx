@@ -41,21 +41,22 @@ export default async function ArtigosPage() {
     // Busca os posts do Strapi (server-side)
     posts = await getArtigos();
     
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[SERVER] Total de posts encontrados: ${posts.length}`);
-    }
+    console.log(`[SERVER] Total de artigos encontrados: ${posts.length}`);
     
     // Processa as imagens no servidor antes de renderizar
     processedPosts = await processPostsWithImages(posts);
     
+    console.log(`[SERVER] Artigos processados com imagens: ${processedPosts.length}`);
     if (process.env.NODE_ENV === 'development') {
-      console.log(`[SERVER] Posts processados com imagens: ${processedPosts.length}`);
       processedPosts.forEach((post) => {
         console.log(`[SERVER] - ${post.attributes.title}: ${post.imageUrl ? '✅ Tem imagem' : '❌ Sem imagem'}`);
       });
     }
   } catch (error) {
-    console.error('[SERVER] Erro ao carregar artigos:', error);
+    console.error('[SERVER] Erro ao carregar artigos:', {
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
   }
 
   return (
