@@ -55,7 +55,7 @@ export function processStrapiContent(content: any): string {
         return renderBlock(block);
       }
       return '';
-    }).join('');
+    }).join('\n'); // Adiciona quebra de linha entre blocos
   }
 
   // Se for objeto único, tenta processar
@@ -98,10 +98,10 @@ function renderBlock(block: StrapiBlock): string {
   switch (type) {
     case 'heading':
       const headingLevel = level || 1;
-      return `<h${headingLevel}>${processedChildren}</h${headingLevel}>`;
+      return `<h${headingLevel} class="mb-4">${processedChildren}</h${headingLevel}>`;
 
     case 'paragraph':
-      return `<p>${processedChildren}</p>`;
+      return `<p class="mb-4">${processedChildren}</p>`;
 
     case 'list':
       const listTag = rest.format === 'ordered' ? 'ol' : 'ul';
@@ -112,13 +112,13 @@ function renderBlock(block: StrapiBlock): string {
           return `<li>${itemText}</li>`;
         })
         .join('');
-      return `<${listTag}>${listItems}</${listTag}>`;
+      return `<${listTag} class="mb-4">${listItems}</${listTag}>`;
 
     case 'quote':
-      return `<blockquote>${processedChildren}</blockquote>`;
+      return `<blockquote class="mb-4">${processedChildren}</blockquote>`;
 
     case 'code':
-      return `<pre><code>${processedChildren}</code></pre>`;
+      return `<pre class="mb-4"><code>${processedChildren}</code></pre>`;
 
     case 'link':
       const url = rest.url || rest.href || '#';
@@ -127,12 +127,12 @@ function renderBlock(block: StrapiBlock): string {
     case 'image':
       const imageUrl = rest.url || rest.src || '';
       const imageAlt = rest.alt || '';
-      return `<img src="${imageUrl}" alt="${imageAlt}" />`;
+      return `<img src="${imageUrl}" alt="${imageAlt}" class="mb-4" />`;
 
     default:
       // Para tipos desconhecidos, tenta renderizar como parágrafo
       if (processedChildren) {
-        return `<p>${processedChildren}</p>`;
+        return `<p class="mb-4">${processedChildren}</p>`;
       }
       return '';
   }
