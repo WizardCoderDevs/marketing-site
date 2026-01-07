@@ -1,6 +1,6 @@
 import { generateSlugFromTitle } from '@/utils/slug';
 
-interface StrapiPost {
+export interface StrapiPost {
   id: number;
   attributes: {
     title: string;
@@ -199,5 +199,4 @@ export async function fetchStrapiPostBySlug(
   }
 }
 
-export type { StrapiPost, ProcessedStrapiPost };
 
