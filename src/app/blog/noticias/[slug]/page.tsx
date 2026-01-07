@@ -9,6 +9,9 @@ import { getPostImageUrl } from '@/utils/strapiImage';
 import { generatePostMetadata } from '@/utils/geoMetadata';
 import { StructuredData } from '@/components/StructuredData';
 
+// Força renderização dinâmica para buscar dados atualizados do Strapi
+export const dynamic = 'force-dynamic';
+
 interface NoticiaPageProps {
   params: Promise<{ slug: string }>;
 }

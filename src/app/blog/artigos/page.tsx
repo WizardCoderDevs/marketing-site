@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { fetchStrapiPosts, type ProcessedStrapiPost } from '@/lib/strapi';
 import { getPostImageUrl } from '@/utils/strapiImage';
 
+// Força renderização dinâmica para buscar dados atualizados do Strapi
+export const dynamic = 'force-dynamic';
+
 interface PostWithImage extends ProcessedStrapiPost {
   imageUrl: string | null;
 }
