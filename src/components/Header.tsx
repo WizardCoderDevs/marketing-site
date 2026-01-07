@@ -91,6 +91,22 @@ export default function Header() {
             </div>
             <div role="none">
               <Link
+                href="/blog/artigos"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+              >
+                Artigos
+              </Link>
+            </div>
+            <div role="none">
+              <Link
+                href="/blog/noticias"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+              >
+                Notícias
+              </Link>
+            </div>
+            <div role="none">
+              <Link
                 href="/politica-de-privacidade"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
               >
@@ -171,6 +187,18 @@ export default function Header() {
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
               Nosso Método
+            </Link>
+            {/* <Link
+              href="/blog/artigos"
+              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+            >
+              Artigos
+            </Link> */}
+            <Link
+              href="/blog/noticias"
+              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+            >
+              Notícias
             </Link>
             <Link
               href="/politica-de-privacidade"
