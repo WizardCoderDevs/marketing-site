@@ -40,27 +40,44 @@ export default async function NoticiasPage() {
   let posts: ProcessedStrapiPost[] = [];
   let processedPosts: PostWithImage[] = [];
 
+  console.log('[NoticiasPage] Iniciando carregamento de notícias');
+
   try {
     // Busca os posts do Strapi (server-side)
+    console.log('[NoticiasPage] Chamando getNoticias()...');
     posts = await getNoticias();
     
-    console.log(`[SERVER] Total de notícias encontradas: ${posts.length}`);
+    console.log(`[NoticiasPage] Total de notícias encontradas: ${posts.length}`);
+    
+    if (posts.length > 0) {
+      console.log('[NoticiasPage] Primeira notícia:', {
+        id: posts[0].id,
+        title: posts[0].attributes.title,
+        hasContent: !!posts[0].attributes.content,
+      });
+    }
     
     // Processa as imagens no servidor antes de renderizar
+    console.log('[NoticiasPage] Processando imagens...');
     processedPosts = await processPostsWithImages(posts);
     
-    console.log(`[SERVER] Notícias processadas com imagens: ${processedPosts.length}`);
-    if (process.env.NODE_ENV === 'development') {
-      processedPosts.forEach((post) => {
-        console.log(`[SERVER] - ${post.attributes.title}: ${post.imageUrl ? '✅ Tem imagem' : '❌ Sem imagem'}`);
+    console.log(`[NoticiasPage] Notícias processadas com imagens: ${processedPosts.length}`);
+    
+    if (processedPosts.length > 0) {
+      console.log('[NoticiasPage] Primeira notícia processada:', {
+        id: processedPosts[0].id,
+        title: processedPosts[0].attributes.title,
+        hasImage: !!processedPosts[0].imageUrl,
       });
     }
   } catch (error) {
-    console.error('[SERVER] Erro ao carregar notícias:', {
+    console.error('[NoticiasPage] Erro ao carregar notícias:', {
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
     });
   }
+
+  console.log(`[NoticiasPage] Renderizando página com ${processedPosts.length} notícias`);
 
   return (
     <div className="max-w-4xl mx-auto">

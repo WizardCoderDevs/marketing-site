@@ -40,27 +40,44 @@ export default async function ArtigosPage() {
   let posts: ProcessedStrapiPost[] = [];
   let processedPosts: PostWithImage[] = [];
 
+  console.log('[ArtigosPage] Iniciando carregamento de artigos');
+
   try {
     // Busca os posts do Strapi (server-side)
+    console.log('[ArtigosPage] Chamando getArtigos()...');
     posts = await getArtigos();
     
-    console.log(`[SERVER] Total de artigos encontrados: ${posts.length}`);
+    console.log(`[ArtigosPage] Total de artigos encontrados: ${posts.length}`);
+    
+    if (posts.length > 0) {
+      console.log('[ArtigosPage] Primeiro artigo:', {
+        id: posts[0].id,
+        title: posts[0].attributes.title,
+        hasContent: !!posts[0].attributes.content,
+      });
+    }
     
     // Processa as imagens no servidor antes de renderizar
+    console.log('[ArtigosPage] Processando imagens...');
     processedPosts = await processPostsWithImages(posts);
     
-    console.log(`[SERVER] Artigos processados com imagens: ${processedPosts.length}`);
-    if (process.env.NODE_ENV === 'development') {
-      processedPosts.forEach((post) => {
-        console.log(`[SERVER] - ${post.attributes.title}: ${post.imageUrl ? '✅ Tem imagem' : '❌ Sem imagem'}`);
+    console.log(`[ArtigosPage] Artigos processados com imagens: ${processedPosts.length}`);
+    
+    if (processedPosts.length > 0) {
+      console.log('[ArtigosPage] Primeiro artigo processado:', {
+        id: processedPosts[0].id,
+        title: processedPosts[0].attributes.title,
+        hasImage: !!processedPosts[0].imageUrl,
       });
     }
   } catch (error) {
-    console.error('[SERVER] Erro ao carregar artigos:', {
+    console.error('[ArtigosPage] Erro ao carregar artigos:', {
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
     });
   }
+
+  console.log(`[ArtigosPage] Renderizando página com ${processedPosts.length} artigos`);
 
   return (
     <div className="max-w-4xl mx-auto">

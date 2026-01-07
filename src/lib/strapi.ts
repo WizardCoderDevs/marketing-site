@@ -47,6 +47,16 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
+  // Logs sempre ativos para debug em produção
+  console.log('[fetchStrapiPosts] Iniciando busca:', {
+    tag,
+    hasApiUrl: !!apiUrl,
+    hasApiKey: !!apiKey,
+    apiUrlLength: apiUrl?.length || 0,
+    apiKeyLength: apiKey?.length || 0,
+    nodeEnv: process.env.NODE_ENV,
+  });
+
   if (!apiUrl || !apiKey) {
     console.error('[fetchStrapiPosts] Configuração da API do Strapi não encontrada', {
       hasApiUrl: !!apiUrl,
@@ -59,9 +69,10 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
   try {
     const strapiUrl = `${apiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc`;
 
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[fetchStrapiPosts] Buscando posts:', { tag, url: strapiUrl });
-    }
+    console.log('[fetchStrapiPosts] Buscando posts:', { 
+      tag, 
+      url: strapiUrl.replace(apiKey, '***REDACTED***') // Não loga a API key completa
+    });
 
     const response = await fetch(strapiUrl, {
       method: 'GET',
@@ -72,13 +83,21 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
       cache: 'no-store', // Para sempre buscar dados atualizados
     } as RequestInit);
 
+    console.log('[fetchStrapiPosts] Resposta recebida:', {
+      tag,
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
+    });
+
     if (!response.ok) {
       const errorText = await response.text().catch(() => 'Erro desconhecido');
       console.error('[fetchStrapiPosts] Erro ao buscar posts do Strapi:', {
         status: response.status,
         statusText: response.statusText,
-        error: errorText,
-        url: strapiUrl,
+        error: errorText.substring(0, 500), // Limita o tamanho do log
+        url: strapiUrl.replace(apiKey, '***REDACTED***'),
+        tag,
       });
       return [];
     }
@@ -86,20 +105,31 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
     const data: StrapiResponse = await response.json();
     const posts = data.data || [];
     
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[fetchStrapiPosts] Posts encontrados:', { tag, count: posts.length });
-    }
+    console.log('[fetchStrapiPosts] Posts encontrados:', { 
+      tag, 
+      count: posts.length,
+      hasData: !!data.data,
+      metaTotal: data.meta?.pagination?.total,
+    });
     
     // Processa os posts para adicionar slug gerado a partir do título
-    return posts.map((post) => ({
+    const processedPosts = posts.map((post) => ({
       ...post,
       generatedSlug: generateSlugFromTitle(post.attributes.title),
     }));
+
+    console.log('[fetchStrapiPosts] Posts processados:', {
+      tag,
+      count: processedPosts.length,
+    });
+
+    return processedPosts;
   } catch (error) {
     console.error('[fetchStrapiPosts] Erro ao processar requisição do Strapi:', {
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
       tag,
+      apiUrl: apiUrl ? `${apiUrl.substring(0, 20)}...` : 'não definido',
     });
     return [];
   }
