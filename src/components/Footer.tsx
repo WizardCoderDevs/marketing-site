@@ -1,8 +1,8 @@
 'use client';
 
 import { useConversion } from '@/hooks/useConversion';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
@@ -31,7 +31,7 @@ export default function Footer() {
                 <span>contato@brands.ppg.br</span>
               </a>
               <a 
-                href="https://wa.me/5528992783978" 
+                href="https://wa.me/551231232601" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 role="text" 
@@ -40,7 +40,7 @@ export default function Footer() {
                 className="text-slate-200 hover:text-white transition-colors flex items-center gap-2"
               >
                 <FaPhone className="w-6 h-6" />
-                <span>(28) 99278-3978</span>
+                <span>(12) 3123 2601</span>
               </a>
             </div>
           </div>

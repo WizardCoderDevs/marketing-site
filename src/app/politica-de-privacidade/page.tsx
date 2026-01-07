@@ -236,12 +236,12 @@ export default function PoliticaPrivacidadePage() {
                   <p className="text-slate-700 dark:text-slate-300">
                     Telefone:{' '}
                     <a 
-                      href="https://wa.me/5528992783978" 
+                      href="https://wa.me/551231232601" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-violet-700 dark:text-violet-400 hover:underline"
                     >
-                      (28) 99278-3978
+                      (12) 3123 2601
                     </a>
                   </p>
                 </div>

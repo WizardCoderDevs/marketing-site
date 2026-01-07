@@ -118,7 +118,7 @@ export default function HeroSection() {
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
                 <a
-                  href="https://wa.me/5528992783978"
+                  href="https://wa.me/551231232601"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleWhatsAppClick}
