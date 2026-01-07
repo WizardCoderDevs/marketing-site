@@ -17,15 +17,33 @@ interface ArtigoPageProps {
 }
 
 async function getArtigo(slug: string): Promise<StrapiPost | null> {
-  console.log('[ArtigoPage] Buscando artigo com slug:', slug);
+  // Normaliza o slug (remove encoding, espaços, etc)
+  const normalizedSlug = decodeURIComponent(slug).trim();
+  
+  console.log('[ArtigoPage] Buscando artigo com slug:', {
+    original: slug,
+    normalized: normalizedSlug,
+    encoded: encodeURIComponent(slug),
+    length: slug.length,
+  });
+  
   // Busca o post pelo slug gerado, passando 'article' como tag para otimizar a busca
-  const post = await fetchStrapiPostBySlug(slug, 'article');
+  // Tenta primeiro com o slug normalizado, depois com o original
+  let post = await fetchStrapiPostBySlug(normalizedSlug, 'article');
+  
+  if (!post && normalizedSlug !== slug) {
+    console.log('[ArtigoPage] Tentando com slug original:', slug);
+    post = await fetchStrapiPostBySlug(slug, 'article');
+  }
+  
   console.log('[ArtigoPage] Resultado da busca:', {
     slug,
+    normalizedSlug,
     found: !!post,
     postId: post?.id,
     postTitle: post?.attributes.title,
   });
+  
   return post;
 }
 
@@ -47,16 +65,37 @@ export async function generateMetadata({ params }: ArtigoPageProps): Promise<Met
 
 export default async function ArtigoPage({ params }: ArtigoPageProps) {
   const { slug } = await params;
-  const post = await getArtigo(slug);
+  
+  console.log('[ArtigoPage] Renderizando página para slug:', slug);
+  
+  let post: StrapiPost | null = null;
+  let retryCount = 0;
+  const maxRetries = 2;
+
+  // Tenta buscar o post com retry
+  while (!post && retryCount < maxRetries) {
+    console.log(`[ArtigoPage] Tentativa ${retryCount + 1} de ${maxRetries}`);
+    post = await getArtigo(slug);
+    
+    if (!post && retryCount < maxRetries - 1) {
+      console.log('[ArtigoPage] Post não encontrado, aguardando antes de tentar novamente...');
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Aguarda 1 segundo
+    }
+    retryCount++;
+  }
 
   if (!post) {
+    console.error('[ArtigoPage] Post não encontrado após todas as tentativas:', {
+      slug,
+      retries: retryCount,
+    });
     notFound();
   }
 
-  // Debug: log para verificar a estrutura dos dados
-  if (process.env.NODE_ENV === 'development') {
-    console.log('Post data:', JSON.stringify(post, null, 2));
-  }
+  console.log('[ArtigoPage] Post encontrado, renderizando página:', {
+    id: post.id,
+    title: post.attributes.title,
+  });
 
   return (
     <>

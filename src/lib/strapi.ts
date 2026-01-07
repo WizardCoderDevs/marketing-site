@@ -261,17 +261,56 @@ export async function fetchStrapiPostBySlug(
         slugs: posts.map(p => p.generatedSlug).slice(0, 5), // Primeiros 5 slugs para debug
       });
       
-      const postWithSlug = posts.find((post) => post.generatedSlug === slug);
-      
-      if (postWithSlug) {
-        console.log('[fetchStrapiPostBySlug] Post encontrado pelo slug gerado:', {
-          id: postWithSlug.id,
-          title: postWithSlug.attributes.title,
-          slug: postWithSlug.generatedSlug,
+      if (posts.length > 0) {
+        // Normaliza o slug buscado (remove encoding, espaços, etc)
+        const normalizedSearchedSlug = decodeURIComponent(slug).trim().toLowerCase();
+        
+        console.log('[fetchStrapiPostBySlug] Comparando slugs:', {
+          searchedSlug: slug,
+          normalizedSearchedSlug,
+          availableSlugs: posts.map(p => ({
+            id: p.id,
+            title: p.attributes.title,
+            generatedSlug: p.generatedSlug,
+            matches: p.generatedSlug === normalizedSearchedSlug || p.generatedSlug === slug,
+          })),
         });
-        return await fetchStrapiPostById(postWithSlug.id);
+        
+        // Tenta encontrar com comparação exata primeiro
+        let postWithSlug = posts.find((post) => post.generatedSlug === normalizedSearchedSlug || post.generatedSlug === slug);
+        
+        // Se não encontrar, tenta comparação case-insensitive
+        if (!postWithSlug) {
+          postWithSlug = posts.find((post) => 
+            post.generatedSlug.toLowerCase() === normalizedSearchedSlug ||
+            post.generatedSlug.toLowerCase() === slug.toLowerCase()
+          );
+        }
+        
+        if (postWithSlug) {
+          console.log('[fetchStrapiPostBySlug] Post encontrado pelo slug gerado:', {
+            id: postWithSlug.id,
+            title: postWithSlug.attributes.title,
+            slug: postWithSlug.generatedSlug,
+            searchedSlug: slug,
+            normalizedSearchedSlug,
+          });
+          const fullPost = await fetchStrapiPostById(postWithSlug.id);
+          if (fullPost) {
+            return fullPost;
+          }
+        } else {
+          console.error('[fetchStrapiPostBySlug] Post não encontrado pelo slug gerado na categoria:', {
+            tag,
+            searchedSlug: slug,
+            normalizedSearchedSlug,
+            availableSlugs: posts.map(p => p.generatedSlug),
+            firstPostTitle: posts[0]?.attributes.title,
+            firstPostSlug: posts[0]?.generatedSlug,
+          });
+        }
       } else {
-        console.log('[fetchStrapiPostBySlug] Post não encontrado pelo slug gerado na categoria:', tag);
+        console.warn('[fetchStrapiPostBySlug] Nenhum post encontrado na categoria, tentando outras estratégias:', tag);
       }
     } else {
       // Se não temos a tag, busca em todas as categorias
@@ -357,7 +396,77 @@ export async function fetchStrapiPostBySlug(
       }
     }
 
-    // Estratégia 3: Último fallback - busca todos os posts e compara títulos (mais lento, mas mais confiável)
+    // Estratégia 3: Busca direta pela API sem depender de fetchStrapiPosts
+    // Isso é útil quando fetchStrapiPosts retorna vazio em produção
+    console.log('[fetchStrapiPostBySlug] Tentando busca direta pela API do Strapi');
+    try {
+      // Busca todos os posts da categoria e filtra localmente
+      let searchUrl = `${normalizedApiUrl}/api/posts?populate=*&pagination[limit]=100`;
+      if (tag) {
+        searchUrl += `&filters[tags][name][$eq]=${tag}`;
+      }
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      
+      try {
+        const response = await fetch(searchUrl, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store',
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+
+        if (response.ok) {
+          const data: StrapiResponse = await response.json();
+          const allPosts = data.data || [];
+          
+          console.log('[fetchStrapiPostBySlug] Posts encontrados na busca direta:', {
+            count: allPosts.length,
+            tag,
+          });
+
+          // Processa os posts e encontra pelo slug gerado
+          for (const post of allPosts) {
+            const generatedSlug = generateSlugFromTitle(post.attributes.title);
+            if (generatedSlug === slug) {
+              console.log('[fetchStrapiPostBySlug] Post encontrado na busca direta:', {
+                id: post.id,
+                title: post.attributes.title,
+                slug: generatedSlug,
+              });
+              return post;
+            }
+          }
+
+          console.log('[fetchStrapiPostBySlug] Slug não encontrado na busca direta');
+        } else {
+          console.error('[fetchStrapiPostBySlug] Erro na busca direta:', {
+            status: response.status,
+          });
+        }
+      } catch (fetchError) {
+        clearTimeout(timeoutId);
+        if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+          console.error('[fetchStrapiPostBySlug] Timeout na busca direta');
+        } else {
+          console.error('[fetchStrapiPostBySlug] Erro na busca direta:', {
+            error: fetchError instanceof Error ? fetchError.message : String(fetchError),
+          });
+        }
+      }
+    } catch (error) {
+      console.error('[fetchStrapiPostBySlug] Erro ao executar busca direta:', {
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+
+    // Estratégia 4: Último fallback - busca todos os posts e compara títulos (mais lento, mas mais confiável)
     console.log('[fetchStrapiPostBySlug] Tentando último fallback: busca por título');
     if (tag) {
       const allPosts = await fetchStrapiPosts(tag);

@@ -17,15 +17,33 @@ interface NoticiaPageProps {
 }
 
 async function getNoticia(slug: string): Promise<StrapiPost | null> {
-  console.log('[NoticiaPage] Buscando notícia com slug:', slug);
+  // Normaliza o slug (remove encoding, espaços, etc)
+  const normalizedSlug = decodeURIComponent(slug).trim();
+  
+  console.log('[NoticiaPage] Buscando notícia com slug:', {
+    original: slug,
+    normalized: normalizedSlug,
+    encoded: encodeURIComponent(slug),
+    length: slug.length,
+  });
+  
   // Busca o post pelo slug gerado, passando 'news' como tag para otimizar a busca
-  const post = await fetchStrapiPostBySlug(slug, 'news');
+  // Tenta primeiro com o slug normalizado, depois com o original
+  let post = await fetchStrapiPostBySlug(normalizedSlug, 'news');
+  
+  if (!post && normalizedSlug !== slug) {
+    console.log('[NoticiaPage] Tentando com slug original:', slug);
+    post = await fetchStrapiPostBySlug(slug, 'news');
+  }
+  
   console.log('[NoticiaPage] Resultado da busca:', {
     slug,
+    normalizedSlug,
     found: !!post,
     postId: post?.id,
     postTitle: post?.attributes.title,
   });
+  
   return post;
 }
 
@@ -47,11 +65,37 @@ export async function generateMetadata({ params }: NoticiaPageProps): Promise<Me
 
 export default async function NoticiaPage({ params }: NoticiaPageProps) {
   const { slug } = await params;
-  const post = await getNoticia(slug);
+  
+  console.log('[NoticiaPage] Renderizando página para slug:', slug);
+  
+  let post: StrapiPost | null = null;
+  let retryCount = 0;
+  const maxRetries = 2;
+
+  // Tenta buscar o post com retry
+  while (!post && retryCount < maxRetries) {
+    console.log(`[NoticiaPage] Tentativa ${retryCount + 1} de ${maxRetries}`);
+    post = await getNoticia(slug);
+    
+    if (!post && retryCount < maxRetries - 1) {
+      console.log('[NoticiaPage] Post não encontrado, aguardando antes de tentar novamente...');
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Aguarda 1 segundo
+    }
+    retryCount++;
+  }
 
   if (!post) {
+    console.error('[NoticiaPage] Post não encontrado após todas as tentativas:', {
+      slug,
+      retries: retryCount,
+    });
     notFound();
   }
+
+  console.log('[NoticiaPage] Post encontrado, renderizando página:', {
+    id: post.id,
+    title: post.attributes.title,
+  });
 
   return (
     <>
