@@ -81,14 +81,14 @@ export default function Header() {
                 {t('header.contact')}
               </Link>
             </div>
-            <div role="none">
+            {/* <div role="none">
               <Link
                 href="/apresentacao"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
                 Nosso Método
               </Link>
-            </div>
+            </div> */}
             <div role="none">
               <Link
                 href="/blog/artigos"
