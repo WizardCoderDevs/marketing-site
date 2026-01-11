@@ -115,20 +115,28 @@ export function CookieProvider({ children }: CookieProviderProps) {
     // Tenta atualizar imediatamente
     updateGtagConsent();
     
+    // Array para armazenar todos os timeouts criados nesta execução
+    const timeouts: NodeJS.Timeout[] = [];
+    
     // Se o gtag não estiver disponível, tenta novamente após delays progressivos
     if (!(window as any).gtag) {
-      const timeouts: NodeJS.Timeout[] = [];
       [100, 500, 1000, 2000].forEach((delay) => {
         const timeout = setTimeout(() => {
           if ((window as any).gtag) {
             updateGtagConsent();
+            // Limpa todos os timeouts restantes quando o gtag é encontrado
             timeouts.forEach(clearTimeout);
           }
         }, delay);
         timeouts.push(timeout);
       });
-      return () => timeouts.forEach(clearTimeout);
     }
+
+    // Sempre retorna uma função de cleanup para limpar timeouts pendentes
+    // Isso previne race conditions quando o effect re-executa
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
   }, [cookiePreferences.marketing, isInitialized]);
 
   const acceptAll = useCallback(() => {
