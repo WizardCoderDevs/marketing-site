@@ -86,6 +86,51 @@ export function CookieProvider({ children }: CookieProviderProps) {
     }
   }, []);
 
+  // Atualizar consentimento de marketing no Google Tag
+  // Analytics básico sempre funciona, independente do consentimento
+  useEffect(() => {
+    if (!isInitialized || typeof window === 'undefined') return;
+
+    const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+    if (!googleTagId) return;
+
+    // Aguarda o gtag estar disponível e atualiza apenas o consentimento de marketing
+    const updateGtagConsent = () => {
+      if ((window as any).gtag) {
+        // Apenas controla cookies de marketing/anúncios baseado no consentimento
+        // Analytics básico (page views, eventos) sempre funciona
+        const consentParams: any = {};
+
+        if (cookiePreferences.marketing) {
+          consentParams.ad_storage = 'granted';
+        } else {
+          consentParams.ad_storage = 'denied';
+        }
+
+        // Atualiza apenas o consentimento de marketing no Google Tag
+        (window as any).gtag('consent', 'update', consentParams);
+      }
+    };
+
+    // Tenta atualizar imediatamente
+    updateGtagConsent();
+    
+    // Se o gtag não estiver disponível, tenta novamente após delays progressivos
+    if (!(window as any).gtag) {
+      const timeouts: NodeJS.Timeout[] = [];
+      [100, 500, 1000, 2000].forEach((delay) => {
+        const timeout = setTimeout(() => {
+          if ((window as any).gtag) {
+            updateGtagConsent();
+            timeouts.forEach(clearTimeout);
+          }
+        }, delay);
+        timeouts.push(timeout);
+      });
+      return () => timeouts.forEach(clearTimeout);
+    }
+  }, [cookiePreferences.marketing, isInitialized]);
+
   const acceptAll = useCallback(() => {
     const allAccepted: CookiePreferences = {
       necessary: true,
