@@ -86,68 +86,6 @@ export function CookieProvider({ children }: CookieProviderProps) {
     }
   }, []);
 
-  // Atualizar Google Analytics baseado no consentimento
-  useEffect(() => {
-    if (!isInitialized || typeof window === 'undefined') return;
-
-    const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
-    if (!googleTagId) return;
-
-    // Aguarda um pouco para garantir que o gtag esteja carregado
-    const updateGtag = () => {
-      if ((window as any).gtag) {
-        const consentParams: any = {};
-        
-        if (cookiePreferences.analytics) {
-          // Habilitar Google Analytics
-          consentParams.analytics_storage = 'granted';
-        } else {
-          // Desabilitar Google Analytics
-          consentParams.analytics_storage = 'denied';
-        }
-
-        if (cookiePreferences.marketing) {
-          // Habilitar cookies de marketing
-          consentParams.ad_storage = 'granted';
-        } else {
-          // Desabilitar cookies de marketing
-          consentParams.ad_storage = 'denied';
-        }
-
-        // Atualiza o consentimento
-        (window as any).gtag('consent', 'update', consentParams);
-        
-        // Se o consentimento de analytics foi concedido, reconfigura o tag
-        // Isso força o envio de um page_view e ajuda o Google a detectar o tag
-        if (cookiePreferences.analytics) {
-          (window as any).gtag('config', googleTagId, {
-            page_path: window.location.pathname + window.location.search,
-            page_title: document.title,
-            send_page_view: true,
-          });
-        }
-      }
-    };
-
-    // Tenta atualizar imediatamente
-    updateGtag();
-    
-    // Se o gtag não estiver disponível, tenta novamente após delays progressivos
-    if (!(window as any).gtag) {
-      const timeouts: NodeJS.Timeout[] = [];
-      [100, 500, 1000, 2000].forEach((delay) => {
-        const timeout = setTimeout(() => {
-          if ((window as any).gtag) {
-            updateGtag();
-            timeouts.forEach(clearTimeout);
-          }
-        }, delay);
-        timeouts.push(timeout);
-      });
-      return () => timeouts.forEach(clearTimeout);
-    }
-  }, [cookiePreferences, isInitialized]);
-
   const acceptAll = useCallback(() => {
     const allAccepted: CookiePreferences = {
       necessary: true,
