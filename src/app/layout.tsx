@@ -107,18 +107,35 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {googleTagId && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-              strategy="beforeInteractive"
-            />
-            <Script
-              id="gtag-init"
+              id="gtag-consent-mode"
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
+                // Configura o modo de consentimento padrão como 'denied' antes de carregar o script
+                gtag('consent', 'default', {
+                  'analytics_storage': 'denied',
+                  'ad_storage': 'denied',
+                  'wait_for_update': 500
+                });
                 gtag('js', new Date());
-                gtag('config', '${googleTagId}');
+              `,
+              }}
+            />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                gtag('config', '${googleTagId}', {
+                  'anonymize_ip': true,
+                  'page_path': window.location.pathname + window.location.search
+                });
               `,
               }}
             />

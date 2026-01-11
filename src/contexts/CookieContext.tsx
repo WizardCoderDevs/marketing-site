@@ -90,40 +90,40 @@ export function CookieProvider({ children }: CookieProviderProps) {
   useEffect(() => {
     if (!isInitialized || typeof window === 'undefined') return;
 
+    const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+    if (!googleTagId) return;
+
     // Aguarda um pouco para garantir que o gtag esteja carregado
     const updateGtag = () => {
       if ((window as any).gtag) {
-        const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+        const consentParams: any = {};
         
         if (cookiePreferences.analytics) {
           // Habilitar Google Analytics
-          (window as any).gtag('consent', 'update', {
-            analytics_storage: 'granted',
-          });
-          
-          // Reconfigura o Google Tag quando o consentimento é concedido
-          // Isso envia automaticamente um page_view e ajuda o Google a detectar o tag
-          if (googleTagId) {
-            (window as any).gtag('config', googleTagId, {
-              page_path: window.location.pathname + window.location.search,
-            });
-          }
+          consentParams.analytics_storage = 'granted';
         } else {
           // Desabilitar Google Analytics
-          (window as any).gtag('consent', 'update', {
-            analytics_storage: 'denied',
-          });
+          consentParams.analytics_storage = 'denied';
         }
 
         if (cookiePreferences.marketing) {
           // Habilitar cookies de marketing
-          (window as any).gtag('consent', 'update', {
-            ad_storage: 'granted',
-          });
+          consentParams.ad_storage = 'granted';
         } else {
           // Desabilitar cookies de marketing
-          (window as any).gtag('consent', 'update', {
-            ad_storage: 'denied',
+          consentParams.ad_storage = 'denied';
+        }
+
+        // Atualiza o consentimento
+        (window as any).gtag('consent', 'update', consentParams);
+        
+        // Se o consentimento de analytics foi concedido, reconfigura o tag
+        // Isso força o envio de um page_view e ajuda o Google a detectar o tag
+        if (cookiePreferences.analytics) {
+          (window as any).gtag('config', googleTagId, {
+            page_path: window.location.pathname + window.location.search,
+            page_title: document.title,
+            send_page_view: true,
           });
         }
       }
@@ -132,10 +132,19 @@ export function CookieProvider({ children }: CookieProviderProps) {
     // Tenta atualizar imediatamente
     updateGtag();
     
-    // Se o gtag não estiver disponível, tenta novamente após um delay
+    // Se o gtag não estiver disponível, tenta novamente após delays progressivos
     if (!(window as any).gtag) {
-      const timeout = setTimeout(updateGtag, 500);
-      return () => clearTimeout(timeout);
+      const timeouts: NodeJS.Timeout[] = [];
+      [100, 500, 1000, 2000].forEach((delay) => {
+        const timeout = setTimeout(() => {
+          if ((window as any).gtag) {
+            updateGtag();
+            timeouts.forEach(clearTimeout);
+          }
+        }, delay);
+        timeouts.push(timeout);
+      });
+      return () => timeouts.forEach(clearTimeout);
     }
   }, [cookiePreferences, isInitialized]);
 
