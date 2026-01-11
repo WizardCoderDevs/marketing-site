@@ -84,3 +84,36 @@ h6 {
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-slate-400 dark:bg-slate-500;
 }
+
+/* HubSpot Form Styles for Dark Mode */
+.contact-form-container .hs-form {
+  @apply text-slate-900 dark:text-slate-200;
+}
+
+.contact-form-container .hs-form-field label {
+  @apply text-slate-700 dark:text-slate-300;
+}
+
+.contact-form-container .hs-form-field input[type="text"],
+.contact-form-container .hs-form-field input[type="email"],
+.contact-form-container .hs-form-field input[type="tel"],
+.contact-form-container .hs-form-field textarea,
+.contact-form-container .hs-form-field select {
+  @apply bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-200 border-slate-300 dark:border-slate-600;
+}
+
+.contact-form-container .hs-form-field input[type="text"]:focus,
+.contact-form-container .hs-form-field input[type="email"]:focus,
+.contact-form-container .hs-form-field input[type="tel"]:focus,
+.contact-form-container .hs-form-field textarea:focus,
+.contact-form-container .hs-form-field select:focus {
+  @apply border-violet-600 dark:border-violet-500 ring-violet-600 dark:ring-violet-500;
+}
+
+.contact-form-container .hs-button {
+  @apply bg-violet-600 hover:bg-violet-700 text-white;
+}
+
+.contact-form-container .hs-error-msgs label {
+  @apply text-red-600 dark:text-red-400;
+}
