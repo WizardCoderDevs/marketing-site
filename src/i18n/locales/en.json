@@ -348,5 +348,21 @@
       "enterFullscreen": "Enter fullscreen mode",
       "exitFullscreen": "Exit fullscreen mode"
     }
+  },
+  "blog": {
+    "artigos": {
+      "title": "Articles",
+      "backLink": "← Back to Articles",
+      "readMore": "Read more",
+      "noPosts": "No articles found at the moment.",
+      "published": "Published on"
+    },
+    "noticias": {
+      "title": "News",
+      "backLink": "← Back to News",
+      "readMore": "Read more",
+      "noPosts": "No news found at the moment.",
+      "published": "Published on"
+    }
   }
 }
