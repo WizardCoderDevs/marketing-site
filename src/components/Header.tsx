@@ -178,7 +178,6 @@ export default function Header() {
             </Link>
             <Link
               href={getNavigationLink('contact-cta-section')}
-              href={getNavigationLink('contact-cta-section')}
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
               {t('header.contact')}
