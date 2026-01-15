@@ -72,12 +72,7 @@
     "resume": "Continuar",
     "stop": "Parar",
     "loading": "Preparando áudio...",
-    "unsupported": "Seu navegador não oferece suporte à leitura em voz alta.",
-    "naturalVoice": "Voz natural ativada para português.",
-    "remoteUnavailable": "Voz natural indisponível; usando voz do navegador.",
-    "remoteProvider": "Fonte: {{provider}}.",
-    "browserProvider": "Fonte: navegador.",
-    "remoteError": "Erro: {{error}}."
+    "unsupported": "Seu navegador não oferece suporte à leitura em voz alta."
   },
   "newsletterConfirmation": {
     "badge": "Newsletter BRANDS",

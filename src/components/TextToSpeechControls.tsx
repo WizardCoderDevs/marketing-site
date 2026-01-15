@@ -290,7 +290,7 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
           <span className="text-sm font-semibold">{t('tts.title')}</span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex w-full flex-col gap-2">
           {voiceOptions.length > 0 && (
             <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
               {t('tts.voiceLabel')}
@@ -317,45 +317,47 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
               </select>
             </label>
           )}
-          <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
-            {t('tts.volume')}
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.05}
-              value={volume}
-              onChange={(event) => setVolume(Number(event.target.value))}
-              className="h-2 w-24 cursor-pointer accent-violet-600"
-            />
-          </label>
-          <button
-            type="button"
-            onClick={handlePlay}
-            disabled={!canPlay}
-            className="inline-flex items-center gap-2 rounded-md bg-violet-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 dark:disabled:bg-slate-700 dark:disabled:text-slate-300"
-          >
-            <Play className="h-4 w-4" aria-hidden="true" />
-            {playLabel}
-          </button>
-          <button
-            type="button"
-            onClick={handlePause}
-            disabled={!isSpeaking || isPaused}
-            className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
-          >
-            <Pause className="h-4 w-4" aria-hidden="true" />
-            {t('tts.pause')}
-          </button>
-          <button
-            type="button"
-            onClick={handleStop}
-            disabled={!isSpeaking}
-            className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
-          >
-            <Square className="h-4 w-4" aria-hidden="true" />
-            {t('tts.stop')}
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+              {t('tts.volume')}
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={volume}
+                onChange={(event) => setVolume(Number(event.target.value))}
+                className="h-2 w-24 cursor-pointer accent-violet-600"
+              />
+            </label>
+            <button
+              type="button"
+              onClick={handlePlay}
+              disabled={!canPlay}
+              className="inline-flex items-center gap-2 rounded-md bg-violet-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 dark:disabled:bg-slate-700 dark:disabled:text-slate-300"
+            >
+              <Play className="h-4 w-4" aria-hidden="true" />
+              {playLabel}
+            </button>
+            <button
+              type="button"
+              onClick={handlePause}
+              disabled={!isSpeaking || isPaused}
+              className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
+            >
+              <Pause className="h-4 w-4" aria-hidden="true" />
+              {t('tts.pause')}
+            </button>
+            <button
+              type="button"
+              onClick={handleStop}
+              disabled={!isSpeaking}
+              className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
+            >
+              <Square className="h-4 w-4" aria-hidden="true" />
+              {t('tts.stop')}
+            </button>
+          </div>
         </div>
       </div>
 

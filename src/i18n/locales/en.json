@@ -72,12 +72,7 @@
     "resume": "Resume",
     "stop": "Stop",
     "loading": "Preparing audio...",
-    "unsupported": "Your browser does not support read aloud.",
-    "naturalVoice": "Natural voice enabled for Portuguese.",
-    "remoteUnavailable": "Natural voice unavailable; using browser voice.",
-    "remoteProvider": "Source: {{provider}}.",
-    "browserProvider": "Source: browser.",
-    "remoteError": "Error: {{error}}."
+    "unsupported": "Your browser does not support read aloud."
   },
   "newsletterConfirmation": {
     "badge": "BRANDS Newsletter",
