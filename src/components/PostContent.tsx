@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { processStrapiContent } from '@/utils/strapiContent';
 import { useTranslation } from 'react-i18next';
 import { TranslatedContent, TranslatedText } from './TranslatedContent';
@@ -30,12 +31,12 @@ export function PostContent({
 
   return (
     <>
-      <a
+      <Link
         href={backLink}
         className="inline-block mb-6 text-violet-700 dark:text-violet-400 hover:underline font-medium"
       >
         ← {t(backLinkKey)}
-      </a>
+      </Link>
 
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">
