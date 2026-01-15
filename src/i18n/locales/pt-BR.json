@@ -61,6 +61,24 @@
     "closeLabel": "Fechar formulário",
     "iframeTitle": "Formulário de Contato"
   },
+  "newsletterConfirmation": {
+    "badge": "Newsletter BRANDS",
+    "title": "Assinatura confirmada!",
+    "description": "Obrigado por se inscrever. Em breve você vai receber nossos insights, novidades e conteúdos exclusivos direto no seu e-mail.",
+    "ctaPrimary": "Voltar para a página inicial",
+    "ctaSecondary": "Ver artigos recentes",
+    "tipPrefix": "Dica: adicione",
+    "tipSuffix": "aos seus contatos para garantir a entrega dos nossos e-mails."
+  },
+  "emailConfirmed": {
+    "badge": "BRANDS",
+    "title": "E-mail confirmado com sucesso!",
+    "description": "Obrigado! Seu endereço de e-mail foi verificado e está ativo. Agora você receberá nossas atualizações e conteúdos exclusivos.",
+    "ctaPrimary": "Ir para a página inicial",
+    "ctaSecondary": "Explorar artigos",
+    "helpPrefix": "Se precisar de ajuda, fale com a gente em",
+    "helpSuffix": "."
+  },
   "cookies": {
     "title": "Utilizamos Cookies",
     "description": "Utilizamos cookies para melhorar sua experiência, analisar nosso tráfego e personalizar conteúdo. Ao continuar navegando, você concorda com nossa política de cookies.",

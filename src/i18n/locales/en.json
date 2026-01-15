@@ -61,6 +61,24 @@
     "closeLabel": "Close contact form",
     "iframeTitle": "Contact form"
   },
+  "newsletterConfirmation": {
+    "badge": "BRANDS Newsletter",
+    "title": "Subscription confirmed!",
+    "description": "Thanks for signing up. You will soon receive our insights, news, and exclusive content directly in your inbox.",
+    "ctaPrimary": "Back to home",
+    "ctaSecondary": "See recent articles",
+    "tipPrefix": "Tip: add",
+    "tipSuffix": "to your contacts to ensure our emails are delivered."
+  },
+  "emailConfirmed": {
+    "badge": "BRANDS",
+    "title": "Email confirmed successfully!",
+    "description": "Thanks! Your email address has been verified and is active. You will now receive our updates and exclusive content.",
+    "ctaPrimary": "Go to homepage",
+    "ctaSecondary": "Explore articles",
+    "helpPrefix": "If you need help, contact us at",
+    "helpSuffix": "."
+  },
   "cookies": {
     "title": "We Use Cookies",
     "description": "We use cookies to improve your experience, analyze our traffic and personalize content. By continuing to browse, you agree to our cookie policy.",
