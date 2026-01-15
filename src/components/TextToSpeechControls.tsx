@@ -184,7 +184,7 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
       isMounted = false;
       window.speechSynthesis.cancel();
     };
-  }, [html, i18n.language, supported, title, translate, translateHtml]);
+  }, [html, i18n.language, isPortuguese, supported, title, translate, translateHtml]);
 
   useEffect(() => {
     if (!isSpeaking) {

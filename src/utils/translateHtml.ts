@@ -7,7 +7,7 @@
  */
 export function extractTextFromHtml(html: string): { text: string; structure: Array<{ type: 'text' | 'tag'; content: string; index: number }> } {
   const structure: Array<{ type: 'text' | 'tag'; content: string; index: number }> = [];
-  let textParts: string[] = [];
+  const textParts: string[] = [];
   let currentIndex = 0;
 
   // Regex para encontrar tags HTML
