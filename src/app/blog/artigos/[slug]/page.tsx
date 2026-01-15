@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { PostContent } from '@/components/PostContent';
 import NewsletterSignupPopup from '@/components/NewsletterSignupPopup';
+import ReadingProgressBar from '@/components/ReadingProgressBar';
 import { StructuredData } from '@/components/StructuredData';
 import { fetchStrapiPostBySlug, type StrapiPost } from '@/lib/strapi';
 import { generatePostMetadata } from '@/utils/geoMetadata';
@@ -109,6 +110,7 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
     <>
       {/* JSON-LD Structured Data para GEO */}
       <StructuredData post={post} type="article" slug={slug} />
+      <ReadingProgressBar targetId="post-article" />
       
       <article
         id="post-article"
