@@ -24,10 +24,10 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
           className="max-w-4xl mx-auto text-center"
         >
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold text-slate-900 dark:text-white mb-6">
-            Pronto para Transformar Seu Negócio?
+            {t('contactCta.title')}
           </h3>
           <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-            Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar resultados extraordinários.
+            {t('contactCta.description')}
           </p>
           <motion.button
             onClick={onOpenForm}
@@ -35,7 +35,7 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
             whileTap={{ scale: 0.95 }}
             className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:shadow-xl flex items-center justify-center gap-2 mx-auto"
           >
-            Preencher Formulário de Contato
+            {t('contactCta.button')}
             <svg
               className="w-5 h-5 group-hover:translate-x-1 transition-transform"
               fill="none"

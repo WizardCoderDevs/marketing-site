@@ -145,4 +145,3 @@ export function TranslatedText({
 
   return <span className={className}>{displayText}</span>;
 }
-

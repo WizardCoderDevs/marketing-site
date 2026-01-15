@@ -44,6 +44,17 @@
     "description": "Transformando presença digital em resultados reais.",
     "contact": "Contato"
   },
+  "contactCta": {
+    "title": "Pronto para Transformar Seu Negócio?",
+    "description": "Entre em contato conosco e descubra como podemos ajudar sua empresa a alcançar resultados extraordinários.",
+    "button": "Preencher Formulário de Contato"
+  },
+  "contactModal": {
+    "title": "Entre em Contato",
+    "description": "Preencha o formulário abaixo e entraremos em contato em breve.",
+    "closeLabel": "Fechar formulário",
+    "iframeTitle": "Formulário de Contato"
+  },
   "cookies": {
     "title": "Utilizamos Cookies",
     "description": "Utilizamos cookies para melhorar sua experiência, analisar nosso tráfego e personalizar conteúdo. Ao continuar navegando, você concorda com nossa política de cookies.",

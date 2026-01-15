@@ -44,6 +44,17 @@
     "description": "Transforming digital presence into real results.",
     "contact": "Contact"
   },
+  "contactCta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Get in touch and discover how we can help your company achieve extraordinary results.",
+    "button": "Fill Out the Contact Form"
+  },
+  "contactModal": {
+    "title": "Get in Touch",
+    "description": "Fill out the form below and we will get back to you soon.",
+    "closeLabel": "Close contact form",
+    "iframeTitle": "Contact form"
+  },
   "cookies": {
     "title": "We Use Cookies",
     "description": "We use cookies to improve your experience, analyze our traffic and personalize content. By continuing to browse, you agree to our cookie policy.",
