@@ -4,8 +4,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const closedPaths = new Set<string>();
-
 export default function NewsletterSignupPopup() {
   const pathname = usePathname();
   const { i18n } = useTranslation();
@@ -28,11 +26,6 @@ export default function NewsletterSignupPopup() {
     hasUserScrolledRef.current = false;
     setIsReady(false);
     initialScrollRef.current = typeof window !== 'undefined' ? window.scrollY : 0;
-
-    if (closedPaths.has(pathname)) {
-      setIsEligible(false);
-      return;
-    }
 
     setIsEligible(true);
   }, [pathname]);
@@ -113,9 +106,6 @@ export default function NewsletterSignupPopup() {
   }, [isEligible, isReady, isOpen]);
 
   const handleClose = () => {
-    if (pathname) {
-      closedPaths.add(pathname);
-    }
     setIsOpen(false);
   };
 
