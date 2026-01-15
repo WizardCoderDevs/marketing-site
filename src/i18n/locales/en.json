@@ -3,7 +3,13 @@
     "services": "Services",
     "impact": "Impact",
     "contact": "Contact",
-    "home": "Home"
+    "home": "Home",
+    "articles": "Articles",
+    "news": "News",
+    "privacyPolicy": "Privacy Policy",
+    "mainNavLabel": "Main navigation menu",
+    "mobileMenuLabel": "Mobile menu",
+    "openMenu": "Open menu"
   },
   "hero": {
     "badge": "Traffic Management Experts",

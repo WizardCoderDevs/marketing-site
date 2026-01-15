@@ -3,7 +3,13 @@
     "services": "Serviços",
     "impact": "Impacto",
     "contact": "Contato",
-    "home": "Página inicial"
+    "home": "Página inicial",
+    "articles": "Artigos",
+    "news": "Notícias",
+    "privacyPolicy": "Política de Privacidade",
+    "mainNavLabel": "Menu de navegação principal",
+    "mobileMenuLabel": "Menu mobile",
+    "openMenu": "Abrir menu"
   },
   "hero": {
     "badge": "Especialistas em Gestão de Tráfego",

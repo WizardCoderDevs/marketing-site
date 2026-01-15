@@ -55,7 +55,7 @@ export default function Header() {
           <div
             className="hidden md:flex items-center space-x-8"
             role="menubar"
-            aria-label="Menu de navegação principal"
+            aria-label={t('header.mainNavLabel')}
           >
             <div role="none">
               <Link
@@ -81,20 +81,12 @@ export default function Header() {
                 {t('header.contact')}
               </Link>
             </div>
-            {/* <div role="none">
-              <Link
-                href="/apresentacao"
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-              >
-                Nosso Método
-              </Link>
-            </div> */}
             <div role="none">
               <Link
                 href="/blog/artigos"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Artigos
+                {t('header.articles')}
               </Link>
             </div>
             <div role="none">
@@ -102,7 +94,7 @@ export default function Header() {
                 href="/blog/noticias"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
-                Notícias
+                {t('header.news')}
               </Link>
             </div>
             <div role="none">
@@ -110,7 +102,7 @@ export default function Header() {
                 href="/politica-de-privacidade"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
               >
-                Política de Privacidade
+                {t('header.privacyPolicy')}
               </Link>
             </div>
             <div role="none">
@@ -126,7 +118,7 @@ export default function Header() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-slate-800 dark:text-slate-200 focus:outline-none"
-              aria-label="Abrir menu"
+              aria-label={t('header.openMenu')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               aria-haspopup="true"
@@ -160,7 +152,7 @@ export default function Header() {
           id="mobile-menu"
           className="md:hidden px-6 pt-2 pb-4 space-y-2"
           role="menu"
-          aria-label="Menu mobile"
+          aria-label={t('header.mobileMenuLabel')}
           aria-orientation="vertical"
         >
           <div className="flex flex-col space-y-4">
@@ -183,28 +175,22 @@ export default function Header() {
               {t('header.contact')}
             </Link>
             <Link
-              href="/apresentacao"
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              Nosso Método
-            </Link>
-            {/* <Link
               href="/blog/artigos"
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Artigos
-            </Link> */}
+              {t('header.articles')}
+            </Link>
             <Link
               href="/blog/noticias"
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
-              Notícias
+              {t('header.news')}
             </Link>
             <Link
               href="/politica-de-privacidade"
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
             >
-              Política de Privacidade
+              {t('header.privacyPolicy')}
             </Link>
           </div>
         </div>
