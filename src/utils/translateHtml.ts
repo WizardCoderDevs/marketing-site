@@ -105,96 +105,60 @@ export function reconstructHtml(
 }
 
 /**
- * Versão melhorada que usa uma abordagem mais simples:
- * Traduz o texto e tenta manter a estrutura HTML básica
+ * Versão melhorada que preserva a estrutura HTML completa
+ * Traduz apenas o texto dentro das tags, mantendo todas as tags HTML intactas
  */
-export function translateHtmlContent(originalHtml: string, translatedText: string): string {
-  if (!originalHtml || !translatedText) {
-    return originalHtml;
-  }
+export type HtmlPart = { type: 'tag' | 'text'; content: string };
 
-  // Extrai o texto puro do HTML original
-  const textContent = originalHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  
-  if (!textContent) {
-    return originalHtml;
-  }
-
-  // Divide o HTML em partes (tags e texto)
-  const parts: Array<{ type: 'tag' | 'text'; content: string }> = [];
+export function splitHtmlIntoParts(originalHtml: string): HtmlPart[] {
+  const parts: HtmlPart[] = [];
   let currentIndex = 0;
   const tagRegex = /<[^>]+>/g;
   let match;
 
   while ((match = tagRegex.exec(originalHtml)) !== null) {
-    // Texto antes da tag
     if (match.index > currentIndex) {
-      const text = originalHtml.substring(currentIndex, match.index);
-      if (text.trim()) {
-        parts.push({ type: 'text', content: text });
-      }
+      parts.push({ type: 'text', content: originalHtml.substring(currentIndex, match.index) });
     }
-    
-    // A tag
     parts.push({ type: 'tag', content: match[0] });
     currentIndex = match.index + match[0].length;
   }
 
-  // Texto restante
   if (currentIndex < originalHtml.length) {
-    const text = originalHtml.substring(currentIndex);
-    if (text.trim()) {
-      parts.push({ type: 'text', content: text });
-    }
+    parts.push({ type: 'text', content: originalHtml.substring(currentIndex) });
   }
 
-  // Se não conseguiu dividir em partes, faz substituição simples
-  if (parts.length === 0) {
-    return originalHtml.replace(textContent, translatedText);
+  return parts;
+}
+
+export function rebuildHtmlFromParts(parts: HtmlPart[], translatedTextParts: string[]): string {
+  if (!parts.length) {
+    return '';
   }
 
-  // Reconstrói o HTML substituindo apenas as partes de texto
-  // Para simplificar, vamos fazer uma substituição direta do texto completo
-  // mantendo todas as tags
-  let result = originalHtml;
-  
-  // Tenta substituir o texto mantendo as tags HTML
-  // Remove todas as tags temporariamente
-  const tags: string[] = [];
-  let htmlWithoutTags = originalHtml.replace(/<[^>]+>/g, (tag) => {
-    tags.push(tag);
-    return `__TAG_PLACEHOLDER__`;
-  });
+  let textIndex = 0;
+  return parts
+    .map((part) => {
+      if (part.type === 'tag') {
+        return part.content;
+      }
+      const translated = translatedTextParts[textIndex];
+      textIndex += 1;
+      return translated ?? part.content;
+    })
+    .join('');
+}
 
-  // Normaliza espaços
-  htmlWithoutTags = htmlWithoutTags.replace(/\s+/g, ' ').trim();
-  
-  // Substitui o texto
-  if (htmlWithoutTags.includes(textContent)) {
-    htmlWithoutTags = htmlWithoutTags.replace(textContent, translatedText);
-  } else {
-    // Se não encontrou exatamente, tenta substituir palavra por palavra
-    const words = textContent.split(/\s+/);
-    const translatedWords = translatedText.split(/\s+/);
-    
-    if (words.length === translatedWords.length) {
-      words.forEach((word, i) => {
-        if (translatedWords[i]) {
-          htmlWithoutTags = htmlWithoutTags.replace(new RegExp(`\\b${word}\\b`, 'gi'), translatedWords[i]);
-        }
-      });
-    } else {
-      // Último recurso: substitui tudo
-      htmlWithoutTags = translatedText;
-    }
+export function translateHtmlContent(originalHtml: string, translatedTextParts: string[]): string {
+  if (!originalHtml || !translatedTextParts.length) {
+    return originalHtml;
   }
 
-  // Restaura as tags
-  let tagIndex = 0;
-  result = htmlWithoutTags.replace(/__TAG_PLACEHOLDER__/g, () => {
-    return tags[tagIndex++] || '';
-  });
+  const parts = splitHtmlIntoParts(originalHtml);
+  if (!parts.length) {
+    return originalHtml;
+  }
 
-  return result;
+  return rebuildHtmlFromParts(parts, translatedTextParts);
 }
 
