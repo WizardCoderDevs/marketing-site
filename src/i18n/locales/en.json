@@ -61,6 +61,24 @@
     "closeLabel": "Close contact form",
     "iframeTitle": "Contact form"
   },
+  "tts": {
+    "title": "Listen to this article",
+    "description": "Use the controls to listen to this article's content.",
+    "volume": "Volume",
+    "voiceLabel": "Voice",
+    "voiceAuto": "Automatic",
+    "play": "Listen",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Stop",
+    "loading": "Preparing audio...",
+    "unsupported": "Your browser does not support read aloud.",
+    "naturalVoice": "Natural voice enabled for Portuguese.",
+    "remoteUnavailable": "Natural voice unavailable; using browser voice.",
+    "remoteProvider": "Source: {{provider}}.",
+    "browserProvider": "Source: browser.",
+    "remoteError": "Error: {{error}}."
+  },
   "newsletterConfirmation": {
     "badge": "BRANDS Newsletter",
     "title": "Subscription confirmed!",

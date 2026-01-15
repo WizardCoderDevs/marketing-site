@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { processStrapiContent } from '@/utils/strapiContent';
 import { useTranslation } from 'react-i18next';
 import { TranslatedContent, TranslatedText } from './TranslatedContent';
+import TextToSpeechControls from './TextToSpeechControls';
 
 interface PostContentProps {
   title: string;
@@ -53,6 +54,8 @@ export function PostContent({
           </p>
         )}
       </header>
+
+      {processedContent && <TextToSpeechControls title={title} html={processedContent} />}
 
       {processedContent ? (
         <TranslatedContent content={processedContent} />

@@ -61,6 +61,24 @@
     "closeLabel": "Fechar formulário",
     "iframeTitle": "Formulário de Contato"
   },
+  "tts": {
+    "title": "Ouvir este artigo",
+    "description": "Use os controles para ouvir o conteúdo deste artigo.",
+    "volume": "Volume",
+    "voiceLabel": "Voz",
+    "voiceAuto": "Automática",
+    "play": "Ouvir",
+    "pause": "Pausar",
+    "resume": "Continuar",
+    "stop": "Parar",
+    "loading": "Preparando áudio...",
+    "unsupported": "Seu navegador não oferece suporte à leitura em voz alta.",
+    "naturalVoice": "Voz natural ativada para português.",
+    "remoteUnavailable": "Voz natural indisponível; usando voz do navegador.",
+    "remoteProvider": "Fonte: {{provider}}.",
+    "browserProvider": "Fonte: navegador.",
+    "remoteError": "Erro: {{error}}."
+  },
   "newsletterConfirmation": {
     "badge": "Newsletter BRANDS",
     "title": "Assinatura confirmada!",
