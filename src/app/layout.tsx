@@ -49,6 +49,11 @@ export const metadata: Metadata = {
       'en': '/',
       'x-default': '/',
     },
+    types: {
+      'application/rss+xml': `${
+        process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br'
+      }/rss.xml`,
+    },
   },
   icons: {
     icon: [
