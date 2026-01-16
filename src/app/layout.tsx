@@ -1,5 +1,6 @@
 import CookieBanner from '@/components/CookieBanner';
 import GoogleTagTracker from '@/components/GoogleTagTracker';
+import { ContactFormProvider } from '@/contexts/ContactFormContext';
 import { ConversionProvider } from '@/contexts/ConversionContext';
 import { CookieProvider } from '@/contexts/CookieContext';
 import I18nProvider from '@/i18n/I18nProvider';
@@ -132,9 +133,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <CookieProvider>
               <ConversionProvider>
-                <GoogleTagTracker />
-                {children}
-                <CookieBanner />
+                <ContactFormProvider>
+                  <GoogleTagTracker />
+                  {children}
+                  <CookieBanner />
+                </ContactFormProvider>
               </ConversionProvider>
             </CookieProvider>
           </ThemeProvider>

@@ -1,7 +1,7 @@
 'use client';
 
 import { Pause, Play, Square, Volume2 } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useTranslate } from '@/hooks/useTranslate';
@@ -192,9 +192,59 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
     }
   }, [isSpeaking]);
 
+  const speakFromIndex = useCallback(
+    (startIndex: number) => {
+      if (!supported) {
+        return;
+      }
+
+      const synth = window.speechSynthesis;
+      const utterances = utterancesRef.current;
+
+      if (!utterances.length) {
+        return;
+      }
+
+      utteranceIndexRef.current = Math.max(0, Math.min(startIndex, utterances.length - 1));
+
+      const speakNext = () => {
+        const index = utteranceIndexRef.current;
+        const utterance = utterances[index];
+
+        if (!utterance) {
+          setIsSpeaking(false);
+          return;
+        }
+
+        utterance.onend = () => {
+          utteranceIndexRef.current += 1;
+          speakNext();
+        };
+        utterance.onerror = () => {
+          setIsSpeaking(false);
+        };
+
+        synth.speak(utterance);
+      };
+
+      speakNext();
+    },
+    [supported],
+  );
+
   useEffect(() => {
-    // No-op: volume applied per utterance.
-  }, [volume]);
+    utterancesRef.current.forEach((utterance) => {
+      utterance.volume = volume;
+    });
+
+    if (!isSpeaking || isPaused) {
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    setIsPaused(false);
+    speakFromIndex(utteranceIndexRef.current);
+  }, [isPaused, isSpeaking, speakFromIndex, volume]);
 
   const isLoading = isPreparing || isTranslating;
   const canPlay = supported && !isLoading && ttsText.length > 0;
@@ -232,27 +282,7 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
     setIsSpeaking(true);
     setIsPaused(false);
 
-    const speakNext = () => {
-      const index = utteranceIndexRef.current;
-      const utterance = utterancesRef.current[index];
-
-      if (!utterance) {
-        setIsSpeaking(false);
-        return;
-      }
-
-      utterance.onend = () => {
-        utteranceIndexRef.current += 1;
-        speakNext();
-      };
-      utterance.onerror = () => {
-        setIsSpeaking(false);
-      };
-
-      synth.speak(utterance);
-    };
-
-    speakNext();
+    speakFromIndex(0);
   };
 
   const handlePause = () => {

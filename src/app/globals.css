@@ -68,6 +68,42 @@ h6 {
   @apply text-slate-100;
 }
 
+/* Blog post typography (MDX/Strapi) */
+.blog-content h1 {
+  @apply text-3xl text-violet-700;
+}
+.blog-content h2 {
+  @apply text-2xl text-violet-700;
+}
+.blog-content h3 {
+  @apply text-xl text-violet-700;
+}
+.blog-content h4 {
+  @apply text-lg text-violet-700;
+}
+.blog-content strong,
+.blog-content b {
+  @apply text-violet-700;
+}
+.blog-content em,
+.blog-content i {
+  @apply text-[#ff3399] font-medium;
+}
+.dark .blog-content h1,
+.dark .blog-content h2,
+.dark .blog-content h3,
+.dark .blog-content h4 {
+  @apply text-violet-400;
+}
+.dark .blog-content strong,
+.dark .blog-content b {
+  @apply text-violet-400;
+}
+.dark .blog-content em,
+.dark .blog-content i {
+  @apply text-[#00ffff];
+}
+
 /* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 8px;

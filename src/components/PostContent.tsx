@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { processStrapiContent } from '@/utils/strapiContent';
 import { useTranslation } from 'react-i18next';
+import ContactCTASection from './ContactCTASection';
 import { TranslatedContent, TranslatedText } from './TranslatedContent';
 import TextToSpeechControls from './TextToSpeechControls';
 
@@ -29,6 +30,10 @@ export function PostContent({
   const { t } = useTranslation();
   // Processa o conteúdo do Strapi para HTML
   const processedContent = processStrapiContent(content);
+  const postTypographyClass =
+    'prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg ' +
+    'prose-headings:text-violet-700 dark:prose-headings:text-violet-400 ' +
+    'prose-strong:text-violet-700 dark:prose-strong:text-violet-400';
 
   return (
     <>
@@ -58,12 +63,14 @@ export function PostContent({
       {processedContent && <TextToSpeechControls title={title} html={processedContent} />}
 
       {processedContent ? (
-        <TranslatedContent content={processedContent} />
+        <TranslatedContent content={processedContent} className={postTypographyClass} />
       ) : (
         <div className="text-slate-600 dark:text-slate-400">
           <p className="mb-4">Conteúdo não disponível.</p>
         </div>
       )}
+
+      <ContactCTASection />
     </>
   );
 }

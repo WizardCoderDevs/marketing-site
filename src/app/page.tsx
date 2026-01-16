@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 import ContactCTASection from '@/components/ContactCTASection';
-import ContactFormModal from '@/components/ContactFormModal';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -17,7 +16,6 @@ import ServicosPage from './servicos/page';
 export default function HomePage() {
   // Estados para gerenciar a UI e dados
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
-  const [isContactFormOpen, setIsContactFormOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -27,7 +25,7 @@ export default function HomePage() {
         <HeroSection />
         <ImpactSection />
         <ServicosPage />
-        <ContactCTASection onOpenForm={() => setIsContactFormOpen(true)} />
+        <ContactCTASection />
       </main>
 
       <Footer />
@@ -40,11 +38,6 @@ export default function HomePage() {
         />
       )}
 
-      {/* Modal de Formulário de Contato */}
-      <ContactFormModal
-        isOpen={isContactFormOpen}
-        onClose={() => setIsContactFormOpen(false)}
-      />
     </>
   );
 }

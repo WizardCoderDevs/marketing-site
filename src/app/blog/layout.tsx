@@ -14,7 +14,7 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
       <>
       <Header />
       <main role="main">
-        <section className="prose prose-slate dark:prose-invert mx-auto w-full max-w-3xl px-4 py-10 md:py-12">
+        <section className="blog-content prose prose-slate dark:prose-invert mx-auto w-full max-w-3xl px-4 py-10 md:py-12">
           {children}
         </section>
         <Footer />

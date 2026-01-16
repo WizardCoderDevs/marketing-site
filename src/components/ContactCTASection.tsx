@@ -3,12 +3,22 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import { useContactForm } from '@/contexts/ContactFormContext';
+
 interface ContactCTASectionProps {
-  onOpenForm: () => void;
+  onOpenForm?: () => void;
 }
 
 export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps) {
   const { t } = useTranslation();
+  const contactForm = useContactForm();
+  const handleOpenForm = () => {
+    if (onOpenForm) {
+      onOpenForm();
+      return;
+    }
+    contactForm?.openForm();
+  };
 
   return (
     <section
@@ -30,7 +40,7 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
             {t('contactCta.description')}
           </p>
           <motion.button
-            onClick={onOpenForm}
+            onClick={handleOpenForm}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="group bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:shadow-xl flex items-center justify-center gap-2 mx-auto"
