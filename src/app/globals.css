@@ -6,6 +6,7 @@
 :root {
   --font-comfortaa: 'Comfortaa', cursive;
   --font-poppins: 'Poppins', sans-serif;
+  --color-accent-secondary: #ff3399;
 }
 
 /* Adiciona scroll suave para toda a página */
@@ -20,6 +21,10 @@ body {
   letter-spacing: 0.02em;
 }
 
+.dark {
+  --color-accent-secondary: #00ffff;
+}
+
 h1,
 h2,
 h3,
@@ -27,6 +32,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-poppins);
+}
+
+em,
+i {
+  color: var(--color-accent-secondary);
 }
 
 .chart-container {
@@ -87,7 +97,8 @@ h6 {
 }
 .blog-content em,
 .blog-content i {
-  @apply text-[#ff3399] font-medium;
+  color: var(--color-accent-secondary);
+  font-weight: 500;
 }
 .dark .blog-content h1,
 .dark .blog-content h2,
@@ -101,7 +112,8 @@ h6 {
 }
 .dark .blog-content em,
 .dark .blog-content i {
-  @apply text-[#00ffff];
+  color: var(--color-accent-secondary);
+  font-weight: 400;
 }
 
 /* Scrollbar styles */
