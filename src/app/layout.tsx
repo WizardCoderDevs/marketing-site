@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'BRANDS - Marketing Digital Estratégico',
     description:
       'Transforme seu negócio com estratégias de marketing digital personalizadas',
-    url: 'https://brands.ppg.br',
+    url: siteUrl,
     siteName: 'BRANDS',
     locale: 'pt_BR',
     type: 'website',

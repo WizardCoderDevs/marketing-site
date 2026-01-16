@@ -25,15 +25,22 @@ export async function GET() {
     fetchStrapiPosts('news'),
   ]);
 
-  const items = [...articles, ...news]
-    .sort((a, b) => {
+  const combinedPosts = [...articles, ...news];
+  const uniquePosts = new Map(
+    combinedPosts.map((post) => {
+      const url = `${siteUrl}${buildItemPath(post)}`;
+      return [url, post];
+    }),
+  );
+
+  const items = Array.from(uniquePosts.entries())
+    .sort(([, a], [, b]) => {
       const aDate = new Date(a.attributes.publishedAt || a.attributes.updatedAt).getTime();
       const bDate = new Date(b.attributes.publishedAt || b.attributes.updatedAt).getTime();
       return bDate - aDate;
     })
-    .map((post) => {
+    .map(([url, post]) => {
       const title = escapeXml(post.attributes.title);
-      const url = `${siteUrl}${buildItemPath(post)}`;
       const pubDate = new Date(
         post.attributes.publishedAt || post.attributes.updatedAt,
       ).toUTCString();
