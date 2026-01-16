@@ -24,7 +24,7 @@ body {
 /* Performance: avoid rendering below-the-fold content early */
 .content-visibility-auto {
   content-visibility: auto;
-  contain-intrinsic-size: 1000px;
+  contain-intrinsic-size: var(--cvis-size, 1000px);
 }
 
 .dark {
