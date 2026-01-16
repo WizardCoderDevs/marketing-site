@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import type { CSSProperties } from 'react';
 
 import type { ServiceData } from '@/data/servicesData';
 import { useTranslatedServices } from '@/utils/getTranslatedServices';
@@ -19,6 +20,7 @@ export default function ServicesSection({ onServiceSelect }: ServicesSectionProp
       id="servicos"
       className="content-visibility-auto py-20 bg-stone-50 dark:bg-slate-800"
       aria-labelledby="servicos-title"
+      style={{ '--cvis-size': '900px' } as CSSProperties}
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">

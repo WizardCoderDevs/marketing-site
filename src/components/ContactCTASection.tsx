@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import type { CSSProperties } from 'react';
 
 import { useContactForm } from '@/contexts/ContactFormContext';
 
@@ -24,6 +25,7 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
     <section
       id="contact-cta-section"
       className="content-visibility-auto py-20 bg-gradient-to-br from-violet-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-violet-900"
+      style={{ '--cvis-size': '420px' } as CSSProperties}
     >
       <div className="container mx-auto px-6">
         <motion.div
