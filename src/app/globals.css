@@ -21,6 +21,12 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* Performance: avoid rendering below-the-fold content early */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
 .dark {
   --color-accent-secondary: #00ffff;
 }

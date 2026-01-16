@@ -27,6 +27,8 @@ const poppins = Poppins({
 });
 
 // Metadados da página para SEO
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br').replace(/\/$/, '');
+
 export const metadata: Metadata = {
   title: 'BRANDS - Marketing Digital Estratégico para Empresas Regionais',
   description:
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://brands.ppg.br'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
     languages: {
@@ -50,9 +52,7 @@ export const metadata: Metadata = {
       'x-default': '/',
     },
     types: {
-      'application/rss+xml': `${
-        process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br'
-      }/rss.xml`,
+      'application/rss+xml': `${siteUrl}/rss.xml`,
     },
   },
   icons: {

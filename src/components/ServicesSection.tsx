@@ -17,7 +17,7 @@ export default function ServicesSection({ onServiceSelect }: ServicesSectionProp
   return (
     <section
       id="servicos"
-      className="py-20 bg-stone-50 dark:bg-slate-800"
+      className="content-visibility-auto py-20 bg-stone-50 dark:bg-slate-800"
       aria-labelledby="servicos-title"
     >
       <div className="container mx-auto px-6">
