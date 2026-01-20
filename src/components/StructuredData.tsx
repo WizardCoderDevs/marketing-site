@@ -121,7 +121,7 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
     sameAs: [
       // Adicione suas redes sociais aqui
       // 'https://www.facebook.com/brands',
-      // 'https://www.instagram.com/brands',
+      'https://www.instagram.com/brands.ppg.br',
       // 'https://www.linkedin.com/company/brands',
     ],
   };
