@@ -1,6 +1,5 @@
 import { fetchStrapiPosts } from '@/lib/strapi';
-
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br').replace(/\/$/, '');
+import { siteUrl } from '@/utils/siteUrl';
 
 function escapeXml(value: string) {
   return value

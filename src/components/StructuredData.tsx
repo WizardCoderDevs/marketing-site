@@ -1,8 +1,7 @@
 import type { StrapiPost } from '@/lib/strapi';
 import { extractPlainText } from '@/utils/geoMetadata';
+import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
 import { getPostImageUrl } from '@/utils/strapiImage';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br';
 const siteName = 'BRANDS';
 
 interface StructuredDataProps {
@@ -55,12 +54,12 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
     author: {
       '@type': 'Organization',
       name: siteName,
-      url: siteUrl,
+      url: siteUrlWithSlash,
     },
     publisher: {
       '@type': 'Organization',
       name: siteName,
-      url: siteUrl,
+      url: siteUrlWithSlash,
       logo: {
         '@type': 'ImageObject',
         url: `${siteUrl}/logo.png`,
@@ -89,7 +88,7 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: siteUrl,
+        item: siteUrlWithSlash,
       },
       {
         '@type': 'ListItem',
@@ -117,7 +116,7 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteName,
-    url: siteUrl,
+    url: siteUrlWithSlash,
     logo: `${siteUrl}/logo.png`,
     sameAs: [
       // Adicione suas redes sociais aqui

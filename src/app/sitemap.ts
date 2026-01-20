@@ -1,8 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 import { fetchStrapiPosts } from '@/lib/strapi';
-
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br').replace(/\/$/, '');
+import { siteUrl } from '@/utils/siteUrl';
 
 function toUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`;

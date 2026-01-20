@@ -2,7 +2,7 @@ import type { StrapiPost } from '@/lib/strapi';
 import { getPostImageUrl } from '@/utils/strapiImage';
 import type { Metadata } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br';
+import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
 const siteName = 'BRANDS';
 
 /**
@@ -78,7 +78,7 @@ export function generatePostMetadata(
     authors: [{ name: siteName }],
     creator: siteName,
     publisher: siteName,
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(siteUrlWithSlash),
     alternates: {
       canonical: url,
     },

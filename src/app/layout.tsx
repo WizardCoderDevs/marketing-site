@@ -4,6 +4,7 @@ import { ContactFormProvider } from '@/contexts/ContactFormContext';
 import { ConversionProvider } from '@/contexts/ConversionContext';
 import { CookieProvider } from '@/contexts/CookieContext';
 import I18nProvider from '@/i18n/I18nProvider';
+import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
@@ -27,7 +28,6 @@ const poppins = Poppins({
 });
 
 // Metadados da página para SEO
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://brands.ppg.br').replace(/\/$/, '');
 
 export const metadata: Metadata = {
   title: 'BRANDS - Marketing Digital Estratégico para Empresas Regionais',
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteUrlWithSlash),
   alternates: {
-    canonical: '/',
+    canonical: siteUrlWithSlash,
     languages: {
-      'pt-BR': '/',
-      'en': '/',
-      'x-default': '/',
+      'pt-BR': siteUrlWithSlash,
+      'en': siteUrlWithSlash,
+      'x-default': siteUrlWithSlash,
     },
     types: {
       'application/rss+xml': `${siteUrl}/rss.xml`,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'BRANDS - Marketing Digital Estratégico',
     description:
       'Transforme seu negócio com estratégias de marketing digital personalizadas',
-    url: siteUrl,
+    url: siteUrlWithSlash,
     siteName: 'BRANDS',
     locale: 'pt_BR',
     type: 'website',
