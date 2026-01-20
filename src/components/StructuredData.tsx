@@ -120,7 +120,7 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
     logo: `${siteUrl}/logo.png`,
     sameAs: [
       // Adicione suas redes sociais aqui
-      // 'https://www.facebook.com/brands',
+      'https://www.facebook.com/brands.ppg.br',
       'https://www.instagram.com/brands.ppg.br',
       // 'https://www.linkedin.com/company/brands',
     ],
