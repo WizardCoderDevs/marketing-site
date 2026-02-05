@@ -109,7 +109,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200">
+      <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200" suppressHydrationWarning>
         {/* Google tag (gtag.js) */}
         {googleTagId && (
           <>

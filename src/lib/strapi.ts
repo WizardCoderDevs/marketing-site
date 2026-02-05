@@ -97,7 +97,7 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
-        cache: 'no-store', // Para sempre buscar dados atualizados
+        next: { revalidate: 60 }, // Cache com revalidação a cada 60 segundos
         signal: controller.signal, // Para permitir cancelamento
       } as RequestInit);
 

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { TranslatedText } from './TranslatedContent';
 
@@ -33,12 +34,12 @@ export function PostListItem({ post, basePath, readMoreText }: PostListItemProps
       >
         <div className="relative w-full h-48 md:w-48 md:h-48 bg-slate-200 dark:bg-slate-800 overflow-hidden">
           {post.imageUrl ? (
-            <img
+            <Image
               src={post.imageUrl}
               alt={post.attributes.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
+              fill
+              sizes="(max-width: 768px) 100vw, 192px"
+              className="object-cover"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-600 text-sm">

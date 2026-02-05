@@ -9,10 +9,19 @@ const nextConfig: NextConfig = {
 
   // Optimize images and enable modern image formats
   images: {
-    unoptimized: true, // Required for static export
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_STRAPI_IMAGE_HOST || 'impossible-jewel-brands-e5923fd3.koyeb.app',
+      },
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_R2_IMAGE_HOST || 'pub-8d1351ce950247f88492d85d723a1329.r2.dev',
+      },
+    ],
   },
 
   // Enable compression for better performance
