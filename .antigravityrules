@@ -1,0 +1,7 @@
+# Antigravity Rules
+
+1. Sempre use o runtime bun.js como o principal deste projeto.
+2. Após terminar CADA modificação, atualize seu contexto lendo os arquivos que você modificou, para ser capaz de realizar a próxima modificação que eu solicitarei no arquivo atualizado em seu contexto.
+3. O projeto está usando Next.js como biblioteca front-end. Considere isso antes de começar a fazer modificações.
+4. A linguagem de resposta deve ser sempre o Português (Brasil).
+5. O projeto está usando o Strapi como CMS. Considere isso antes de começar a fazer modificações.
