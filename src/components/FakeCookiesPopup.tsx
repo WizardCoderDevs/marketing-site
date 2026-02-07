@@ -17,11 +17,10 @@ export default function FakeCookiesPopup({ redirectUrl, isVisible = true }: Fake
 
   return (
     // Overlay Container - Blocks interaction with everything behind it
-    // Overlay Container - Blocks interaction with everything behind it
     <div className="fixed inset-0 z-50 flex flex-col justify-center items-center">
       
-      {/* Semi-transparent Backdrop - Increased blur */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" />
+      {/* Transparent Backdrop (No blur, no color, but blocks clicks) */}
+      <div className="absolute inset-0 bg-transparent" aria-hidden="true" />
 
       {/* Popup Content - Centered */}
       <div className="relative z-10 w-full p-4 md:p-6 animate-in zoom-in-95 fade-in duration-500">
