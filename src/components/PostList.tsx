@@ -27,25 +27,32 @@ export function PostList({ posts, basePath, titleKey, noPostsKey, readMoreKey }:
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-8 text-slate-900 dark:text-white">
-        {t(titleKey)}
-      </h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="mb-10 lg:mb-16">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-slate-900 dark:text-white">
+          {t(titleKey)}
+        </h1>
+        <div className="h-1 w-20 bg-gradient-to-r from-violet-600 to-violet-400 rounded-full"></div>
+      </div>
 
       {posts.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-slate-600 dark:text-slate-400 text-lg">
-            {t(noPostsKey)}
-          </p>
+        <div className="text-center py-16 lg:py-24">
+          <div className="max-w-md mx-auto">
+            <div className="mb-6 text-6xl">📝</div>
+            <p className="text-slate-600 dark:text-slate-400 text-lg lg:text-xl">
+              {t(noPostsKey)}
+            </p>
+          </div>
         </div>
       ) : (
-        <div className="space-y-6">
-          {posts.map((post) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {posts.map((post, index) => (
             <PostListItem
               key={post.id}
               post={post}
               basePath={basePath}
               readMoreText={t(readMoreKey)}
+              isFeatured={index === 0}
             />
           ))}
         </div>
