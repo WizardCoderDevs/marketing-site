@@ -97,7 +97,7 @@ export default function AdvocaciaLanding() {
                 <div className="pt-6 flex flex-wrap gap-6 items-center">
                   <button 
                     onClick={() => contactForm?.openForm()}
-                    className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(124,58,237,0.6)] transform hover:-translate-y-1"
+                    className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white dark:text-slate-950 bg-gradient-to-r from-violet-600 to-blue-600 dark:bg-white rounded-xl hover:from-violet-500 hover:to-blue-500 dark:hover:bg-violet-50 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(124,58,237,0.6)] transform hover:-translate-y-1"
                   >
                     {t('advocaciaLanding.hero.cta')}
                     <ArrowRight className="ml-3 w-6 h-6" />
@@ -117,8 +117,8 @@ export default function AdvocaciaLanding() {
               </div>
 
               {/* Authority Dominance Dashboard */}
-              <div className="relative hidden lg:block h-[600px] w-full">
-                <div className="absolute inset-0 bg-white/90 dark:bg-slate-950/40 backdrop-blur-3xl rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 overflow-hidden group">
+              <div className="relative h-[500px] lg:h-[600px] w-full">
+                <div className="absolute inset-0 bg-white/90 dark:bg-slate-950/40 backdrop-blur-3xl rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-6 lg:p-10 overflow-hidden group">
                    {/* Grid Pattern Overlay */}
                    <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
                    
@@ -174,7 +174,7 @@ export default function AdvocaciaLanding() {
                 </div>
                 
                 {/* Floating Tooltips for depth */}
-                <div className="absolute -left-12 top-1/4 p-4 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl animate-bounce-slow">
+                <div className="hidden lg:block absolute -left-12 top-1/4 p-4 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl animate-bounce-slow">
                    <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
                          <Target className="w-5 h-5 text-white" />
@@ -436,7 +436,7 @@ export default function AdvocaciaLanding() {
                  <div className="w-full max-w-md space-y-8">
                     <button 
                        onClick={() => contactForm?.openForm()}
-                       className="w-full bg-white text-slate-950 hover:bg-violet-50 font-bold px-10 py-6 rounded-2xl transition-all duration-500 shadow-[0_10px_40px_-5px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_60px_-5px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 text-xl flex items-center justify-center gap-4 group"
+                       className="w-full bg-gradient-to-r from-violet-600 to-blue-600 dark:bg-white text-white dark:text-slate-950 hover:from-violet-500 hover:to-blue-500 dark:hover:bg-violet-50 font-bold px-10 py-6 rounded-2xl transition-all duration-500 shadow-[0_10px_40px_-5px_rgba(124,58,237,0.3)] dark:shadow-[0_10px_40px_-5px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_60px_-5px_rgba(124,58,237,0.5)] dark:hover:shadow-[0_20px_60px_-5px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 text-xl flex items-center justify-center gap-4 group"
                     >
                        {t('contactCta.button')}
                        <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
