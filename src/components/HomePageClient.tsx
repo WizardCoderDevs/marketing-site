@@ -11,7 +11,7 @@ export default function HomePageClient() {
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-stone-50 dark:bg-slate-950">
       <Header />
 
       <main role="main">

@@ -34,7 +34,7 @@ export default function AdvocaciaLanding() {
   const currentLang = i18n.language.startsWith('en') ? 'en' : 'pt';
 
   return (
-    <div className={`text-slate-100 selection:bg-violet-500/30 ${inter.className} ${playfair.variable}`}>
+    <div className={`text-slate-900 dark:text-slate-100 selection:bg-violet-500/30 ${inter.className} ${playfair.variable}`}>
       
       {/* Decorative Background Elements */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -65,13 +65,13 @@ export default function AdvocaciaLanding() {
                         className="w-12 h-12 relative z-10 drop-shadow-[0_0_10px_rgba(139,92,246,0.3)]"
                       />
                     </div>
-                    <span className="text-4xl md:text-5xl font-extrabold font-poppins text-white bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                    <span className="text-4xl md:text-5xl font-extrabold font-poppins text-slate-900 dark:text-white">
                       BRANDS
                     </span>
                   </div>
 
                   <div className="space-y-4">
-                    <p className="text-2xl md:text-3xl text-violet-300 font-playfair font-medium tracking-tight leading-none italic opacity-90 border-l-2 border-violet-500/50 pl-6 py-1">
+                    <p className="text-2xl md:text-3xl text-violet-700 dark:text-violet-300 font-playfair font-medium tracking-tight leading-none italic opacity-90 border-l-2 border-violet-500/50 pl-6 py-1">
                       {t('advocaciaLanding.hero.quote')}
                     </p>
                     
@@ -82,7 +82,7 @@ export default function AdvocaciaLanding() {
                   </div>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-white">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-slate-900 dark:text-white">
                   {t('advocaciaLanding.hero.titlePart1')}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">
                     {t('advocaciaLanding.hero.titleHighlight')}
@@ -90,7 +90,7 @@ export default function AdvocaciaLanding() {
                   {t('advocaciaLanding.hero.titlePart2')}
                 </h1>
                 
-                <p className="text-xl text-slate-400 leading-relaxed font-light max-w-2xl">
+                <p className="text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-light max-w-2xl">
                   {t('advocaciaLanding.hero.description')}
                 </p>
                 
@@ -118,7 +118,7 @@ export default function AdvocaciaLanding() {
 
               {/* Authority Dominance Dashboard */}
               <div className="relative hidden lg:block h-[600px] w-full">
-                <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 overflow-hidden group">
+                <div className="absolute inset-0 bg-white/90 dark:bg-slate-950/40 backdrop-blur-3xl rounded-[2.5rem] border border-slate-200 dark:border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 overflow-hidden group">
                    {/* Grid Pattern Overlay */}
                    <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
                    
@@ -127,7 +127,7 @@ export default function AdvocaciaLanding() {
                      <div className="flex justify-between items-start">
                         <div className="space-y-1">
                           <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">{t('advocaciaLanding.hero.dashboard.statusLabel')}</div>
-                          <div className="text-2xl font-bold text-white flex items-center gap-2">
+                          <div className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                              {t('advocaciaLanding.hero.dashboard.statusValue')} <ShieldCheck className="w-5 h-5 text-emerald-400" />
                           </div>
                         </div>
@@ -144,7 +144,7 @@ export default function AdvocaciaLanding() {
                               <circle cx="96" cy="96" r="88" className="stroke-violet-500 fill-none" strokeWidth="8" strokeDasharray="553" strokeDashoffset="44" strokeLinecap="round" />
                            </svg>
                            <div className="absolute inset-0 flex flex-col items-center justify-center">
-                              <span className="text-5xl font-bold text-white leading-none">92</span>
+                              <span className="text-5xl font-bold text-slate-900 dark:text-white leading-none">92</span>
                               <span className="text-xs text-slate-500 font-bold tracking-tighter mt-1 uppercase">{t('advocaciaLanding.hero.dashboard.scoreLabel')}</span>
                            </div>
                         </div>
@@ -152,18 +152,18 @@ export default function AdvocaciaLanding() {
 
                      {/* Stats Indicators */}
                      <div className="grid grid-cols-2 gap-6">
-                        <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
+                        <div className="p-5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl space-y-3 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
                               <TrendingUp className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.growthLabel')}
                            </div>
-                           <div className="text-3xl font-bold text-white">+145%</div>
+                           <div className="text-3xl font-bold text-slate-900 dark:text-white">+145%</div>
                            <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.growthSub')}</div>
                         </div>
-                        <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
+                        <div className="p-5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl space-y-3 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                               <Award className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.positionLabel')}
                            </div>
-                           <div className="text-3xl font-bold text-white">#1</div>
+                           <div className="text-3xl font-bold text-slate-900 dark:text-white">#1</div>
                            <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.positionSub')}</div>
                         </div>
                      </div>
@@ -174,14 +174,14 @@ export default function AdvocaciaLanding() {
                 </div>
                 
                 {/* Floating Tooltips for depth */}
-                <div className="absolute -left-12 top-1/4 p-4 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl animate-bounce-slow">
+                <div className="absolute -left-12 top-1/4 p-4 bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl animate-bounce-slow">
                    <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
                          <Target className="w-5 h-5 text-white" />
                       </div>
                       <div>
                          <div className="text-[10px] text-slate-500 font-bold uppercase">{t('advocaciaLanding.hero.dashboard.targetReached')}</div>
-                         <div className="text-sm font-bold text-white">{t('advocaciaLanding.hero.dashboard.eliteFirm')}</div>
+                         <div className="text-sm font-bold text-slate-900 dark:text-white">{t('advocaciaLanding.hero.dashboard.eliteFirm')}</div>
                       </div>
                    </div>
                 </div>
@@ -195,26 +195,26 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 2: A AGITAÇÃO DO PROBLEMA (SITUAÇÃO) */}
-        <section className="relative py-24 bg-slate-900/20 border-y border-white/5 overflow-hidden">
+        <section className="relative py-24 bg-slate-100 dark:bg-slate-900/20 border-y border-slate-200 dark:border-white/5 overflow-hidden">
           {/* Subtle Ambient Light */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-violet-600/5 blur-[120px] pointer-events-none" />
           
           <div className="container mx-auto px-6 max-w-5xl relative z-10">
             <div className="text-center space-y-12 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 dark:text-white tracking-tight">
                 {t('advocaciaLanding.problem.titlePart1')} <br className="hidden md:block"/> 
-                <span className="italic text-violet-300">{t('advocaciaLanding.problem.titleItalic')}</span> {t('advocaciaLanding.problem.titlePart2')}
+                <span className="italic text-violet-700 dark:text-violet-300">{t('advocaciaLanding.problem.titleItalic')}</span> {t('advocaciaLanding.problem.titlePart2')}
               </h2>
               
               <div className="grid md:grid-cols-2 gap-10 text-left items-start">
-                <p className="text-lg text-slate-300 leading-relaxed font-light first-letter:text-5xl first-letter:font-playfair first-letter:text-violet-400 first-letter:mr-3 first-letter:float-left">
+                <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-light first-letter:text-5xl first-letter:font-playfair first-letter:text-violet-600 dark:first-letter:text-violet-400 first-letter:mr-3 first-letter:float-left">
                   {t('advocaciaLanding.problem.description1')}
                 </p>
                 <div className="space-y-6">
-                  <p className="text-lg text-slate-300 leading-relaxed font-light">
+                  <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-light">
                     {t('advocaciaLanding.problem.description2')}
                   </p>
-                  <p className="text-lg text-slate-400 leading-relaxed font-light italic border-l border-violet-500/30 pl-6">
+                  <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light italic border-l border-violet-500/30 pl-6">
                     {t('advocaciaLanding.problem.highlight')}
                   </p>
                 </div>
@@ -225,7 +225,7 @@ export default function AdvocaciaLanding() {
                     <div className="absolute inset-0 bg-violet-400 blur-2xl opacity-10 animate-pulse" />
                     <span className="relative flex flex-col items-center gap-2">
                        <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
-                       <span className="py-4 px-8 text-2xl md:text-3xl font-playfair font-bold text-violet-300 tracking-tight">
+                       <span className="py-4 px-8 text-2xl md:text-3xl font-playfair font-bold text-violet-700 dark:text-violet-300 tracking-tight">
                           {t('advocaciaLanding.problem.footer')}
                        </span>
                        <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
@@ -237,19 +237,19 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 3: DIAGNÓSTICO DE GARGALOS (PROBLEMA & IMPLICAÇÃO) */}
-        <section className="py-32 bg-slate-950 px-6 relative overflow-hidden">
+        <section className="py-32 bg-white dark:bg-slate-950 px-6 relative overflow-hidden">
           {/* Decorative background flare */}
           <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
           
           <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-500 text-xs font-bold uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-600 dark:text-slate-500 text-xs font-bold uppercase tracking-widest">
                 {t('advocaciaLanding.diagnostics.badge')}
               </div>
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 dark:text-white">
                 {t('advocaciaLanding.diagnostics.title')}
               </h2>
-              <p className="text-lg text-slate-400 font-light leading-relaxed">
+              <p className="text-lg text-slate-700 dark:text-slate-400 font-light leading-relaxed">
                 {t('advocaciaLanding.diagnostics.description')}
               </p>
             </div>
@@ -285,17 +285,17 @@ export default function AdvocaciaLanding() {
                   {/* Card Glow Effect on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
                   
-                  <div className="relative h-full bg-slate-900/40 backdrop-blur-sm border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-                    <div className="w-14 h-14 rounded-xl bg-slate-800/50 flex items-center justify-center mb-6 relative overflow-hidden group-hover:bg-slate-800 transition-colors">
+                  <div className="relative h-full bg-slate-50 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-white/5 p-8 rounded-2xl hover:border-slate-300 dark:hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                    <div className="w-14 h-14 rounded-xl bg-slate-200 dark:bg-slate-800/50 flex items-center justify-center mb-6 relative overflow-hidden group-hover:bg-slate-300 dark:group-hover:bg-slate-800 transition-colors">
                        <div className={`absolute inset-0 bg-${item.color}-500/10 blur-lg`} />
                        <item.icon className={`w-7 h-7 text-${item.color}-400 relative z-10`} />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-violet-300 transition-colors">{item.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed font-light">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors">{item.title}</h3>
+                    <p className="text-slate-700 dark:text-slate-400 text-sm leading-relaxed font-light">
                       {item.description}
                     </p>
                     
-                    <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
                        <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-tighter">
                           {t('advocaciaLanding.diagnostics.impactLabel')} <span className="w-1 h-1 rounded-full bg-red-500/50 animate-pulse"></span>
                        </div>
@@ -308,7 +308,7 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 4: A SOLUÇÃO (NECESSIDADE) */}
-        <section className="py-32 bg-gradient-to-b from-slate-900 to-slate-950 border-t border-white/5 px-6 relative overflow-hidden">
+        <section className="py-32 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-white/5 px-6 relative overflow-hidden">
           {/* Methodology Line Visual in Background */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
              <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
@@ -321,14 +321,14 @@ export default function AdvocaciaLanding() {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="space-y-10">
                 <div className="space-y-4">
-                  <span className="text-violet-400 text-sm font-bold uppercase tracking-[0.3em]">{t('advocaciaLanding.methodology.badge')}</span>
-                  <h3 className="text-4xl md:text-5xl font-playfair font-bold text-white leading-tight">
+                  <span className="text-violet-600 dark:text-violet-400 text-sm font-bold uppercase tracking-[0.3em]">{t('advocaciaLanding.methodology.badge')}</span>
+                  <h3 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 dark:text-white leading-tight">
                     {t('advocaciaLanding.methodology.title')} <br/>
-                    <span className="text-slate-500">{t('advocaciaLanding.methodology.subtitle')}</span>
+                    <span className="text-slate-400 dark:text-slate-500">{t('advocaciaLanding.methodology.subtitle')}</span>
                   </h3>
                 </div>
                 
-                <div className="prose prose-invert prose-lg text-slate-400 font-light leading-relaxed">
+                <div className="prose prose-slate dark:prose-invert prose-lg text-slate-700 dark:text-slate-400 font-light leading-relaxed">
                    <p>
                      {t('advocaciaLanding.methodology.description1')} 
                    </p>
@@ -359,15 +359,15 @@ export default function AdvocaciaLanding() {
                     color: "emerald"
                   }
                 ].map((item, idx) => (
-                  <div key={idx} className="group flex gap-6 p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
+                  <div key={idx} className="group flex gap-6 p-8 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-[2rem] hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/10 transition-all duration-300">
                     <div className="shrink-0">
                        <div className={`w-14 h-14 rounded-2xl bg-${item.color}-500/10 flex items-center justify-center border border-${item.color}-500/20 group-hover:scale-110 transition-transform`}>
                           <item.icon className={`w-7 h-7 text-${item.color}-400`} />
                        </div>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-white group-hover:text-violet-300 transition-colors">{item.title}</h4>
-                      <p className="text-slate-400 text-sm font-light leading-relaxed">{item.desc}</p>
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors">{item.title}</h4>
+                      <p className="text-slate-700 dark:text-slate-400 text-sm font-light leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -377,31 +377,31 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 5: SOBRE A BRANDS */}
-        <section className="py-32 bg-slate-950 px-6 relative overflow-hidden">
+        <section className="py-32 bg-slate-100 dark:bg-slate-950 px-6 relative overflow-hidden">
            {/* Sophisticated background flare */}
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
            
            <div className="container mx-auto max-w-5xl relative z-10">
-              <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[3rem] p-12 md:p-20 relative overflow-hidden group">
+              <div className="bg-white/95 dark:bg-slate-900/40 backdrop-blur-2xl border border-slate-200 dark:border-white/5 rounded-[3rem] p-12 md:p-20 relative overflow-hidden group">
                  {/* Internal decorative lines */}
                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
                                   <div className="flex flex-col items-center text-center space-y-10 relative z-10">
                     <div className="relative">
                        <div className="absolute inset-0 bg-amber-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                       <div className="w-20 h-20 bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-amber-500/30">
+                       <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-amber-500/30">
                           <Image src="/lightning-icon.svg" width={48} height={48} alt="Logo" className="w-12 h-12" />
                        </div>
                     </div>
                     
                     <div className="space-y-6 max-w-3xl">
-                       <h2 className="text-3xl md:text-5xl font-playfair font-bold text-white tracking-tight">
+                       <h2 className="text-3xl md:text-5xl font-playfair font-bold text-slate-900 dark:text-white tracking-tight">
                          {t('advocaciaLanding.about.title')} <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">{t('advocaciaLanding.about.highlight')}</span>
                        </h2>
                        
                        <div className="h-px w-20 bg-amber-500/30 mx-auto" />
                        
-                       <p className="text-slate-300 leading-relaxed text-xl font-light">
+                       <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-xl font-light">
                          {t('advocaciaLanding.about.content')}
                        </p>
                     </div>
@@ -417,18 +417,18 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 6: CTA FINAL FORM */}
-        <section id="agendar" className="py-32 bg-slate-950 px-6 relative overflow-hidden border-t border-white/5">
+        <section id="agendar" className="py-32 bg-white dark:bg-slate-950 px-6 relative overflow-hidden border-t border-slate-200 dark:border-white/5">
            {/* Final background intense glow */}
            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-violet-600/10 blur-[150px] pointer-events-none" />
            
            <div className="container mx-auto max-w-6xl relative z-10">
               <div className="flex flex-col items-center text-center space-y-16">
                  <div className="space-y-6 max-w-4xl">
-                    <h2 className="text-5xl md:text-7xl font-playfair font-bold text-white leading-[1.05] tracking-tight">
-                       {t('advocaciaLanding.cta.titlePart1')} <span className="text-violet-400">{t('advocaciaLanding.cta.titleHighlight')}</span><br/>
+                    <h2 className="text-5xl md:text-7xl font-playfair font-bold text-slate-900 dark:text-white leading-[1.05] tracking-tight">
+                       {t('advocaciaLanding.cta.titlePart1')} <span className="text-violet-600 dark:text-violet-400">{t('advocaciaLanding.cta.titleHighlight')}</span><br/>
                        {t('advocaciaLanding.cta.titlePart2')}
                     </h2>
-                    <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
                        {t('advocaciaLanding.cta.description')}
                     </p>
                  </div>
