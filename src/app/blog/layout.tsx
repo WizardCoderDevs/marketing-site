@@ -13,8 +13,8 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <>
       <Header />
-      <main role="main">
-        <section className="blog-content prose prose-slate dark:prose-invert mx-auto w-full max-w-3xl px-4 py-10 md:py-12">
+      <main role="main" className="min-h-screen bg-white dark:bg-slate-900">
+        <section className="blog-content prose prose-slate dark:prose-invert mx-auto w-full">
           {children}
         </section>
         <Footer />
