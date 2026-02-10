@@ -53,6 +53,7 @@ function splitTextForSpeech(text: string, maxLength: number = 2000): string[] {
 export default function TextToSpeechControls({ title, html }: TextToSpeechControlsProps) {
   const { t, i18n } = useTranslation();
   const { translate, translateHtml, isTranslating } = useTranslate();
+  const [hasMounted, setHasMounted] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
 
   const [ttsText, setTtsText] = useState('');
@@ -112,6 +113,10 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
 
   const speechRate = targetLocale === 'pt-BR' ? 0.92 : 1;
   const speechPitch = targetLocale === 'pt-BR' ? 1.02 : 1;
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!supported) return;
@@ -301,10 +306,10 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
     setIsSpeaking(false);
   };
 
-  if (!supported) {
+  if (!hasMounted || !supported) {
     return (
       <div className="mb-6 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-4 py-3 text-sm text-slate-600 dark:text-slate-300">
-        {t('tts.unsupported')}
+        {!hasMounted ? t('tts.loading') : t('tts.unsupported')}
       </div>
     );
   }

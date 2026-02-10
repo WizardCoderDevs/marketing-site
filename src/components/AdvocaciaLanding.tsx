@@ -72,22 +72,26 @@ export default function AdvocaciaLanding() {
 
                   <div className="space-y-4">
                     <p className="text-2xl md:text-3xl text-violet-300 font-playfair font-medium tracking-tight leading-none italic opacity-90 border-l-2 border-violet-500/50 pl-6 py-1">
-                      Gestão de Autoridade para quem define o mercado
+                      {t('advocaciaLanding.hero.quote')}
                     </p>
                     
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-bold uppercase tracking-[0.2em]">
                       <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse shadow-[0_0_8px_rgba(167,139,250,0.8)]"></span>
-                      Marketing Jurídico de Elite
+                      {t('advocaciaLanding.hero.badge')}
                     </div>
                   </div>
                 </div>
                 
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-white">
-                  Transforme excelência técnica em <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">soberania de mercado</span>.
+                  {t('advocaciaLanding.hero.titlePart1')}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">
+                    {t('advocaciaLanding.hero.titleHighlight')}
+                  </span>
+                  {t('advocaciaLanding.hero.titlePart2')}
                 </h1>
                 
                 <p className="text-xl text-slate-400 leading-relaxed font-light max-w-2xl">
-                  No mercado de alta complexidade, o "notório saber" não basta. É necessário que sua percepção de valor acompanhe sua capacidade técnica. Nós construímos o legado digital que sua banca merece.
+                  {t('advocaciaLanding.hero.description')}
                 </p>
                 
                 <div className="pt-6 flex flex-wrap gap-6 items-center">
@@ -95,7 +99,7 @@ export default function AdvocaciaLanding() {
                     onClick={() => contactForm?.openForm()}
                     className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(124,58,237,0.6)] transform hover:-translate-y-1"
                   >
-                    Iniciar Reunião Estratégica
+                    {t('advocaciaLanding.hero.cta')}
                     <ArrowRight className="ml-3 w-6 h-6" />
                   </button>
                   
@@ -107,7 +111,7 @@ export default function AdvocaciaLanding() {
                         </div>
                       ))}
                     </div>
-                    <span className="text-sm font-medium">+120 bancas atendidas</span>
+                    <span className="text-sm font-medium">{t('advocaciaLanding.hero.stats')}</span>
                   </div>
                 </div>
               </div>
@@ -122,9 +126,9 @@ export default function AdvocaciaLanding() {
                      {/* Dashboard Header */}
                      <div className="flex justify-between items-start">
                         <div className="space-y-1">
-                          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">Market Status</div>
+                          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">{t('advocaciaLanding.hero.dashboard.statusLabel')}</div>
                           <div className="text-2xl font-bold text-white flex items-center gap-2">
-                             Full Dominance <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                             {t('advocaciaLanding.hero.dashboard.statusValue')} <ShieldCheck className="w-5 h-5 text-emerald-400" />
                           </div>
                         </div>
                         <div className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-bold animate-pulse">
@@ -141,7 +145,7 @@ export default function AdvocaciaLanding() {
                            </svg>
                            <div className="absolute inset-0 flex flex-col items-center justify-center">
                               <span className="text-5xl font-bold text-white leading-none">92</span>
-                              <span className="text-xs text-slate-500 font-bold tracking-tighter mt-1 uppercase">Authority Score</span>
+                              <span className="text-xs text-slate-500 font-bold tracking-tighter mt-1 uppercase">{t('advocaciaLanding.hero.dashboard.scoreLabel')}</span>
                            </div>
                         </div>
                      </div>
@@ -150,17 +154,17 @@ export default function AdvocaciaLanding() {
                      <div className="grid grid-cols-2 gap-6">
                         <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
-                              <TrendingUp className="w-4 h-4" /> Growth
+                              <TrendingUp className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.growthLabel')}
                            </div>
                            <div className="text-3xl font-bold text-white">+145%</div>
-                           <div className="text-xs text-slate-500">Percepsção de Valor</div>
+                           <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.growthSub')}</div>
                         </div>
                         <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
-                              <Award className="w-4 h-4" /> Position
+                              <Award className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.positionLabel')}
                            </div>
                            <div className="text-3xl font-bold text-white">#1</div>
-                           <div className="text-xs text-slate-500">Market Leader</div>
+                           <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.positionSub')}</div>
                         </div>
                      </div>
                    </div>
@@ -176,8 +180,8 @@ export default function AdvocaciaLanding() {
                          <Target className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                         <div className="text-[10px] text-slate-500 font-bold uppercase">Target reached</div>
-                         <div className="text-sm font-bold text-white">Banca de Elite</div>
+                         <div className="text-[10px] text-slate-500 font-bold uppercase">{t('advocaciaLanding.hero.dashboard.targetReached')}</div>
+                         <div className="text-sm font-bold text-white">{t('advocaciaLanding.hero.dashboard.eliteFirm')}</div>
                       </div>
                    </div>
                 </div>
@@ -198,20 +202,20 @@ export default function AdvocaciaLanding() {
           <div className="container mx-auto px-6 max-w-5xl relative z-10">
             <div className="text-center space-y-12 animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white tracking-tight">
-                Quando a Maturidade Digital não reflete a <br className="hidden md:block"/> 
-                <span className="italic text-violet-300">excelência</span> do seu Negócio
+                {t('advocaciaLanding.problem.titlePart1')} <br className="hidden md:block"/> 
+                <span className="italic text-violet-300">{t('advocaciaLanding.problem.titleItalic')}</span> {t('advocaciaLanding.problem.titlePart2')}
               </h2>
               
               <div className="grid md:grid-cols-2 gap-10 text-left items-start">
                 <p className="text-lg text-slate-300 leading-relaxed font-light first-letter:text-5xl first-letter:font-playfair first-letter:text-violet-400 first-letter:mr-3 first-letter:float-left">
-                  No mercado jurídico de alta complexidade, existe um abismo entre a capacidade técnica de entrega e a percepção de valor que o mercado detém do seu negócio. É frequente encontrar escritórios que já superaram o desafio da escala operacional, possuem equipes brilhantes e carteiras sólidas, mas que, no ambiente digital, ainda não ocupam o lugar de distinção que o seu histórico justifica.
+                  {t('advocaciaLanding.problem.description1')}
                 </p>
                 <div className="space-y-6">
                   <p className="text-lg text-slate-300 leading-relaxed font-light">
-                    Muitas estruturas consolidadas operam hoje sob uma comunicação que não acompanhou a evolução da própria operação. O tom costuma ser institucional demais ou disperso.
+                    {t('advocaciaLanding.problem.description2')}
                   </p>
                   <p className="text-lg text-slate-400 leading-relaxed font-light italic border-l border-violet-500/30 pl-6">
-                    "O resultado é uma vitrine digital que não traduz o diferencial estratégico que separa uma banca de elite de um escritório comum."
+                    {t('advocaciaLanding.problem.highlight')}
                   </p>
                 </div>
               </div>
@@ -222,7 +226,7 @@ export default function AdvocaciaLanding() {
                     <span className="relative flex flex-col items-center gap-2">
                        <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
                        <span className="py-4 px-8 text-2xl md:text-3xl font-playfair font-bold text-violet-300 tracking-tight">
-                          Se sua operação é madura; <br className="md:hidden"/> sua marca também deveria ser.
+                          {t('advocaciaLanding.problem.footer')}
                        </span>
                        <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
                     </span>
@@ -240,13 +244,13 @@ export default function AdvocaciaLanding() {
           <div className="container mx-auto max-w-6xl relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-500 text-xs font-bold uppercase tracking-widest">
-                Diagnóstico de Mercado
+                {t('advocaciaLanding.diagnostics.badge')}
               </div>
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white">
-                O Vácuo entre Especialidade <br/> e Posicionamento
+                {t('advocaciaLanding.diagnostics.title')}
               </h2>
               <p className="text-lg text-slate-400 font-light leading-relaxed">
-                O problema central não é a falta de visibilidade, mas a imprecisão do posicionamento. Em escritórios de alto nível, a comunicação tende a se tornar burocrática ou dispersiva. Essa lacuna gera gargalos estruturais:
+                {t('advocaciaLanding.diagnostics.description')}
               </p>
             </div>
 
@@ -254,26 +258,26 @@ export default function AdvocaciaLanding() {
               {[
                 {
                   icon: Target,
-                  title: "Ineficiência na Qualificação",
-                  description: "Investimentos em anúncios atraem um volume de contatos que não condizem com o ticket médio ou com a complexidade da solução oferecida.",
+                  title: t('advocaciaLanding.diagnostics.cards.0.title'),
+                  description: t('advocaciaLanding.diagnostics.cards.0.description'),
                   color: "violet"
                 },
                 {
                   icon: Users,
-                  title: "Dependência do Sócio",
-                  description: "Quando a marca não sustenta autoridade própria, o mercado exige a presença do fundador em todas as etapas, impedindo a autonomia operacional.",
+                  title: t('advocaciaLanding.diagnostics.cards.1.title'),
+                  description: t('advocaciaLanding.diagnostics.cards.1.description'),
                   color: "blue"
                 },
                 {
                   icon: TrendingUp,
-                  title: "Custo de Oportunidade",
-                  description: "Concorrentes com estruturas menores, porém com narrativas mais refinadas, interceptam oportunidades de alto valor por serem percebidos como mais 'modernos'.",
+                  title: t('advocaciaLanding.diagnostics.cards.2.title'),
+                  description: t('advocaciaLanding.diagnostics.cards.2.description'),
                   color: "indigo"
                 },
                 {
                   icon: BarChart3,
-                  title: "Erosão da Margem",
-                  description: "Sem uma marca forte que valide o preço, o escritório acaba sendo comparado por tabelas, e não pelo prestígio e segurança que oferece.",
+                  title: t('advocaciaLanding.diagnostics.cards.3.title'),
+                  description: t('advocaciaLanding.diagnostics.cards.3.description'),
                   color: "emerald"
                 }
               ].map((item, idx) => (
@@ -293,7 +297,7 @@ export default function AdvocaciaLanding() {
                     
                     <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
                        <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-tighter">
-                          Critical Impact <span className="w-1 h-1 rounded-full bg-red-500/50 animate-pulse"></span>
+                          {t('advocaciaLanding.diagnostics.impactLabel')} <span className="w-1 h-1 rounded-full bg-red-500/50 animate-pulse"></span>
                        </div>
                     </div>
                   </div>
@@ -317,19 +321,19 @@ export default function AdvocaciaLanding() {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="space-y-10">
                 <div className="space-y-4">
-                  <span className="text-violet-400 text-sm font-bold uppercase tracking-[0.3em]">The Blueprint</span>
+                  <span className="text-violet-400 text-sm font-bold uppercase tracking-[0.3em]">{t('advocaciaLanding.methodology.badge')}</span>
                   <h3 className="text-4xl md:text-5xl font-playfair font-bold text-white leading-tight">
-                    Engenharia de Percepção: <br/>
-                    <span className="text-slate-500">Sincronia entre Posicionamento, <br className="hidden md:block"/> Conteúdo e Performance</span>
+                    {t('advocaciaLanding.methodology.title')} <br/>
+                    <span className="text-slate-500">{t('advocaciaLanding.methodology.subtitle')}</span>
                   </h3>
                 </div>
                 
                 <div className="prose prose-invert prose-lg text-slate-400 font-light leading-relaxed">
                    <p>
-                     A transição para a liderança definitiva de mercado exige o que definimos como <strong className="text-white italic">Engenharia de Percepção</strong>. 
+                     {t('advocaciaLanding.methodology.description1')} 
                    </p>
                    <p>
-                     O objetivo não é o simples aumento de visibilidade, mas a construção de um ecossistema de autoridade autossustentável que transmita a real profundidade da sua especialização para quem decide o jogo.
+                     {t('advocaciaLanding.methodology.description2')}
                    </p>
                 </div>
               </div>
@@ -338,20 +342,20 @@ export default function AdvocaciaLanding() {
                 {[
                   {
                     icon: ShieldCheck,
-                    title: "Revisão do Posicionamento",
-                    desc: "Alinhando cada ponto de contato para que fale diretamente às ambições do ICP de alto padrão.",
+                    title: t('advocaciaLanding.methodology.steps.0.title'),
+                    desc: t('advocaciaLanding.methodology.steps.0.description'),
                     color: "blue"
                   },
                   {
                     icon: Briefcase,
-                    title: "Conteúdo Autoral Estratégico",
-                    desc: "Uma narrativa que transcenda a informação técnica e comunique liderança e visão de negócio.",
+                    title: t('advocaciaLanding.methodology.steps.1.title'),
+                    desc: t('advocaciaLanding.methodology.steps.1.description'),
                     color: "violet"
                   },
                   {
                     icon: TrendingUp,
-                    title: "Tráfego de Alta Performance",
-                    desc: "Gestão de anúncios para garantir que sua autoridade chegue ao radar do poder de contratação.",
+                    title: t('advocaciaLanding.methodology.steps.2.title'),
+                    desc: t('advocaciaLanding.methodology.steps.2.description'),
                     color: "emerald"
                   }
                 ].map((item, idx) => (
@@ -382,8 +386,7 @@ export default function AdvocaciaLanding() {
                  {/* Internal decorative lines */}
                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
-                 
-                 <div className="flex flex-col items-center text-center space-y-10 relative z-10">
+                                  <div className="flex flex-col items-center text-center space-y-10 relative z-10">
                     <div className="relative">
                        <div className="absolute inset-0 bg-amber-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
                        <div className="w-20 h-20 bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-amber-500/30">
@@ -393,22 +396,22 @@ export default function AdvocaciaLanding() {
                     
                     <div className="space-y-6 max-w-3xl">
                        <h2 className="text-3xl md:text-5xl font-playfair font-bold text-white tracking-tight">
-                         Gestão Estratégica de <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Autoridade Jurídica</span>
+                         {t('advocaciaLanding.about.title')} <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">{t('advocaciaLanding.about.highlight')}</span>
                        </h2>
                        
                        <div className="h-px w-20 bg-amber-500/30 mx-auto" />
                        
                        <p className="text-slate-300 leading-relaxed text-xl font-light">
-                         A <span className="text-white font-bold">BRANDS</span> atua na intersecção entre a estratégia jurídica e a inteligência de mercado. Nossa missão é profissionalizar a imagem de escritórios que já alcançaram a excelência técnica e agora buscam a <span className="italic text-amber-200/80">soberania definitiva</span> de sua marca. Assumimos a gestão completa — do posicionamento à performance — garantindo que sua comunicação seja o reflexo fiel do prestígio que sua banca entrega.
+                         {t('advocaciaLanding.about.content')}
                        </p>
                     </div>
 
                     <div className="pt-4 flex items-center gap-4 text-amber-500/60 font-bold text-xs uppercase tracking-[0.4em]">
                        <span className="w-12 h-px bg-amber-500/20"></span>
-                       Elite Standard
+                       {t('advocaciaLanding.about.badge')}
                        <span className="w-12 h-px bg-amber-500/20"></span>
                     </div>
-                 </div>
+                  </div>
               </div>
            </div>
         </section>
@@ -422,11 +425,11 @@ export default function AdvocaciaLanding() {
               <div className="flex flex-col items-center text-center space-y-16">
                  <div className="space-y-6 max-w-4xl">
                     <h2 className="text-5xl md:text-7xl font-playfair font-bold text-white leading-[1.05] tracking-tight">
-                       Sua operação é <span className="text-violet-400">madura</span>;<br/>
-                       sua marca também deveria ser.
+                       {t('advocaciaLanding.cta.titlePart1')} <span className="text-violet-400">{t('advocaciaLanding.cta.titleHighlight')}</span><br/>
+                       {t('advocaciaLanding.cta.titlePart2')}
                     </h2>
                     <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                       Vamos consolidar o seu legado e posicionar seu escritório no topo da percepção de valor?
+                       {t('advocaciaLanding.cta.description')}
                     </p>
                  </div>
 
@@ -442,11 +445,11 @@ export default function AdvocaciaLanding() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-500 text-sm font-bold uppercase tracking-widest">
                        <div className="flex items-center gap-2">
                           <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                          Diagnóstico Gratuito
+                          {t('advocaciaLanding.cta.check1')}
                        </div>
                        <div className="flex items-center gap-2">
                           <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                          Vagas Limitadas
+                          {t('advocaciaLanding.cta.check2')}
                        </div>
                     </div>
                  </div>
@@ -454,7 +457,7 @@ export default function AdvocaciaLanding() {
                  {/* Elite Trust Indicator */}
                  <div className="pt-20 opacity-40">
                     <span className="text-[10px] font-bold tracking-[1em] text-slate-500 uppercase">
-                       Reserved for Elite Law Firms
+                       {t('advocaciaLanding.cta.trustIndicator')}
                     </span>
                  </div>
               </div>

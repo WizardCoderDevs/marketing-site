@@ -446,5 +446,100 @@
       "noPosts": "No news found at the moment.",
       "published": "Published on"
     }
+  },
+  "advocaciaLanding": {
+    "hero": {
+      "quote": "Authority Management for those who define the market",
+      "badge": "Elite Legal Marketing",
+      "titlePart1": "Transform technical excellence into ",
+      "titleHighlight": "market sovereignty",
+      "titlePart2": ".",
+      "description": "In high-complexity markets, \"technical expertise\" isn't enough. Your perceived value must match your technical capacity. We build the digital legacy your firm deserves.",
+      "cta": "Start Strategic Meeting",
+      "stats": "+120 law firms served",
+      "dashboard": {
+        "statusLabel": "Market Status",
+        "statusValue": "Full Dominance",
+        "live": "LIVE",
+        "scoreLabel": "Authority Score",
+        "growthLabel": "Growth",
+        "growthValue": "+145%",
+        "growthSub": "Value Perception",
+        "positionLabel": "Position",
+        "positionValue": "#1",
+        "positionSub": "Market Leader",
+        "targetReached": "Target reached",
+        "eliteFirm": "Elite Firm"
+      }
+    },
+    "problem": {
+      "titlePart1": "When Digital Maturity doesn't reflect your ",
+      "titleItalic": "excellence",
+      "titlePart2": "",
+      "description1": "In the high-complexity legal market, there is a chasm between technical delivery capacity and the market's perception of value for your business. It's common to find firms that have already overcome operational scaling challenges, have brilliant teams and solid portfolios, but in the digital environment, still don't occupy the distinguished position that their history justifies.",
+      "description2": "Many consolidated structures operate today under communication that hasn't kept pace with the evolution of the operation itself. The tone is often too institutional or dispersed.",
+      "highlight": "\"The result is a digital storefront that doesn't translate the strategic differentiator that separates an elite firm from a common office.\"",
+      "footer": "If your operation is mature; your brand should be too."
+    },
+    "diagnostics": {
+      "badge": "Market Diagnosis",
+      "title": "The Vacuum between Expertise and Positioning",
+      "description": "The core issue isn't lack of visibility, but imprecision in positioning. In high-level firms, communication tends to become bureaucratic or dispersive. This gap generates structural bottlenecks:",
+      "cards": [
+        {
+          "title": "Qualification Inefficiency",
+          "description": "Ad investments attract a volume of contacts that don't match the average ticket or the complexity of the solution offered."
+        },
+        {
+          "title": "Partner Dependency",
+          "description": "When the brand doesn't sustain its own authority, the market demands the founder's presence at all stages, hindering operational autonomy."
+        },
+        {
+          "title": "Opportunity Cost",
+          "description": "Competitors with smaller structures, but more refined narratives, intercept high-value opportunities by being perceived as more 'modern'."
+        },
+        {
+          "title": "Margin Erosion",
+          "description": "Without a strong brand to validate pricing, the firm ends up being compared by price tables, rather than the prestige and security it offers."
+        }
+      ],
+      "impactLabel": "Critical Impact"
+    },
+    "methodology": {
+      "badge": "The Blueprint",
+      "title": "Perception Engineering:",
+      "subtitle": "Synchrony between Positioning, Content and Performance",
+      "description1": "Transitioning to definitive market leadership requires what we define as Perception Engineering.",
+      "description2": "The goal isn't simple visibility increase, but building a self-sustaining authority ecosystem that transmits the real depth of your expertise to those who decide the game.",
+      "steps": [
+        {
+          "title": "Positioning Review",
+          "description": "Aligning every touchpoint so it speaks directly to the ambitions of high-standard ICPs."
+        },
+        {
+          "title": "Strategic Authoral Content",
+          "description": "A narrative that transcends technical information and communicates leadership and business vision."
+        },
+        {
+          "title": "High-Performance Traffic",
+          "description": "Ad management to ensure your authority reaches the radar of decision-makers."
+        }
+      ]
+    },
+    "about": {
+      "title": "Strategic Management of ",
+      "highlight": "Legal Authority",
+      "content": "BRANDS operates at the intersection of legal strategy and market intelligence. Our mission is to professionalize the image of firms that have already achieved technical excellence and now seek the definitive sovereignty of their brand. We take on complete management — from positioning to performance — ensuring your communication is a faithful reflection of the prestige your firm delivers.",
+      "badge": "Elite Standard"
+    },
+    "cta": {
+      "titlePart1": "Your operation is ",
+      "titleHighlight": "mature",
+      "titlePart2": "; your brand should be too.",
+      "description": "Shall we consolidate your legacy and position your firm at the top of value perception?",
+      "check1": "Free Diagnosis",
+      "check2": "Limited Availability",
+      "trustIndicator": "Reserved for Elite Law Firms"
+    }
   }
 }

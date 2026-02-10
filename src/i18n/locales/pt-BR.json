@@ -446,5 +446,100 @@
       "noPosts": "Nenhuma notícia encontrada no momento.",
       "published": "Publicado em"
     }
+  },
+  "advocaciaLanding": {
+    "hero": {
+      "quote": "Gestão de Autoridade para quem define o mercado",
+      "badge": "Marketing Jurídico de Elite",
+      "titlePart1": "Transforme excelência técnica em ",
+      "titleHighlight": "soberania de mercado",
+      "titlePart2": ".",
+      "description": "No mercado de alta complexidade, o \"notório saber\" não basta. É necessário que sua percepção de valor acompanhe sua capacidade técnica. Nós construímos o legado digital que sua banca merece.",
+      "cta": "Iniciar Reunião Estratégica",
+      "stats": "+120 bancas atendidas",
+      "dashboard": {
+        "statusLabel": "Market Status",
+        "statusValue": "Full Dominance",
+        "live": "LIVE",
+        "scoreLabel": "Authority Score",
+        "growthLabel": "Growth",
+        "growthValue": "+145%",
+        "growthSub": "Percepsção de Valor",
+        "positionLabel": "Position",
+        "positionValue": "#1",
+        "positionSub": "Market Leader",
+        "targetReached": "Target reached",
+        "eliteFirm": "Banca de Elite"
+      }
+    },
+    "problem": {
+      "titlePart1": "Quando a Maturidade Digital não reflete a",
+      "titleItalic": "excelência",
+      "titlePart2": "do seu Negócio",
+      "description1": "No mercado jurídico de alta complexidade, existe um abismo entre a capacidade técnica de entrega e a percepção de valor que o mercado detém do seu negócio. É frequente encontrar escritórios que já superaram o desafio da escala operacional, possuem equipes brilhantes e carteiras sólidas, mas que, no ambiente digital, ainda não ocupam o lugar de distinção que o seu histórico justifica.",
+      "description2": "Muitas estruturas consolidadas operam hoje sob uma comunicação que não acompanhou a evolução da própria operação. O tom costuma ser institucional demais ou disperso.",
+      "highlight": "\"O resultado é uma vitrine digital que não traduz o diferencial estratégico que separa uma banca de elite de um escritório comum.\"",
+      "footer": "Se sua operação é madura; sua marca também deveria ser."
+    },
+    "diagnostics": {
+      "badge": "Diagnóstico de Mercado",
+      "title": "O Vácuo entre Especialidade e Posicionamento",
+      "description": "O problema central não é a falta de visibilidade, mas a imprecisão do posicionamento. Em escritórios de alto nível, a comunicação tende a se tornar burocrática ou dispersiva. Essa lacuna gera gargalos estruturais:",
+      "cards": [
+        {
+          "title": "Ineficiência na Qualificação",
+          "description": "Investimentos em anúncios atraem um volume de contatos que não condizem com o ticket médio ou com a complexidade da solução oferecida."
+        },
+        {
+          "title": "Dependência do Sócio",
+          "description": "Quando a marca não sustenta autoridade própria, o mercado exige a presença do fundador em todas as etapas, impedindo a autonomia operacional."
+        },
+        {
+          "title": "Custo de Oportunidade",
+          "description": "Concorrentes com estruturas menores, porém com narrativas mais refinadas, interceptam oportunidades de alto valor por serem percebidos como mais 'modernos'."
+        },
+        {
+          "title": "Erosão da Margem",
+          "description": "Sem uma marca forte que valide o preço, o escritório acaba sendo comparado por tabelas, e não pelo prestígio e segurança que oferece."
+        }
+      ],
+      "impactLabel": "Critical Impact"
+    },
+    "methodology": {
+      "badge": "The Blueprint",
+      "title": "Engenharia de Percepção:",
+      "subtitle": "Sincronia entre Posicionamento, Conteúdo e Performance",
+      "description1": "A transição para a liderança definitiva de mercado exige o que definimos como Engenharia de Percepção.",
+      "description2": "O objetivo não é o simples aumento de visibilidade, mas a construção de um ecossistema de autoridade autossustentável que transmita a real profundidade da sua especialização para quem decide o jogo.",
+      "steps": [
+        {
+          "title": "Revisão do Posicionamento",
+          "description": "Alinhando cada ponto de contato para que fale diretamente às ambições do ICP de alto padrão."
+        },
+        {
+          "title": "Conteúdo Autoral Estratégico",
+          "description": "Uma narrativa que transcenda a informação técnica e comunique liderança e visão de negócio."
+        },
+        {
+          "title": "Tráfego de Alta Performance",
+          "description": "Gestão de anúncios para garantir que sua autoridade chegue ao radar do poder de contratação."
+        }
+      ]
+    },
+    "about": {
+      "title": "Gestão Estratégica de ",
+      "highlight": "Autoridade Jurídica",
+      "content": "A BRANDS atua na intersecção entre a estratégia jurídica e a inteligência de mercado. Nossa missão é profissionalizar a imagem de escritórios que já alcançaram a excelência técnica e agora buscam a soberania definitiva de sua marca. Assumimos a gestão completa — do posicionamento à performance — garantindo que sua comunicação seja o reflexo fiel do prestígio que sua banca entrega.",
+      "badge": "Elite Standard"
+    },
+    "cta": {
+      "titlePart1": "Sua operação é ",
+      "titleHighlight": "madura",
+      "titlePart2": "; sua marca também deveria ser.",
+      "description": "Vamos consolidar o seu legado e posicionar seu escritório no topo da percepção de valor?",
+      "check1": "Diagnóstico Gratuito",
+      "check2": "Vagas Limitadas",
+      "trustIndicator": "Reserved for Elite Law Firms"
+    }
   }
 }
