@@ -26,9 +26,12 @@ export default function Header() {
 
   return (
     <header
-      className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-sm sticky top-0 z-50"
+      className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 sticky top-0 z-50 shadow-lg shadow-slate-200/50 dark:shadow-black/20"
       role="banner"
     >
+      {/* Decorative gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+      
       <nav
         className="container mx-auto px-6 py-3"
         role="navigation"
@@ -38,18 +41,24 @@ export default function Header() {
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
             <Link
               href="/"
-              className="text-3xl font-extrabold font-poppins text-slate-900 dark:text-white flex items-center"
+              className="group relative text-3xl font-extrabold font-poppins flex items-center transition-all duration-300"
               aria-label={`BRANDS - ${t('header.home')}`}
             >
-              <Image
-                src="/lightning-icon.svg"
-                alt="Brands - Logo"
-                width={24}
-                height={24}
-                className="inline-block w-6 h-6 mr-1 -mt-1"
-                aria-hidden="true"
-              />
-              <span className="text-slate-900 dark:text-white">BRANDS</span>
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-violet-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+                <Image
+                  src="/lightning-icon.svg"
+                  alt="Brands - Logo"
+                  width={28}
+                  height={28}
+                  className="relative w-7 h-7 mr-2 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300"
+                  aria-hidden="true"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-violet-600 group-hover:to-blue-600 dark:group-hover:from-violet-400 dark:group-hover:to-blue-400 transition-all duration-300">
+                BRANDS
+              </span>
             </Link>
           </h1>
           <div
@@ -60,33 +69,37 @@ export default function Header() {
             <div role="none">
               <Link
                 href="/blog/artigos"
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
               >
                 {t('header.articles')}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
               </Link>
             </div>
             <div role="none">
               <Link
                 href="/blog/noticias"
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
               >
                 {t('header.news')}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
               </Link>
             </div>
             <div role="none">
               <Link
                 href="/politica-de-privacidade"
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2 text-sm"
               >
                 {t('header.privacyPolicy')}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
               </Link>
             </div>
             <div role="none">
               <Link
                 href={getNavigationLink('agendar')}
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
               >
                 {t('header.contact')}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
               </Link>
             </div>
             <div role="none">
@@ -132,40 +145,54 @@ export default function Header() {
         )}
       </nav>
       {isMobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="md:hidden px-6 pt-2 pb-4 space-y-2"
-          role="menu"
-          aria-label={t('header.mobileMenuLabel')}
-          aria-orientation="vertical"
-        >
-          <div className="flex flex-col space-y-4">
-            <Link
-              href="/blog/artigos"
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.articles')}
-            </Link>
-            <Link
-              href="/blog/noticias"
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.news')}
-            </Link>
-            <Link
-              href="/politica-de-privacidade"
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
-            >
-              {t('header.privacyPolicy')}
-            </Link>
-            <Link
-              href={getNavigationLink('agendar')}
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.contact')}
-            </Link>
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm md:hidden z-40"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Menu */}
+          <div
+            id="mobile-menu"
+            className="absolute top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 shadow-2xl md:hidden px-6 py-6 space-y-1 z-50"
+            role="menu"
+            aria-label={t('header.mobileMenuLabel')}
+            aria-orientation="vertical"
+          >
+            <div className="flex flex-col space-y-1">
+              <Link
+                href="/blog/artigos"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 font-medium transition-all duration-200 px-4 py-3 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('header.articles')}
+              </Link>
+              <Link
+                href="/blog/noticias"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 font-medium transition-all duration-200 px-4 py-3 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('header.news')}
+              </Link>
+              <Link
+                href="/politica-de-privacidade"
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 font-medium transition-all duration-200 px-4 py-3 rounded-lg text-sm"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('header.privacyPolicy')}
+              </Link>
+              <Link
+                href={getNavigationLink('agendar')}
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 font-medium transition-all duration-200 px-4 py-3 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('header.contact')}
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
