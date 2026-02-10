@@ -1,0 +1,466 @@
+import { useContactForm } from '@/contexts/ContactFormContext';
+import {
+    ArrowRight,
+    Award,
+    BarChart3,
+    Briefcase,
+    CheckCircle2,
+    ChevronDown,
+    ShieldCheck,
+    Target,
+    TrendingUp,
+    Users
+} from 'lucide-react';
+import { Inter, Playfair_Display } from 'next/font/google';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+
+// Setup fonts
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+export default function AdvocaciaLanding() {
+  const { t, i18n } = useTranslation();
+  const contactForm = useContactForm();
+  const currentLang = i18n.language.startsWith('en') ? 'en' : 'pt';
+
+  return (
+    <div className={`text-slate-100 selection:bg-violet-500/30 ${inter.className} ${playfair.variable}`}>
+      
+      {/* Decorative Background Elements */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen opacity-30" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-900/10 rounded-full blur-[100px] mix-blend-screen opacity-20" />
+      </div>
+
+      <main className="relative z-10">
+        
+        {/* SEÇÃO 1: HERO SECTION */}
+        <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 px-6 overflow-hidden">
+          {/* Background Ambient Effects */}
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-violet-600/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="space-y-10 animate-fade-in-up">
+                {/* Brand Header */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 group">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-violet-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
+                      <Image
+                        src="/lightning-icon.svg"
+                        alt="Brands - Logo"
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 relative z-10 drop-shadow-[0_0_10px_rgba(139,92,246,0.3)]"
+                      />
+                    </div>
+                    <span className="text-4xl md:text-5xl font-extrabold font-poppins text-white bg-clip-text bg-gradient-to-b from-white to-slate-400">
+                      BRANDS
+                    </span>
+                  </div>
+
+                  <div className="space-y-4">
+                    <p className="text-2xl md:text-3xl text-violet-300 font-playfair font-medium tracking-tight leading-none italic opacity-90 border-l-2 border-violet-500/50 pl-6 py-1">
+                      Gestão de Autoridade para quem define o mercado
+                    </p>
+                    
+                    <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-bold uppercase tracking-[0.2em]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse shadow-[0_0_8px_rgba(167,139,250,0.8)]"></span>
+                      Marketing Jurídico de Elite
+                    </div>
+                  </div>
+                </div>
+                
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-white">
+                  Transforme excelência técnica em <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">soberania de mercado</span>.
+                </h1>
+                
+                <p className="text-xl text-slate-400 leading-relaxed font-light max-w-2xl">
+                  No mercado de alta complexidade, o "notório saber" não basta. É necessário que sua percepção de valor acompanhe sua capacidade técnica. Nós construímos o legado digital que sua banca merece.
+                </p>
+                
+                <div className="pt-6 flex flex-wrap gap-6 items-center">
+                  <button 
+                    onClick={() => contactForm?.openForm()}
+                    className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl hover:from-violet-500 hover:to-blue-500 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(124,58,237,0.6)] transform hover:-translate-y-1"
+                  >
+                    Iniciar Reunião Estratégica
+                    <ArrowRight className="ml-3 w-6 h-6" />
+                  </button>
+                  
+                  <div className="flex items-center gap-4 text-slate-500 border-l border-slate-800 pl-6">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="w-8 h-8 rounded-full bg-slate-800 border-2 border-slate-950 flex items-center justify-center">
+                          <Users className="w-4 h-4" />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium">+120 bancas atendidas</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Authority Dominance Dashboard */}
+              <div className="relative hidden lg:block h-[600px] w-full">
+                <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 overflow-hidden group">
+                   {/* Grid Pattern Overlay */}
+                   <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-10" />
+                   
+                   <div className="relative z-10 h-full flex flex-col justify-between">
+                     {/* Dashboard Header */}
+                     <div className="flex justify-between items-start">
+                        <div className="space-y-1">
+                          <div className="text-slate-500 text-xs font-bold uppercase tracking-widest">Market Status</div>
+                          <div className="text-2xl font-bold text-white flex items-center gap-2">
+                             Full Dominance <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                          </div>
+                        </div>
+                        <div className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-bold animate-pulse">
+                          LIVE
+                        </div>
+                     </div>
+
+                     {/* Central Score Wheel - Stylized */}
+                     <div className="flex justify-center items-center py-8">
+                        <div className="relative w-48 h-48 flex items-center justify-center">
+                           <svg className="w-full h-full transform -rotate-90">
+                              <circle cx="96" cy="96" r="88" className="stroke-slate-800 fill-none" strokeWidth="6" />
+                              <circle cx="96" cy="96" r="88" className="stroke-violet-500 fill-none" strokeWidth="8" strokeDasharray="553" strokeDashoffset="44" strokeLinecap="round" />
+                           </svg>
+                           <div className="absolute inset-0 flex flex-col items-center justify-center">
+                              <span className="text-5xl font-bold text-white leading-none">92</span>
+                              <span className="text-xs text-slate-500 font-bold tracking-tighter mt-1 uppercase">Authority Score</span>
+                           </div>
+                        </div>
+                     </div>
+
+                     {/* Stats Indicators */}
+                     <div className="grid grid-cols-2 gap-6">
+                        <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
+                           <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
+                              <TrendingUp className="w-4 h-4" /> Growth
+                           </div>
+                           <div className="text-3xl font-bold text-white">+145%</div>
+                           <div className="text-xs text-slate-500">Percepsção de Valor</div>
+                        </div>
+                        <div className="p-5 bg-white/5 border border-white/10 rounded-2xl space-y-3 hover:bg-white/10 transition-colors">
+                           <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                              <Award className="w-4 h-4" /> Position
+                           </div>
+                           <div className="text-3xl font-bold text-white">#1</div>
+                           <div className="text-xs text-slate-500">Market Leader</div>
+                        </div>
+                     </div>
+                   </div>
+
+                   {/* Decorative elements inside the card */}
+                   <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-violet-600/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-violet-600/30 transition-colors" />
+                </div>
+                
+                {/* Floating Tooltips for depth */}
+                <div className="absolute -left-12 top-1/4 p-4 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl animate-bounce-slow">
+                   <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+                         <Target className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                         <div className="text-[10px] text-slate-500 font-bold uppercase">Target reached</div>
+                         <div className="text-sm font-bold text-white">Banca de Elite</div>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-30">
+               <ChevronDown className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 2: A AGITAÇÃO DO PROBLEMA (SITUAÇÃO) */}
+        <section className="relative py-24 bg-slate-900/20 border-y border-white/5 overflow-hidden">
+          {/* Subtle Ambient Light */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-violet-600/5 blur-[120px] pointer-events-none" />
+          
+          <div className="container mx-auto px-6 max-w-5xl relative z-10">
+            <div className="text-center space-y-12 animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white tracking-tight">
+                Quando a Maturidade Digital não reflete a <br className="hidden md:block"/> 
+                <span className="italic text-violet-300">excelência</span> do seu Negócio
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-10 text-left items-start">
+                <p className="text-lg text-slate-300 leading-relaxed font-light first-letter:text-5xl first-letter:font-playfair first-letter:text-violet-400 first-letter:mr-3 first-letter:float-left">
+                  No mercado jurídico de alta complexidade, existe um abismo entre a capacidade técnica de entrega e a percepção de valor que o mercado detém do seu negócio. É frequente encontrar escritórios que já superaram o desafio da escala operacional, possuem equipes brilhantes e carteiras sólidas, mas que, no ambiente digital, ainda não ocupam o lugar de distinção que o seu histórico justifica.
+                </p>
+                <div className="space-y-6">
+                  <p className="text-lg text-slate-300 leading-relaxed font-light">
+                    Muitas estruturas consolidadas operam hoje sob uma comunicação que não acompanhou a evolução da própria operação. O tom costuma ser institucional demais ou disperso.
+                  </p>
+                  <p className="text-lg text-slate-400 leading-relaxed font-light italic border-l border-violet-500/30 pl-6">
+                    "O resultado é uma vitrine digital que não traduz o diferencial estratégico que separa uma banca de elite de um escritório comum."
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-8">
+                 <div className="inline-block relative">
+                    <div className="absolute inset-0 bg-violet-400 blur-2xl opacity-10 animate-pulse" />
+                    <span className="relative flex flex-col items-center gap-2">
+                       <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
+                       <span className="py-4 px-8 text-2xl md:text-3xl font-playfair font-bold text-violet-300 tracking-tight">
+                          Se sua operação é madura; <br className="md:hidden"/> sua marca também deveria ser.
+                       </span>
+                       <span className="h-px w-24 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></span>
+                    </span>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 3: DIAGNÓSTICO DE GARGALOS (PROBLEMA & IMPLICAÇÃO) */}
+        <section className="py-32 bg-slate-950 px-6 relative overflow-hidden">
+          {/* Decorative background flare */}
+          <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-500 text-xs font-bold uppercase tracking-widest">
+                Diagnóstico de Mercado
+              </div>
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white">
+                O Vácuo entre Especialidade <br/> e Posicionamento
+              </h2>
+              <p className="text-lg text-slate-400 font-light leading-relaxed">
+                O problema central não é a falta de visibilidade, mas a imprecisão do posicionamento. Em escritórios de alto nível, a comunicação tende a se tornar burocrática ou dispersiva. Essa lacuna gera gargalos estruturais:
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  icon: Target,
+                  title: "Ineficiência na Qualificação",
+                  description: "Investimentos em anúncios atraem um volume de contatos que não condizem com o ticket médio ou com a complexidade da solução oferecida.",
+                  color: "violet"
+                },
+                {
+                  icon: Users,
+                  title: "Dependência do Sócio",
+                  description: "Quando a marca não sustenta autoridade própria, o mercado exige a presença do fundador em todas as etapas, impedindo a autonomia operacional.",
+                  color: "blue"
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Custo de Oportunidade",
+                  description: "Concorrentes com estruturas menores, porém com narrativas mais refinadas, interceptam oportunidades de alto valor por serem percebidos como mais 'modernos'.",
+                  color: "indigo"
+                },
+                {
+                  icon: BarChart3,
+                  title: "Erosão da Margem",
+                  description: "Sem uma marca forte que valide o preço, o escritório acaba sendo comparado por tabelas, e não pelo prestígio e segurança que oferece.",
+                  color: "emerald"
+                }
+              ].map((item, idx) => (
+                <div key={idx} className="group relative">
+                  {/* Card Glow Effect on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl" />
+                  
+                  <div className="relative h-full bg-slate-900/40 backdrop-blur-sm border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
+                    <div className="w-14 h-14 rounded-xl bg-slate-800/50 flex items-center justify-center mb-6 relative overflow-hidden group-hover:bg-slate-800 transition-colors">
+                       <div className={`absolute inset-0 bg-${item.color}-500/10 blur-lg`} />
+                       <item.icon className={`w-7 h-7 text-${item.color}-400 relative z-10`} />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-violet-300 transition-colors">{item.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed font-light">
+                      {item.description}
+                    </p>
+                    
+                    <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                       <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-tighter">
+                          Critical Impact <span className="w-1 h-1 rounded-full bg-red-500/50 animate-pulse"></span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 4: A SOLUÇÃO (NECESSIDADE) */}
+        <section className="py-32 bg-gradient-to-b from-slate-900 to-slate-950 border-t border-white/5 px-6 relative overflow-hidden">
+          {/* Methodology Line Visual in Background */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+             <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
+             <div className="absolute top-1/2 left-1/4 w-2 h-2 rounded-full bg-violet-500 -translate-y-1/2" />
+             <div className="absolute top-1/2 left-1/2 w-3 h-3 rounded-full bg-violet-400 -translate-y-1/2" />
+             <div className="absolute top-1/2 left-3/4 w-2 h-2 rounded-full bg-violet-500 -translate-y-1/2" />
+          </div>
+
+          <div className="container mx-auto max-w-6xl relative z-10">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div className="space-y-10">
+                <div className="space-y-4">
+                  <span className="text-violet-400 text-sm font-bold uppercase tracking-[0.3em]">The Blueprint</span>
+                  <h3 className="text-4xl md:text-5xl font-playfair font-bold text-white leading-tight">
+                    Engenharia de Percepção: <br/>
+                    <span className="text-slate-500">Sincronia entre Posicionamento, <br className="hidden md:block"/> Conteúdo e Performance</span>
+                  </h3>
+                </div>
+                
+                <div className="prose prose-invert prose-lg text-slate-400 font-light leading-relaxed">
+                   <p>
+                     A transição para a liderança definitiva de mercado exige o que definimos como <strong className="text-white italic">Engenharia de Percepção</strong>. 
+                   </p>
+                   <p>
+                     O objetivo não é o simples aumento de visibilidade, mas a construção de um ecossistema de autoridade autossustentável que transmita a real profundidade da sua especialização para quem decide o jogo.
+                   </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: ShieldCheck,
+                    title: "Revisão do Posicionamento",
+                    desc: "Alinhando cada ponto de contato para que fale diretamente às ambições do ICP de alto padrão.",
+                    color: "blue"
+                  },
+                  {
+                    icon: Briefcase,
+                    title: "Conteúdo Autoral Estratégico",
+                    desc: "Uma narrativa que transcenda a informação técnica e comunique liderança e visão de negócio.",
+                    color: "violet"
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Tráfego de Alta Performance",
+                    desc: "Gestão de anúncios para garantir que sua autoridade chegue ao radar do poder de contratação.",
+                    color: "emerald"
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="group flex gap-6 p-8 bg-white/5 border border-white/5 rounded-[2rem] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
+                    <div className="shrink-0">
+                       <div className={`w-14 h-14 rounded-2xl bg-${item.color}-500/10 flex items-center justify-center border border-${item.color}-500/20 group-hover:scale-110 transition-transform`}>
+                          <item.icon className={`w-7 h-7 text-${item.color}-400`} />
+                       </div>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-xl font-bold text-white group-hover:text-violet-300 transition-colors">{item.title}</h4>
+                      <p className="text-slate-400 text-sm font-light leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEÇÃO 5: SOBRE A BRANDS */}
+        <section className="py-32 bg-slate-950 px-6 relative overflow-hidden">
+           {/* Sophisticated background flare */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+           
+           <div className="container mx-auto max-w-5xl relative z-10">
+              <div className="bg-slate-900/40 backdrop-blur-2xl border border-white/5 rounded-[3rem] p-12 md:p-20 relative overflow-hidden group">
+                 {/* Internal decorative lines */}
+                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
+                 
+                 <div className="flex flex-col items-center text-center space-y-10 relative z-10">
+                    <div className="relative">
+                       <div className="absolute inset-0 bg-amber-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
+                       <div className="w-20 h-20 bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-amber-500/30">
+                          <Image src="/lightning-icon.svg" width={48} height={48} alt="Logo" className="w-12 h-12" />
+                       </div>
+                    </div>
+                    
+                    <div className="space-y-6 max-w-3xl">
+                       <h2 className="text-3xl md:text-5xl font-playfair font-bold text-white tracking-tight">
+                         Gestão Estratégica de <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Autoridade Jurídica</span>
+                       </h2>
+                       
+                       <div className="h-px w-20 bg-amber-500/30 mx-auto" />
+                       
+                       <p className="text-slate-300 leading-relaxed text-xl font-light">
+                         A <span className="text-white font-bold">BRANDS</span> atua na intersecção entre a estratégia jurídica e a inteligência de mercado. Nossa missão é profissionalizar a imagem de escritórios que já alcançaram a excelência técnica e agora buscam a <span className="italic text-amber-200/80">soberania definitiva</span> de sua marca. Assumimos a gestão completa — do posicionamento à performance — garantindo que sua comunicação seja o reflexo fiel do prestígio que sua banca entrega.
+                       </p>
+                    </div>
+
+                    <div className="pt-4 flex items-center gap-4 text-amber-500/60 font-bold text-xs uppercase tracking-[0.4em]">
+                       <span className="w-12 h-px bg-amber-500/20"></span>
+                       Elite Standard
+                       <span className="w-12 h-px bg-amber-500/20"></span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* SEÇÃO 6: CTA FINAL FORM */}
+        <section id="agendar" className="py-32 bg-slate-950 px-6 relative overflow-hidden border-t border-white/5">
+           {/* Final background intense glow */}
+           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-violet-600/10 blur-[150px] pointer-events-none" />
+           
+           <div className="container mx-auto max-w-6xl relative z-10">
+              <div className="flex flex-col items-center text-center space-y-16">
+                 <div className="space-y-6 max-w-4xl">
+                    <h2 className="text-5xl md:text-7xl font-playfair font-bold text-white leading-[1.05] tracking-tight">
+                       Sua operação é <span className="text-violet-400">madura</span>;<br/>
+                       sua marca também deveria ser.
+                    </h2>
+                    <p className="text-xl md:text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                       Vamos consolidar o seu legado e posicionar seu escritório no topo da percepção de valor?
+                    </p>
+                 </div>
+
+                 <div className="w-full max-w-md space-y-8">
+                    <button 
+                       onClick={() => contactForm?.openForm()}
+                       className="w-full bg-white text-slate-950 hover:bg-violet-50 font-bold px-10 py-6 rounded-2xl transition-all duration-500 shadow-[0_10px_40px_-5px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_60px_-5px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 text-xl flex items-center justify-center gap-4 group"
+                    >
+                       {t('contactCta.button')}
+                       <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                    </button>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-500 text-sm font-bold uppercase tracking-widest">
+                       <div className="flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                          Diagnóstico Gratuito
+                       </div>
+                       <div className="flex items-center gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                          Vagas Limitadas
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Elite Trust Indicator */}
+                 <div className="pt-20 opacity-40">
+                    <span className="text-[10px] font-bold tracking-[1em] text-slate-500 uppercase">
+                       Reserved for Elite Law Firms
+                    </span>
+                 </div>
+              </div>
+           </div>
+        </section>
+      </main>
+    </div>
+  );
+}

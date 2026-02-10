@@ -9,7 +9,8 @@
     "privacyPolicy": "Privacy Policy",
     "mainNavLabel": "Main navigation menu",
     "mobileMenuLabel": "Mobile menu",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "advocacia": "Legal Marketing"
   },
   "hero": {
     "badge": "Traffic Management Experts",
@@ -60,6 +61,39 @@
     "description": "Fill out the form below and we will get back to you soon.",
     "closeLabel": "Close contact form",
     "iframeTitle": "Contact form"
+  },
+  "advocacia": {
+    "form": {
+      "nome": "Full Name",
+      "nomePlaceholder": "Your name",
+      "empresa": "Company",
+      "empresaPlaceholder": "Your company name",
+      "faturamento": "Average Monthly Revenue",
+      "faturamentoOptions": {
+        "under50": "Under 50k",
+        "50to150": "Between 50k and 150k",
+        "150to500": "Between 150k and 500k",
+        "over500": "Over 500k"
+      },
+      "setor": "Sector",
+      "setorPlaceholder": "e.g. legal",
+      "site": "Company Website",
+      "sitePlaceholder": "www.yourcompany.com",
+      "telefone": "Phone Number",
+      "telefonePlaceholder": "+1 (000) 000-0000",
+      "email": "Email",
+      "emailPlaceholder": "name@email.com",
+      "cargo": "Job Title",
+      "cargoPlaceholder": "Founding Partner",
+      "mensagem": "Message",
+      "mensagemPlaceholder": "How can we help?",
+      "button": "Send",
+      "buttonLoading": "Sending...",
+      "successTitle": "Message Sent!",
+      "successDescription": "Thank you for your interest. Our team will contact you within 24 hours.",
+      "sendAgain": "Send another message",
+      "securityNote": "Your data is secure."
+    }
   },
   "tts": {
     "title": "Listen to this article",

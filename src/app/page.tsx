@@ -1,43 +1,12 @@
-'use client'; // Marca este componente como um Client Component para permitir interatividade.
+import HomePageClient from '@/components/HomePageClient';
+import { type Metadata } from 'next';
 
-import { useState } from 'react';
+export const metadata: Metadata = {
+  title: 'BRANDS - Marketing Jurídico de Elite | Gestão de Autoridade',
+  description: 'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Transforme sua excelência técnica em soberania de marca e autoridade de mercado.',
+  keywords: 'marketing jurídico, brands marketing, posicionamento estratégico advocacia, gestão de autoridade, marketing de elite',
+};
 
-import ContactCTASection from '@/components/ContactCTASection';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ImpactSection from '@/components/ImpactSection';
-import ServiceModal from '@/components/ServiceModal';
-import type { ServiceData } from '@/data/servicesData';
-
-import ServicosPage from './servicos/page';
-
-// Componente principal da página (HomePage)
 export default function HomePage() {
-  // Estados para gerenciar a UI e dados
-  const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
-
-  return (
-    <>
-      <Header />
-
-      <main role="main">
-        <HeroSection />
-        <ImpactSection />
-        <ServicosPage />
-        <ContactCTASection />
-      </main>
-
-      <Footer />
-
-      {/* Modal de Detalhes do Serviço */}
-      {selectedService && (
-        <ServiceModal
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-        />
-      )}
-
-    </>
-  );
+  return <HomePageClient />;
 }

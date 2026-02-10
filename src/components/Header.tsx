@@ -59,30 +59,6 @@ export default function Header() {
           >
             <div role="none">
               <Link
-                href={getNavigationLink('servicos')}
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-              >
-                {t('header.services')}
-              </Link>
-            </div>
-            <div role="none">
-              <Link
-                href={getNavigationLink('impact-section')}
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-              >
-                {t('header.impact')}
-              </Link>
-            </div>
-            <div role="none">
-              <Link
-                href={getNavigationLink('contact-cta-section')}
-                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-              >
-                {t('header.contact')}
-              </Link>
-            </div>
-            <div role="none">
-              <Link
                 href="/blog/artigos"
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
               >
@@ -103,6 +79,14 @@ export default function Header() {
                 className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
               >
                 {t('header.privacyPolicy')}
+              </Link>
+            </div>
+            <div role="none">
+              <Link
+                href={getNavigationLink('agendar')}
+                className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+              >
+                {t('header.contact')}
               </Link>
             </div>
             <div role="none">
@@ -157,24 +141,6 @@ export default function Header() {
         >
           <div className="flex flex-col space-y-4">
             <Link
-              href={getNavigationLink('servicos')}
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.services')}
-            </Link>
-            <Link
-              href={getNavigationLink('impact-section')}
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.impact')}
-            </Link>
-            <Link
-              href={getNavigationLink('contact-cta-section')}
-              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
-            >
-              {t('header.contact')}
-            </Link>
-            <Link
               href="/blog/artigos"
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
             >
@@ -191,6 +157,12 @@ export default function Header() {
               className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors text-sm"
             >
               {t('header.privacyPolicy')}
+            </Link>
+            <Link
+              href={getNavigationLink('agendar')}
+              className="text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors"
+            >
+              {t('header.contact')}
             </Link>
           </div>
         </div>

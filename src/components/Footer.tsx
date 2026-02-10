@@ -44,25 +44,26 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          {/* <div>
-            <h4 role="heading" className="text-xl font-bold mb-4">Redes Sociais</h4>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-            </div>
-          </div> */}
+          <div>
+            <h4 role="heading" className="text-xl font-bold mb-4">Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-slate-200 hover:text-white transition-colors">
+                  {t('header.home')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/advocacia" className="text-slate-200 hover:text-white transition-colors">
+                  {t('header.advocacia')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/artigos" className="text-slate-200 hover:text-white transition-colors">
+                  {t('header.articles')}
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
         <div role="contentinfo" className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-slate-200">

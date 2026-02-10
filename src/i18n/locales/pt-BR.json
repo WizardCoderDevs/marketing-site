@@ -9,7 +9,8 @@
     "privacyPolicy": "Política de Privacidade",
     "mainNavLabel": "Menu de navegação principal",
     "mobileMenuLabel": "Menu mobile",
-    "openMenu": "Abrir menu"
+    "openMenu": "Abrir menu",
+    "advocacia": "Advocacia"
   },
   "hero": {
     "badge": "Especialistas em Gestão de Tráfego",
@@ -60,6 +61,39 @@
     "description": "Preencha o formulário abaixo e entraremos em contato em breve.",
     "closeLabel": "Fechar formulário",
     "iframeTitle": "Formulário de Contato"
+  },
+  "advocacia": {
+    "form": {
+      "nome": "Nome Completo",
+      "nomePlaceholder": "Seu nome",
+      "empresa": "Empresa",
+      "empresaPlaceholder": "Nome da sua empresa",
+      "faturamento": "Faturamento médio mensal",
+      "faturamentoOptions": {
+        "under50": "Abaixo de 50 mil",
+        "50to150": "De 50 mil e 150 mil",
+        "150to500": "De 150 mil a 500 mil",
+        "over500": "Acima de 500 mil"
+      },
+      "setor": "Setor",
+      "setorPlaceholder": "Ex: jurídico",
+      "site": "Site da empresa",
+      "sitePlaceholder": "www.suaempresa.com.br",
+      "telefone": "Número de telefone",
+      "telefonePlaceholder": "+55 (00) 00000-0000",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "cargo": "Cargo",
+      "cargoPlaceholder": "Seu cargo",
+      "mensagem": "Mensagem",
+      "mensagemPlaceholder": "Como podemos ajudar?",
+      "button": "Enviar",
+      "buttonLoading": "Enviando...",
+      "successTitle": "Mensagem Enviada!",
+      "successDescription": "Obrigado pelo seu interesse. Nossa equipe entrará em contato com você em breve.",
+      "sendAgain": "Enviar outra mensagem",
+      "securityNote": "Seus dados estão seguros."
+    }
   },
   "tts": {
     "title": "Ouvir este artigo",
