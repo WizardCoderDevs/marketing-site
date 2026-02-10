@@ -10,33 +10,128 @@ function toUrl(path: string) {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
+  // Rotas estáticas principais com prioridades otimizadas
+  // Inclui versões em inglês para SEO internacional
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: toUrl('/'), lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: toUrl('/servicos'), lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: toUrl('/blog'), lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: toUrl('/blog/artigos'), lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: toUrl('/blog/noticias'), lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: toUrl('/politica-de-privacidade'), lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    // Português (Brasil) - versões principais
+    { 
+      url: toUrl('/'), 
+      lastModified: now, 
+      changeFrequency: 'weekly', 
+      priority: 1.0 
+    },
+    { 
+      url: toUrl('/servicos'), 
+      lastModified: now, 
+      changeFrequency: 'weekly', 
+      priority: 0.9 
+    },
+    { 
+      url: toUrl('/blog'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.8 
+    },
+    { 
+      url: toUrl('/blog/artigos'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.8 
+    },
+    { 
+      url: toUrl('/blog/noticias'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.8 
+    },
+    { 
+      url: toUrl('/politica-de-privacidade'), 
+      lastModified: now, 
+      changeFrequency: 'yearly', 
+      priority: 0.3 
+    },
+    // Inglês - versões para público internacional
+    { 
+      url: toUrl('/?lang=en'), 
+      lastModified: now, 
+      changeFrequency: 'weekly', 
+      priority: 0.95 
+    },
+    { 
+      url: toUrl('/servicos?lang=en'), 
+      lastModified: now, 
+      changeFrequency: 'weekly', 
+      priority: 0.85 
+    },
+    { 
+      url: toUrl('/blog?lang=en'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.75 
+    },
+    { 
+      url: toUrl('/blog/artigos?lang=en'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.75 
+    },
+    { 
+      url: toUrl('/blog/noticias?lang=en'), 
+      lastModified: now, 
+      changeFrequency: 'daily', 
+      priority: 0.75 
+    },
   ];
 
+  // Busca posts do Strapi
   const [articlePosts, newsPosts] = await Promise.all([
-    fetchStrapiPosts('article'),
-    fetchStrapiPosts('news'),
+    fetchStrapiPosts('article').catch(() => []),
+    fetchStrapiPosts('news').catch(() => []),
   ]);
 
-  const articleEntries: MetadataRoute.Sitemap = articlePosts.map((post) => ({
-    url: toUrl(`/blog/artigos/${post.generatedSlug || post.attributes.slug}`),
-    lastModified: new Date(post.attributes.updatedAt || post.attributes.publishedAt),
-    changeFrequency: 'weekly',
-    priority: 0.6,
-  }));
+  // Artigos do blog - prioridade alta para conteúdo
+  // Inclui versões em português e inglês
+  const articleEntries: MetadataRoute.Sitemap = articlePosts.flatMap((post) => {
+    const baseSlug = post.generatedSlug || post.attributes.slug;
+    const lastModified = new Date(post.attributes.updatedAt || post.attributes.publishedAt || now);
+    
+    return [
+      {
+        url: toUrl(`/blog/artigos/${baseSlug}`),
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      },
+      {
+        url: toUrl(`/blog/artigos/${baseSlug}?lang=en`),
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.65,
+      },
+    ];
+  });
 
-  const newsEntries: MetadataRoute.Sitemap = newsPosts.map((post) => ({
-    url: toUrl(`/blog/noticias/${post.generatedSlug || post.attributes.slug}`),
-    lastModified: new Date(post.attributes.updatedAt || post.attributes.publishedAt),
-    changeFrequency: 'weekly',
-    priority: 0.6,
-  }));
+  // Notícias do blog - prioridade alta para conteúdo atualizado
+  // Inclui versões em português e inglês
+  const newsEntries: MetadataRoute.Sitemap = newsPosts.flatMap((post) => {
+    const baseSlug = post.generatedSlug || post.attributes.slug;
+    const lastModified = new Date(post.attributes.updatedAt || post.attributes.publishedAt || now);
+    
+    return [
+      {
+        url: toUrl(`/blog/noticias/${baseSlug}`),
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      },
+      {
+        url: toUrl(`/blog/noticias/${baseSlug}?lang=en`),
+        lastModified,
+        changeFrequency: 'weekly' as const,
+        priority: 0.65,
+      },
+    ];
+  });
 
   return [...staticRoutes, ...articleEntries, ...newsEntries];
 }

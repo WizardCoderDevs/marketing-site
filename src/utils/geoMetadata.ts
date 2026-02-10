@@ -71,16 +71,29 @@ export function generatePostMetadata(
   // Extrai tags para keywords
   const keywords = post.attributes.tags?.data?.map(tag => tag.attributes.name).join(', ') || '';
 
+  // URLs para diferentes idiomas
+  const enUrl = `${url}?lang=en`;
+
   return {
     title: `${title} | ${siteName}`,
     description,
     keywords: keywords || undefined,
-    authors: [{ name: siteName }],
+    authors: [{ name: siteName, url: siteUrlWithSlash }],
     creator: siteName,
     publisher: siteName,
+    category: type === 'article' ? 'Artigo' : 'Notícia',
     metadataBase: new URL(siteUrlWithSlash),
     alternates: {
       canonical: url,
+      languages: {
+        'pt-BR': url,
+        'en': enUrl,
+        'en-US': enUrl,
+        'en-GB': enUrl,
+        'en-CA': enUrl,
+        'en-AU': enUrl,
+        'x-default': url,
+      },
     },
     openGraph: {
       title,
@@ -88,15 +101,20 @@ export function generatePostMetadata(
       url,
       siteName,
       locale: 'pt_BR',
+      alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
       type: 'article',
       publishedTime,
-      modifiedTime,
+      modifiedTime: modifiedTime || publishedTime,
+      authors: [siteName],
+      section: type === 'article' ? 'Artigos' : 'Notícias',
+      tags: keywords ? keywords.split(', ') : undefined,
       images: [
         {
           url: fullImageUrl,
           width: 1200,
           height: 630,
           alt: title,
+          type: 'image/jpeg',
         },
       ],
     },
@@ -105,17 +123,26 @@ export function generatePostMetadata(
       title,
       description,
       images: [fullImageUrl],
+      creator: '@brands_ppg',
     },
     robots: {
       index: true,
       follow: true,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
+        noimageindex: false,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
+    },
+    other: {
+      'article:published_time': publishedTime || '',
+      'article:modified_time': modifiedTime || publishedTime || '',
+      'article:author': siteName,
+      'article:section': type === 'article' ? 'Artigos' : 'Notícias',
     },
   };
 }

@@ -117,12 +117,47 @@ export function StructuredData({ post, type, slug }: StructuredDataProps) {
     '@type': 'Organization',
     name: siteName,
     url: siteUrlWithSlash,
-    logo: `${siteUrl}/logo.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/logo.png`,
+      width: 512,
+      height: 512,
+    },
+    description: 'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Especialistas em posicionamento estratégico e gestão de autoridade.',
+    description_pt: 'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Especialistas em posicionamento estratégico e gestão de autoridade.',
+    description_en: 'Strategic legal marketing for high-value law firms. Specialists in strategic positioning and authority management.',
+    foundingDate: '2026',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: ['Portuguese', 'English', 'pt-BR', 'en-US', 'en-GB', 'en-CA', 'en-AU'],
+    },
     sameAs: [
-      // Adicione suas redes sociais aqui
       'https://www.facebook.com/brands.ppg.br',
       'https://www.instagram.com/brands.ppg.br',
       // 'https://www.linkedin.com/company/brands',
+    ],
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'Brasil',
+      },
+      {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      {
+        '@type': 'Country',
+        name: 'United Kingdom',
+      },
+      {
+        '@type': 'Country',
+        name: 'Canada',
+      },
+      {
+        '@type': 'Country',
+        name: 'Australia',
+      },
     ],
   };
 

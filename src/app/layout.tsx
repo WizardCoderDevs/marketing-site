@@ -27,17 +27,31 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-// Metadados da página para SEO
+// Metadados da página para SEO - Alinhados com o objetivo de Marketing Jurídico de Elite
 
 export const metadata: Metadata = {
-  title: 'BRANDS - Marketing Digital Estratégico para Empresas Regionais',
+  title: {
+    default: 'BRANDS - Marketing Jurídico de Elite | Gestão de Autoridade',
+    template: '%s | BRANDS',
+  },
   description:
-    'Transforme seu negócio com estratégias de marketing digital personalizadas. Oferecemos soluções em publicidade online, gestão de redes sociais e conteúdo estratégico para impulsionar sua presença digital.',
-  keywords:
-    'marketing digital, publicidade online, gestão de redes sociais, conteúdo estratégico, empresas regionais, presença digital',
-  authors: [{ name: 'BRANDS' }],
+    'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Transforme sua excelência técnica em soberania de marca e autoridade de mercado. Especialistas em posicionamento estratégico e gestão de autoridade para o mercado jurídico.',
+  keywords: [
+    'marketing jurídico',
+    'brands marketing',
+    'posicionamento estratégico advocacia',
+    'gestão de autoridade',
+    'marketing de elite',
+    'marketing para escritórios de advocacia',
+    'branding jurídico',
+    'autoridade de mercado',
+    'soberania de marca',
+    'marketing digital jurídico',
+  ],
+  authors: [{ name: 'BRANDS', url: siteUrlWithSlash }],
   creator: 'BRANDS',
   publisher: 'BRANDS',
+  category: 'Marketing Jurídico',
   formatDetection: {
     email: false,
     address: false,
@@ -48,7 +62,11 @@ export const metadata: Metadata = {
     canonical: siteUrlWithSlash,
     languages: {
       'pt-BR': siteUrlWithSlash,
-      'en': siteUrlWithSlash,
+      'en': `${siteUrlWithSlash}?lang=en`,
+      'en-US': `${siteUrlWithSlash}?lang=en`,
+      'en-GB': `${siteUrlWithSlash}?lang=en`,
+      'en-CA': `${siteUrlWithSlash}?lang=en`,
+      'en-AU': `${siteUrlWithSlash}?lang=en`,
       'x-default': siteUrlWithSlash,
     },
     types: {
@@ -64,33 +82,50 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: 'BRANDS - Marketing Digital Estratégico',
+    title: 'BRANDS - Marketing Jurídico de Elite | Gestão de Autoridade',
     description:
-      'Transforme seu negócio com estratégias de marketing digital personalizadas',
+      'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Transforme sua excelência técnica em soberania de marca e autoridade de mercado.',
     url: siteUrlWithSlash,
     siteName: 'BRANDS',
     locale: 'pt_BR',
+    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
     type: 'website',
+    images: [
+      {
+        url: `${siteUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'BRANDS - Marketing Jurídico de Elite',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BRANDS - Marketing Digital Estratégico',
+    title: 'BRANDS - Marketing Jurídico de Elite | Gestão de Autoridade',
     description:
-      'Transforme seu negócio com estratégias de marketing digital personalizadas',
+      'Marketing jurídico estratégico para escritórios de advocacia de alto valor. Transforme sua excelência técnica em soberania de marca.',
+    images: [`${siteUrl}/og-image.jpg`],
+    creator: '@brands_ppg',
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
   verification: {
-    google: 'google-site-verification-code', // Substitua pelo código real de verificação do Google
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || 'google-site-verification-code',
+  },
+  other: {
+    'geo.region': 'BR',
+    'geo.placename': 'Brasil',
   },
 };
 
