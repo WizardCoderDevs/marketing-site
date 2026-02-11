@@ -13,10 +13,10 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <>
       <Header />
-      <main role="main" className="min-h-screen bg-white dark:bg-slate-900">
-        <section className="blog-content prose prose-slate dark:prose-invert mx-auto w-full">
+      <main role="main" className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-500">
+        <div className="w-full">
           {children}
-        </section>
+        </div>
         <Footer />
       </main>
     </>

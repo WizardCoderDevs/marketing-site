@@ -316,88 +316,101 @@ export default function TextToSpeechControls({ title, html }: TextToSpeechContro
 
   return (
     <section
-      className="mb-6 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4"
+      className="rounded-3xl border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-white/5 backdrop-blur-xl p-6 md:p-8 animate-fade-in relative overflow-hidden"
       aria-label={t('tts.title')}
     >
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200">
-          <Volume2 className="h-5 w-5" aria-hidden="true" />
-          <span className="text-sm font-semibold">{t('tts.title')}</span>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 blur-[50px] -translate-y-1/2 translate-x-1/2" />
+      
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div className="space-y-2">
+          <div className="flex items-center gap-3 text-violet-600 dark:text-violet-400">
+            <Volume2 className="h-6 w-6" aria-hidden="true" />
+            <h2 className="text-lg font-bold tracking-tight">{t('tts.title')}</h2>
+          </div>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            {isLoading ? t('tts.loading') : t('tts.description')}
+          </p>
         </div>
 
-        <div className="flex w-full flex-col gap-2">
-          {voiceOptions.length > 0 && (
-            <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
-              {t('tts.voiceLabel')}
-              <select
-                value={selectedVoiceName || 'auto'}
-                onChange={(event) => {
-                  const value = event.target.value;
-                  setSelectedVoiceName(value === 'auto' ? null : value);
-                  const key = isPortuguese ? 'tts_voice_pt' : 'tts_voice_en';
-                  if (value === 'auto') {
-                    localStorage.removeItem(key);
-                  } else {
-                    localStorage.setItem(key, value);
-                  }
-                }}
-                className="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-              >
-                <option value="auto">{t('tts.voiceAuto')}</option>
-                {voiceOptions.map((voice) => (
-                  <option key={`${voice.name}-${voice.lang}`} value={voice.name}>
-                    {voice.name} ({voice.lang})
-                  </option>
-                ))}
-              </select>
-            </label>
-          )}
-          <div className="flex flex-wrap items-center gap-2">
-            <label className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
-              {t('tts.volume')}
-              <input
-                type="range"
-                min={0}
-                max={1}
-                step={0.05}
-                value={volume}
-                onChange={(event) => setVolume(Number(event.target.value))}
-                className="h-2 w-24 cursor-pointer accent-violet-600"
-              />
-            </label>
+        <div className="flex flex-col gap-6 w-full md:w-auto">
+          <div className="flex flex-wrap items-center gap-6">
+            {voiceOptions.length > 0 && (
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">{t('tts.voiceLabel')}</span>
+                <select
+                  value={selectedVoiceName || 'auto'}
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    setSelectedVoiceName(value === 'auto' ? null : value);
+                    const key = isPortuguese ? 'tts_voice_pt' : 'tts_voice_en';
+                    if (value === 'auto') {
+                      localStorage.removeItem(key);
+                    } else {
+                      localStorage.setItem(key, value);
+                    }
+                  }}
+                  className="rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-violet-500 outline-none transition-all cursor-pointer"
+                >
+                  <option value="auto">{t('tts.voiceAuto')}</option>
+                  {voiceOptions.map((voice) => (
+                    <option key={`${voice.name}-${voice.lang}`} value={voice.name}>
+                      {voice.name.replace(/Google|Microsoft/g, '').trim()}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-1.5 flex-1 md:flex-none">
+              <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">{t('tts.volume')}</span>
+              <div className="flex items-center gap-3">
+                <input
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={volume}
+                  onChange={(event) => setVolume(Number(event.target.value))}
+                  className="h-1.5 w-full md:w-32 cursor-pointer accent-violet-600 appearance-none bg-slate-200 dark:bg-slate-800 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={handlePlay}
               disabled={!canPlay}
-              className="inline-flex items-center gap-2 rounded-md bg-violet-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-violet-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 dark:disabled:bg-slate-700 dark:disabled:text-slate-300"
+              className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 rounded-2xl bg-violet-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-violet-600/20 hover:bg-violet-500 hover:shadow-violet-600/40 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed group"
             >
-              <Play className="h-4 w-4" aria-hidden="true" />
+              <Play className={`h-4 w-4 fill-current ${isSpeaking && !isPaused ? 'animate-pulse' : ''}`} aria-hidden="true" />
               {playLabel}
             </button>
-            <button
-              type="button"
-              onClick={handlePause}
-              disabled={!isSpeaking || isPaused}
-              className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
-            >
-              <Pause className="h-4 w-4" aria-hidden="true" />
-              {t('tts.pause')}
-            </button>
-            <button
-              type="button"
-              onClick={handleStop}
-              disabled={!isSpeaking}
-              className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900 dark:disabled:bg-slate-900 dark:disabled:text-slate-500"
-            >
-              <Square className="h-4 w-4" aria-hidden="true" />
-              {t('tts.stop')}
-            </button>
+            
+            {isSpeaking && (
+              <>
+                <button
+                  type="button"
+                  onClick={handlePause}
+                  disabled={isPaused}
+                  className="p-3 rounded-2xl border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors disabled:opacity-30"
+                  aria-label={t('tts.pause')}
+                >
+                  <Pause className="h-5 w-5" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleStop}
+                  className="p-3 rounded-2xl border border-red-100 dark:border-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors"
+                  aria-label={t('tts.stop')}
+                >
+                  <Square className="h-5 w-5 fill-current" aria-hidden="true" />
+                </button>
+              </>
+            )}
           </div>
         </div>
-      </div>
-
-      <div className="mt-3 text-xs text-slate-500 dark:text-slate-400" aria-live="polite">
-        {isLoading ? t('tts.loading') : t('tts.description')}
       </div>
     </section>
   );

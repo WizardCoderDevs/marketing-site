@@ -1,35 +1,42 @@
 'use client';
 
 import { processStrapiContent } from '@/utils/strapiContent';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import { Inter, Playfair_Display } from 'next/font/google';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import ContactCTASection from './ContactCTASection';
 import TextToSpeechControls from './TextToSpeechControls';
 import { TranslatedContent, TranslatedText } from './TranslatedContent';
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 interface PostContentProps {
   title: string;
   content: any;
   publishedAt?: string;
   backLink: string;
-  backLinkKey: string; // Chave de tradução para o link de voltar
-  publishedKey: string; // Chave de tradução para "Publicado em"
+  backLinkKey: string;
+  publishedKey: string;
 }
 
-/**
- * Função auxiliar para calcular tempo de leitura
- */
 function calculateReadingTime(content: string): number {
-  const wordsPerMinute = 200;
-  const text = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+  const wordsPerMinute = 225;
+  const text = content.replace(/<[^>]*>/g, '');
   const wordCount = text.split(/\s+/).length;
   return Math.ceil(wordCount / wordsPerMinute);
 }
 
-/**
- * Componente client-side para renderizar conteúdo de posts com tradução automática
- */
 export function PostContent({
   title,
   content,
@@ -39,26 +46,21 @@ export function PostContent({
   publishedKey,
 }: PostContentProps) {
   const { t } = useTranslation();
-  // Processa o conteúdo do Strapi para HTML
   const processedContent = processStrapiContent(content);
   const readingTime = processedContent ? calculateReadingTime(processedContent) : 0;
   
   const postTypographyClass =
-    'prose prose-lg prose-slate dark:prose-invert max-w-none ' +
-    'prose-h1:text-4xl prose-h1:font-bold prose-h1:mt-12 prose-h1:mb-6 ' +
-    'prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-5 ' +
-    'prose-h3:text-2xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-4 ' +
-    'prose-h4:text-xl prose-h4:font-semibold prose-h4:mt-6 prose-h4:mb-3 ' +
-    'prose-headings:text-slate-900 dark:prose-headings:text-slate-100 ' +
-    'prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-p:mb-6 ' +
-    'prose-strong:text-violet-700 dark:prose-strong:text-violet-400 prose-strong:font-semibold ' +
-    'prose-a:text-violet-700 dark:prose-a:text-violet-400 prose-a:font-medium hover:prose-a:underline ' +
-    'prose-ul:my-6 prose-ol:my-6 prose-li:my-2 ' +
-    'prose-blockquote:border-l-4 prose-blockquote:border-violet-500 prose-blockquote:pl-6 prose-blockquote:italic ' +
-    'prose-code:text-violet-700 dark:prose-code:text-violet-400 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded ' +
-    'prose-pre:bg-slate-900 dark:prose-pre:bg-slate-950 prose-pre:border prose-pre:border-slate-700 ' +
-    'prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8 ' +
-    'prose-hr:border-slate-300 dark:prose-hr:border-slate-700';
+    `max-w-none ${inter.className} ` +
+    'prose prose-lg md:prose-xl prose-slate dark:prose-invert ' +
+    'prose-h2:font-playfair prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:font-bold prose-h2:mt-16 prose-h2:mb-8 prose-h2:tracking-tight ' +
+    'prose-h3:font-playfair prose-h3:text-2xl md:prose-h3:text-3xl prose-h3:font-bold prose-h3:mt-12 prose-h3:mb-6 ' +
+    'prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-8 prose-p:text-lg md:prose-p:text-xl ' +
+    'prose-strong:text-slate-900 dark:prose-strong:text-white prose-strong:font-bold ' +
+    'prose-blockquote:border-l-4 prose-blockquote:border-violet-500 prose-blockquote:bg-violet-50 dark:prose-blockquote:bg-violet-900/10 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-slate-800 dark:prose-blockquote:text-slate-200 ' +
+    'prose-img:rounded-3xl prose-img:shadow-2xl prose-img:my-12 ' +
+    'prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline ' +
+    'prose-li:text-lg md:prose-li:text-xl prose-li:leading-relaxed ' +
+    'prose-hr:border-slate-200 dark:prose-hr:border-slate-800 prose-hr:my-16';
 
   const formattedDate = publishedAt
     ? new Date(publishedAt).toLocaleDateString('pt-BR', {
@@ -69,72 +71,97 @@ export function PostContent({
     : null;
 
   return (
-    <div className="space-y-8">
-      {/* Botão de voltar */}
-      <Link
-        href={backLink}
-        className="inline-flex items-center gap-2 text-violet-700 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 font-medium transition-colors group"
-      >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        <span>{t(backLinkKey)}</span>
-      </Link>
+    <div className={`space-y-12 ${inter.variable} ${playfair.variable}`}>
+      {/* Botão de voltar e Compartilhar */}
+      <div className="flex items-center justify-between animate-fade-in">
+        <Link
+          href={backLink}
+          className="inline-flex items-center gap-2 text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-all group px-4 py-2 rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/20"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>{t(backLinkKey)}</span>
+        </Link>
+        <button 
+          onClick={() => {
+            if (navigator.share) {
+              navigator.share({ title, url: window.location.href });
+            }
+          }}
+          className="p-2 text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors rounded-full hover:bg-violet-50 dark:hover:bg-violet-900/20"
+        >
+          <Share2 className="w-5 h-5" />
+        </button>
+      </div>
 
       {/* Header do post */}
-      <header className="space-y-6 pb-8 border-b border-slate-200 dark:border-slate-700">
-        <div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
+      <header className="space-y-10">
+        <div className="space-y-4">
+          <h1 className={`text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight ${playfair.className}`}>
             <TranslatedText text={title} />
           </h1>
         </div>
         
-        {/* Metadata */}
-        {(formattedDate || readingTime > 0) && (
-          <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600 dark:text-slate-400">
-            {formattedDate && (
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-                <time dateTime={publishedAt}>
-                  <span className="font-medium">{t(publishedKey)}</span>{' '}
-                  {formattedDate}
-                </time>
+        {/* Metadata Superior */}
+        <div className="flex flex-wrap items-center gap-8 py-6 border-y border-slate-100 dark:border-slate-800/50">
+          {formattedDate && (
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <Calendar className="w-5 h-5 text-violet-600 dark:text-violet-400" />
               </div>
-            )}
-            {readingTime > 0 && (
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-                <span>{readingTime} min de leitura</span>
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">{t(publishedKey)}</p>
+                <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{formattedDate}</p>
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+          {readingTime > 0 && (
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <Clock className="w-5 h-5 text-violet-600 dark:text-violet-400" />
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Tempo de Leitura</p>
+                <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{readingTime} min</p>
+              </div>
+            </div>
+          )}
+        </div>
       </header>
 
-      {/* Controles de Text-to-Speech */}
+      {/* Controles de Text-to-Speech com Design Moderno */}
       {processedContent && (
-        <div className="flex justify-center">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-600/5 to-blue-600/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <TextToSpeechControls title={title} html={processedContent} />
         </div>
       )}
 
       {/* Conteúdo do post */}
-      <div className="pt-4">
-        {processedContent ? (
-          <TranslatedContent content={processedContent} className={postTypographyClass} />
-        ) : (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4 opacity-20">📄</div>
-            <p className="text-slate-600 dark:text-slate-400 text-lg">
-              Conteúdo não disponível.
-            </p>
-          </div>
-        )}
-      </div>
+      <article className="relative">
+        {/* Decorative element background */}
+        <div className="absolute -left-24 top-40 w-0.5 h-64 bg-gradient-to-b from-transparent via-violet-500/20 to-transparent hidden xl:block" />
+        
+        <div className="content-area">
+          {processedContent ? (
+            <TranslatedContent content={processedContent} className={postTypographyClass} />
+          ) : (
+            <div className="text-center py-24 bg-slate-50 dark:bg-slate-900/50 rounded-[3rem] border border-dashed border-slate-200 dark:border-slate-800">
+              <div className="text-6xl mb-6 opacity-20">📄</div>
+              <p className="text-slate-600 dark:text-slate-400 text-xl font-light">
+                O conteúdo desta publicação ainda está sendo preparado.
+              </p>
+            </div>
+          )}
+        </div>
+      </article>
 
-      {/* Separador */}
-      <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
+      {/* Rodapé do Post / Newsletter / Outros */}
+      <footer className="pt-20 space-y-16">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent" />
         <ContactCTASection />
-      </div>
+      </footer>
     </div>
   );
 }
+
 
