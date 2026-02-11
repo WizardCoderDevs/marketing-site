@@ -1,15 +1,15 @@
 import { useContactForm } from '@/contexts/ContactFormContext';
 import {
-  ArrowRight,
-  Award,
-  BarChart3,
-  Briefcase,
-  CheckCircle2,
-  ChevronDown,
-  ShieldCheck,
-  Target,
-  TrendingUp,
-  Users
+    ArrowRight,
+    Award,
+    BarChart3,
+    Briefcase,
+    CheckCircle2,
+    ChevronDown,
+    ShieldCheck,
+    Target,
+    TrendingUp,
+    Users
 } from 'lucide-react';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
@@ -132,7 +132,7 @@ export default function AdvocaciaLanding() {
                           </div>
                         </div>
                         <div className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-bold animate-pulse">
-                          LIVE
+                          {t('advocaciaLanding.hero.dashboard.live')}
                         </div>
                      </div>
 
@@ -156,14 +156,14 @@ export default function AdvocaciaLanding() {
                            <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
                               <TrendingUp className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.growthLabel')}
                            </div>
-                           <div className="text-3xl font-bold text-slate-900 dark:text-white">+145%</div>
+                           <div className="text-3xl font-bold text-slate-900 dark:text-white">{t('advocaciaLanding.hero.dashboard.growthValue')}</div>
                            <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.growthSub')}</div>
                         </div>
                         <div className="p-5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl space-y-3 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                               <Award className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.positionLabel')}
                            </div>
-                           <div className="text-3xl font-bold text-slate-900 dark:text-white">#1</div>
+                           <div className="text-3xl font-bold text-slate-900 dark:text-white">{t('advocaciaLanding.hero.dashboard.positionValue')}</div>
                            <div className="text-xs text-slate-500">{t('advocaciaLanding.hero.dashboard.positionSub')}</div>
                         </div>
                      </div>

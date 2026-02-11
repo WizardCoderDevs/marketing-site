@@ -31,6 +31,9 @@
       "trafficGrowth": "Crescimento do Tráfego",
       "conversions": "Conversões",
       "roi": "ROI",
+      "trafficGrowthValue": "+247%",
+      "conversionsValue": "1.247",
+      "roiValue": "347%",
       "vsPreviousMonth": "vs mês anterior"
     }
   },
@@ -459,17 +462,17 @@
       "cta": "Iniciar Reunião Estratégica",
       "stats": "+120 bancas atendidas",
       "dashboard": {
-        "statusLabel": "Market Status",
-        "statusValue": "Full Dominance",
-        "live": "LIVE",
-        "scoreLabel": "Authority Score",
-        "growthLabel": "Growth",
+        "statusLabel": "Status de Mercado",
+        "statusValue": "Domínio Total",
+        "live": "AO VIVO",
+        "scoreLabel": "Score de Autoridade",
+        "growthLabel": "Crescimento",
         "growthValue": "+145%",
-        "growthSub": "Percepsção de Valor",
-        "positionLabel": "Position",
+        "growthSub": "Percepção de Valor",
+        "positionLabel": "Posição",
         "positionValue": "#1",
-        "positionSub": "Market Leader",
-        "targetReached": "Target reached",
+        "positionSub": "Líder de Mercado",
+        "targetReached": "Meta atingida",
         "eliteFirm": "Banca de Elite"
       }
     },
@@ -504,10 +507,10 @@
           "description": "Sem uma marca forte que valide o preço, o escritório acaba sendo comparado por tabelas, e não pelo prestígio e segurança que oferece."
         }
       ],
-      "impactLabel": "Critical Impact"
+      "impactLabel": "Impacto Crítico"
     },
     "methodology": {
-      "badge": "The Blueprint",
+      "badge": "O Blueprint",
       "title": "Engenharia de Percepção:",
       "subtitle": "Sincronia entre Posicionamento, Conteúdo e Performance",
       "description1": "A transição para a liderança definitiva de mercado exige o que definimos como Engenharia de Percepção.",
@@ -531,7 +534,7 @@
       "title": "Gestão Estratégica de ",
       "highlight": "Autoridade Jurídica",
       "content": "A BRANDS atua na intersecção entre a estratégia jurídica e a inteligência de mercado. Nossa missão é profissionalizar a imagem de escritórios que já alcançaram a excelência técnica e agora buscam a soberania definitiva de sua marca. Assumimos a gestão completa — do posicionamento à performance — garantindo que sua comunicação seja o reflexo fiel do prestígio que sua banca entrega.",
-      "badge": "Elite Standard"
+      "badge": "Padrão de Elite"
     },
     "cta": {
       "titlePart1": "Sua operação é ",
@@ -540,7 +543,7 @@
       "description": "Vamos consolidar o seu legado e posicionar seu escritório no topo da percepção de valor?",
       "check1": "Diagnóstico Gratuito",
       "check2": "Vagas Limitadas",
-      "trustIndicator": "Reserved for Elite Law Firms"
+      "trustIndicator": "Reservado para Bancas de Elite"
     }
   }
 }

@@ -31,6 +31,9 @@
       "trafficGrowth": "Traffic Growth",
       "conversions": "Conversions",
       "roi": "ROI",
+      "trafficGrowthValue": "+247%",
+      "conversionsValue": "1,247",
+      "roiValue": "347%",
       "vsPreviousMonth": "vs previous month"
     }
   },

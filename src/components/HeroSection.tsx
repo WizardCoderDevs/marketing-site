@@ -167,7 +167,7 @@ export default function HeroSection() {
                   <div>
                     <div className="flex justify-between items-center mb-3">
                       <h3 role="heading" aria-label={t('hero.dashboard.trafficGrowth')} className="text-lg font-semibold text-slate-900 dark:text-white">{t('hero.dashboard.trafficGrowth')}</h3>
-                      <span role="text" aria-label="247%" className="text-green-600 dark:text-green-400 text-sm font-medium">+247%</span>
+                      <span role="text" aria-label={t('hero.dashboard.trafficGrowthValue')} className="text-green-600 dark:text-green-400 text-sm font-medium">{t('hero.dashboard.trafficGrowthValue')}</span>
                     </div>
                     <div className="h-32 bg-gradient-to-r from-violet-100 to-blue-100 dark:from-violet-900/30 dark:to-blue-900/30 rounded-lg p-4">
                       <div className="h-full flex items-end gap-2">
@@ -193,7 +193,7 @@ export default function HeroSection() {
                         <RocketLaunchIcon className="w-5 h-5 text-violet-600" />
                         <span className="text-sm text-slate-600 dark:text-slate-300">{t('hero.dashboard.conversions')}</span>
                       </div>
-                      <div role="text" aria-label="1,247" className="text-2xl font-bold text-slate-900 dark:text-white">1,247</div>
+                      <div role="text" aria-label={t('hero.dashboard.conversionsValue')} className="text-2xl font-bold text-slate-900 dark:text-white">{t('hero.dashboard.conversionsValue')}</div>
                       <div className="text-green-600 dark:text-green-400 text-sm">+23% {t('hero.dashboard.vsPreviousMonth')}</div>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4">
@@ -201,7 +201,7 @@ export default function HeroSection() {
                         <ChartBarIcon className="w-5 h-5 text-blue-600" />
                         <span className="text-sm text-slate-600 dark:text-slate-300">{t('hero.dashboard.roi')}</span>
                       </div>
-                      <div role="text" aria-label="347%" className="text-2xl font-bold text-slate-900 dark:text-white">347%</div>
+                      <div role="text" aria-label={t('hero.dashboard.roiValue')} className="text-2xl font-bold text-slate-900 dark:text-white">{t('hero.dashboard.roiValue')}</div>
                       <div className="text-green-600 dark:text-green-400 text-sm">+45% {t('hero.dashboard.vsPreviousMonth')}</div>
                     </div>
                   </div>
