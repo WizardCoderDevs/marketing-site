@@ -1,15 +1,15 @@
 import { useContactForm } from '@/contexts/ContactFormContext';
 import {
-    ArrowRight,
-    Award,
-    BarChart3,
-    Briefcase,
-    CheckCircle2,
-    ChevronDown,
-    ShieldCheck,
-    Target,
-    TrendingUp,
-    Users
+  ArrowRight,
+  Award,
+  BarChart3,
+  Briefcase,
+  CheckCircle2,
+  ChevronDown,
+  ShieldCheck,
+  Target,
+  TrendingUp,
+  Users
 } from 'lucide-react';
 import { Inter, Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
@@ -96,7 +96,7 @@ export default function AdvocaciaLanding() {
                 
                 <div className="pt-6 flex flex-wrap gap-6 items-center">
                   <button 
-                    onClick={() => contactForm?.openForm()}
+                    onClick={() => document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' })}
                     className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white dark:text-slate-950 bg-gradient-to-r from-violet-600 to-blue-600 dark:bg-white rounded-xl hover:from-violet-500 hover:to-blue-500 dark:hover:bg-violet-50 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.5)] hover:shadow-[0_20px_50px_-10px_rgba(124,58,237,0.6)] transform hover:-translate-y-1"
                   >
                     {t('advocaciaLanding.hero.cta')}
@@ -377,7 +377,7 @@ export default function AdvocaciaLanding() {
         </section>
 
         {/* SEÇÃO 5: SOBRE A BRANDS */}
-        <section className="py-32 bg-slate-100 dark:bg-slate-950 px-6 relative overflow-hidden">
+        <section id="sobre" className="py-32 bg-slate-100 dark:bg-slate-950 px-6 relative overflow-hidden">
            {/* Sophisticated background flare */}
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
            

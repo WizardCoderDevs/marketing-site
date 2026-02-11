@@ -81,28 +81,28 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link 
-                  href="/" 
-                  className="group relative inline-block text-slate-600 dark:text-slate-400 hover:text-violet-700 dark:hover:text-violet-400 transition-colors duration-200 py-2"
-                >
-                  {t('header.home')}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/advocacia" 
-                  className="group relative inline-block text-slate-600 dark:text-slate-400 hover:text-violet-700 dark:hover:text-violet-400 transition-colors duration-200 py-2"
-                >
-                  {t('header.advocacia')}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
-                </Link>
-              </li>
-              <li>
-                <Link 
                   href="/blog/artigos" 
                   className="group relative inline-block text-slate-600 dark:text-slate-400 hover:text-violet-700 dark:hover:text-violet-400 transition-colors duration-200 py-2"
                 >
                   {t('header.articles')}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/blog/noticias" 
+                  className="group relative inline-block text-slate-600 dark:text-slate-400 hover:text-violet-700 dark:hover:text-violet-400 transition-colors duration-200 py-2"
+                >
+                  {t('header.news')}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#sobre" 
+                  className="group relative inline-block text-slate-600 dark:text-slate-400 hover:text-violet-700 dark:hover:text-violet-400 transition-colors duration-200 py-2"
+                >
+                  {t('header.aboutUs')}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
                 </Link>
               </li>
