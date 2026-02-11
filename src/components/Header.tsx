@@ -33,7 +33,7 @@ export default function Header() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
       
       <nav
-        className="container mx-auto px-6 py-3"
+        className="container mx-auto px-6 py-3 relative z-50"
         role="navigation"
         aria-label={t('header.home')}
       >
@@ -114,26 +114,35 @@ export default function Header() {
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-800 dark:text-slate-200 focus:outline-none"
-              aria-label={t('header.openMenu')}
+              className="text-slate-800 dark:text-slate-200 focus:outline-none relative z-50 p-2"
+              aria-label={isMobileMenuOpen ? t('header.closeMenu') : t('header.openMenu')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               aria-haspopup="true"
             >
               <svg
-                className="w-6 h-6"
+                className={`w-6 h-6 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-90' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                )}
               </svg>
             </button>
           </div>
@@ -146,17 +155,17 @@ export default function Header() {
       </nav>
       {isMobileMenuOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop (Overlay) */}
           <div 
-            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm md:hidden z-40"
+            className="fixed inset-0 bg-slate-950/80 backdrop-blur-md md:hidden z-40 transition-opacity duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-hidden="true"
           />
           
-          {/* Menu */}
+          {/* Menu Mobile */}
           <div
             id="mobile-menu"
-            className="absolute top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-slate-200 dark:border-white/5 shadow-2xl md:hidden px-6 py-6 space-y-1 z-50"
+            className="absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:hidden px-6 py-10 space-y-2 z-50 animate-in fade-in slide-in-from-top-2 duration-300"
             role="menu"
             aria-label={t('header.mobileMenuLabel')}
             aria-orientation="vertical"
