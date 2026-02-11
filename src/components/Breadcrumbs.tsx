@@ -52,7 +52,7 @@ export default function Breadcrumbs() {
               )}
               {isLast ? (
                 <span
-                  className="text-slate-600 dark:text-slate-400 font-medium"
+                  className="text-slate-600 dark:text-slate-400 font-medium truncate max-w-[120px] xs:max-w-[180px] sm:max-w-none inline-block"
                   aria-current="page"
                 >
                   {breadcrumb.label}
@@ -60,12 +60,12 @@ export default function Breadcrumbs() {
               ) : (
                 <Link
                   href={breadcrumb.href}
-                  className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
+                  className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium flex items-center"
                   aria-label={isHomeCrumb ? 'Início' : undefined}
                 >
                   {isHomeCrumb ? (
                     <svg
-                      className="h-4 w-4 align-text-bottom"
+                      className="h-4 w-4"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export default function Breadcrumbs() {
                       />
                     </svg>
                   ) : (
-                    breadcrumb.label
+                    <span className="truncate max-w-[80px] sm:max-w-none inline-block">{breadcrumb.label}</span>
                   )}
                 </Link>
               )}
