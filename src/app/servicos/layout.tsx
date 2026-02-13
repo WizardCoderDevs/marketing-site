@@ -24,7 +24,11 @@ export const metadata: Metadata = {
       'en-US': `${siteUrl}/servicos?lang=en`,
       'en-GB': `${siteUrl}/servicos?lang=en`,
       'en-CA': `${siteUrl}/servicos?lang=en`,
+      'fr-CA': `${siteUrl}/servicos?lang=en`,
       'en-AU': `${siteUrl}/servicos?lang=en`,
+      'pt-PT': `${siteUrl}/servicos`,
+      'kl-GL': `${siteUrl}/servicos?lang=en`,
+      'da-GL': `${siteUrl}/servicos?lang=en`,
       'x-default': `${siteUrl}/servicos`,
     },
   },
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/servicos`,
     siteName: 'BRANDS',
     locale: 'pt_BR',
-    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
+    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'fr_CA', 'en_AU', 'pt_PT', 'kl_GL', 'da_GL'],
     type: 'website',
     images: [
       {

@@ -38,12 +38,12 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-white dark:bg-slate-950 p-12 md:p-20 rounded-[3rem] border border-slate-200 dark:border-white/5 shadow-2xl text-center space-y-10 relative overflow-hidden group">
+          <div className="bg-white dark:bg-slate-950 p-6 sm:p-12 md:p-20 rounded-[3rem] border border-slate-200 dark:border-white/5 shadow-2xl text-center space-y-10 relative overflow-hidden group">
             {/* Subtle internal gradient */}
             <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
             
             <div className="space-y-6">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-slate-900 dark:text-white leading-tight tracking-tight break-words">
                 {t('contactCta.title')}
               </h3>
               <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">

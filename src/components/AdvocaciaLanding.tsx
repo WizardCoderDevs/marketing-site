@@ -65,7 +65,7 @@ export default function AdvocaciaLanding() {
                         className="w-12 h-12 relative z-10 drop-shadow-[0_0_10px_rgba(139,92,246,0.3)]"
                       />
                     </div>
-                    <span className="text-4xl md:text-5xl font-extrabold font-poppins text-slate-900 dark:text-white">
+                    <span className="text-3xl xs:text-4xl md:text-5xl font-extrabold font-poppins text-slate-900 dark:text-white">
                       BRANDS
                     </span>
                   </div>
@@ -82,7 +82,7 @@ export default function AdvocaciaLanding() {
                   </div>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-slate-900 dark:text-white">
+                <h1 className="text-4xl xs:text-5xl md:text-6xl lg:text-7xl font-playfair font-bold leading-[1.1] text-slate-900 dark:text-white">
                   {t('advocaciaLanding.hero.titlePart1')}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">
                     {t('advocaciaLanding.hero.titleHighlight')}
@@ -151,7 +151,7 @@ export default function AdvocaciaLanding() {
                      </div>
 
                      {/* Stats Indicators */}
-                     <div className="grid grid-cols-2 gap-6">
+                     <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 xs:gap-6">
                         <div className="p-5 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl space-y-3 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                            <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
                               <TrendingUp className="w-4 h-4" /> {t('advocaciaLanding.hero.dashboard.growthLabel')}
@@ -188,7 +188,7 @@ export default function AdvocaciaLanding() {
               </div>
             </div>
             
-            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-30">
+            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-30 select-none">
                <ChevronDown className="w-8 h-8 text-white" />
             </div>
           </div>

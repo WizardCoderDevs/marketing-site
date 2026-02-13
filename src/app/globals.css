@@ -12,6 +12,7 @@
 /* Adiciona scroll suave para toda a página */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Custom styles */
@@ -19,6 +20,8 @@ body {
   font-family: var(--font-comfortaa);
   line-height: 1.6;
   letter-spacing: 0.02em;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Performance: avoid rendering below-the-fold content early */

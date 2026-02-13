@@ -47,12 +47,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: TARGET_URL,
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function PrenatalinPage() {

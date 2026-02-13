@@ -18,7 +18,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900 text-violet-700 dark:text-violet-200 hover:bg-violet-200 dark:hover:bg-violet-800 transition-colors duration-200"
+      className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900 text-violet-700 dark:text-violet-200 hover:bg-violet-200 dark:hover:bg-violet-800 transition-colors duration-200 shrink-0"
       aria-label="Alternar tema"
     >
       {theme === 'dark' ? (

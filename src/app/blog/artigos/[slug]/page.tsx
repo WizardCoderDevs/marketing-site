@@ -119,7 +119,7 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
         itemType="https://schema.org/Article"
       >
         {imageUrl && (
-          <div className="relative w-full h-72 md:h-[500px] lg:h-[600px] mb-10 lg:mb-16 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
+          <div className="relative w-full h-64 sm:h-72 md:h-[500px] lg:h-[600px] mb-10 lg:mb-16 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
             <Image
               src={imageUrl}
               alt={post.attributes.title}

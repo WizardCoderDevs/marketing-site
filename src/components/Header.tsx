@@ -33,7 +33,7 @@ export default function Header() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
       
       <nav
-        className="container mx-auto px-6 py-3 relative z-50"
+        className="container mx-auto px-3 min-[321px]:px-6 py-3 relative z-50"
         role="navigation"
         aria-label={t('header.home')}
       >
@@ -56,7 +56,7 @@ export default function Header() {
                   aria-hidden="true"
                 />
               </div>
-              <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-violet-600 group-hover:to-blue-600 dark:group-hover:from-violet-400 dark:group-hover:to-blue-400 transition-all duration-300">
+              <span className="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent group-hover:from-violet-600 group-hover:to-blue-600 dark:group-hover:from-violet-400 dark:group-hover:to-blue-400 transition-all duration-300 whitespace-nowrap">
                 BRANDS
               </span>
             </Link>
@@ -69,7 +69,7 @@ export default function Header() {
             <div role="none">
               <Link
                 href="/blog/artigos"
-                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2 whitespace-nowrap"
               >
                 {t('header.articles')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
@@ -78,7 +78,7 @@ export default function Header() {
             <div role="none">
               <Link
                 href="/blog/noticias"
-                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2 whitespace-nowrap"
               >
                 {t('header.news')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
@@ -96,7 +96,7 @@ export default function Header() {
             <div role="none">
               <Link
                 href={getNavigationLink('agendar')}
-                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2"
+                className="relative text-slate-700 dark:text-slate-300 hover:text-violet-700 dark:hover:text-violet-400 font-medium transition-colors duration-200 group py-2 whitespace-nowrap"
               >
                 {t('header.contact')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-600 to-blue-600 group-hover:w-full transition-all duration-300" />
@@ -109,7 +109,7 @@ export default function Header() {
               <ThemeToggle />
             </div>
           </div>
-          <div className="flex items-center space-x-4 md:hidden">
+          <div className="flex items-center space-x-2 xs:space-x-4 md:hidden shrink-0">
             <LanguageToggle />
             <ThemeToggle />
             <button

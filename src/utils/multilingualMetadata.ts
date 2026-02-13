@@ -44,7 +44,11 @@ export function createMultilingualMetadata({
         'en-US': enUrl,
         'en-GB': enUrl,
         'en-CA': enUrl,
+        'fr-CA': enUrl,
         'en-AU': enUrl,
+        'pt-PT': canonicalUrl,
+        'kl-GL': enUrl,
+        'da-GL': enUrl,
         'x-default': canonicalUrl,
       },
     },
@@ -54,7 +58,7 @@ export function createMultilingualMetadata({
       url: canonicalUrl,
       siteName: 'BRANDS',
       locale: 'pt_BR',
-      alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
+      alternateLocale: ['en_US', 'en_GB', 'en_CA', 'fr_CA', 'en_AU', 'pt_PT', 'kl_GL', 'da_GL'],
       type: 'website',
       images: [
         {
@@ -92,6 +96,12 @@ export const englishMetadata = {
       'law firm digital marketing',
       'legal content marketing',
       'law firm authority',
+      'legal marketing Canada',
+      'law firm marketing Canada',
+      'legal marketing Greenland',
+      'law firm marketing Greenland',
+      'legal marketing Portugal',
+      'law firm marketing Portugal',
     ],
   },
   services: {
@@ -105,6 +115,9 @@ export const englishMetadata = {
       'legal landing pages',
       'digital marketing for law firms',
       'brands services',
+      'legal marketing services Canada',
+      'legal marketing services Greenland',
+      'legal marketing services Portugal',
     ],
   },
 };

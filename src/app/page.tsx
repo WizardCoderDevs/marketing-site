@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'branding jurídico',
     'autoridade de mercado',
     'soberania de marca',
-    // English keywords for international SEO
+    // English mapping for international SEO
     'legal marketing',
     'law firm marketing',
     'legal branding',
@@ -26,6 +26,23 @@ export const metadata: Metadata = {
     'attorney marketing',
     'legal authority management',
     'elite legal marketing',
+    // Regional targeting: Portugal
+    'marketing jurídico Portugal',
+    'gestão de autoridade advocacia Portugal',
+    'branding jurídico Portugal',
+    'marketing para advogados Portugal',
+    // Regional targeting: Canada
+    'legal marketing Canada',
+    'law firm marketing Canada',
+    'legal branding Canada',
+    'marketing juridique Canada',
+    'marketing pour avocats Canada',
+    // Regional targeting: Greenland
+    'legal marketing Greenland',
+    'law firm marketing Greenland',
+    'advokatmarkedsføring Grønland',
+    'marketing i Kalaallit Nunaat',
+    'juridisk branding Grønland',
   ],
   alternates: {
     canonical: siteUrlWithSlash,
@@ -35,7 +52,11 @@ export const metadata: Metadata = {
       'en-US': `${siteUrlWithSlash}?lang=en`,
       'en-GB': `${siteUrlWithSlash}?lang=en`,
       'en-CA': `${siteUrlWithSlash}?lang=en`,
+      'fr-CA': `${siteUrlWithSlash}?lang=en`,
       'en-AU': `${siteUrlWithSlash}?lang=en`,
+      'pt-PT': siteUrlWithSlash,
+      'kl-GL': `${siteUrlWithSlash}?lang=en`,
+      'da-GL': `${siteUrlWithSlash}?lang=en`,
       'x-default': siteUrlWithSlash,
     },
   },
@@ -45,7 +66,7 @@ export const metadata: Metadata = {
     url: siteUrlWithSlash,
     siteName: 'BRANDS',
     locale: 'pt_BR',
-    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
+    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'fr_CA', 'en_AU', 'pt_PT', 'kl_GL', 'da_GL'],
     type: 'website',
     images: [
       {

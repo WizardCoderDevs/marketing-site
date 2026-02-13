@@ -66,7 +66,11 @@ export const metadata: Metadata = {
       'en-US': `${siteUrlWithSlash}?lang=en`,
       'en-GB': `${siteUrlWithSlash}?lang=en`,
       'en-CA': `${siteUrlWithSlash}?lang=en`,
+      'fr-CA': `${siteUrlWithSlash}?lang=en`,
       'en-AU': `${siteUrlWithSlash}?lang=en`,
+      'pt-PT': siteUrlWithSlash,
+      'kl-GL': `${siteUrlWithSlash}?lang=en`,
+      'da-GL': `${siteUrlWithSlash}?lang=en`,
       'x-default': siteUrlWithSlash,
     },
     types: {
@@ -88,7 +92,7 @@ export const metadata: Metadata = {
     url: siteUrlWithSlash,
     siteName: 'BRANDS',
     locale: 'pt_BR',
-    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'en_AU'],
+    alternateLocale: ['en_US', 'en_GB', 'en_CA', 'fr_CA', 'en_AU', 'pt_PT', 'kl_GL', 'da_GL'],
     type: 'website',
     images: [
       {
@@ -124,8 +128,9 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || 'google-site-verification-code',
   },
   other: {
-    'geo.region': 'BR',
-    'geo.placename': 'Brasil',
+    'geo.region': 'BR, PT, CA, GL',
+    'geo.placename': 'Brasil, Portugal, Canada, Greenland',
+    'DC.title': 'BRANDS - Marketing Jurídico de Elite',
   },
 };
 

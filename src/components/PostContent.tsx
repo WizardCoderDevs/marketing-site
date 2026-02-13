@@ -51,15 +51,15 @@ export function PostContent({
   
   const postTypographyClass =
     `max-w-none ${inter.className} ` +
-    'prose prose-lg md:prose-xl prose-slate dark:prose-invert ' +
-    'prose-h2:font-playfair prose-h2:text-3xl md:prose-h2:text-4xl prose-h2:font-bold prose-h2:mt-16 prose-h2:mb-8 prose-h2:tracking-tight ' +
-    'prose-h3:font-playfair prose-h3:text-2xl md:prose-h3:text-3xl prose-h3:font-bold prose-h3:mt-12 prose-h3:mb-6 ' +
-    'prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-8 prose-p:text-lg md:prose-p:text-xl ' +
+    'prose md:prose-lg lg:prose-xl prose-slate dark:prose-invert ' +
+    'prose-h2:font-playfair prose-h2:text-2xl md:prose-h2:text-3xl lg:prose-h2:text-4xl prose-h2:font-bold prose-h2:mt-16 prose-h2:mb-8 prose-h2:tracking-tight ' +
+    'prose-h3:font-playfair prose-h3:text-xl md:prose-h3:text-2xl lg:prose-h3:text-3xl prose-h3:font-bold prose-h3:mt-12 prose-h3:mb-6 ' +
+    'prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-8 prose-p:text-base md:prose-p:text-lg lg:prose-p:text-xl ' +
     'prose-strong:text-slate-900 dark:prose-strong:text-white prose-strong:font-bold ' +
     'prose-blockquote:border-l-4 prose-blockquote:border-violet-500 prose-blockquote:bg-violet-50 dark:prose-blockquote:bg-violet-900/10 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-slate-800 dark:prose-blockquote:text-slate-200 ' +
     'prose-img:rounded-3xl prose-img:shadow-2xl prose-img:my-12 ' +
     'prose-a:text-violet-600 dark:prose-a:text-violet-400 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline ' +
-    'prose-li:text-lg md:prose-li:text-xl prose-li:leading-relaxed ' +
+    'prose-li:text-base md:prose-li:text-lg lg:prose-li:text-xl prose-li:leading-relaxed ' +
     'prose-hr:border-slate-200 dark:prose-hr:border-slate-800 prose-hr:my-16';
 
   const formattedDate = publishedAt
@@ -96,13 +96,13 @@ export function PostContent({
       {/* Header do post */}
       <header className="space-y-10">
         <div className="space-y-4">
-          <h1 className={`text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight ${playfair.className}`}>
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight break-words ${playfair.className}`}>
             <TranslatedText text={title} />
           </h1>
         </div>
         
         {/* Metadata Superior */}
-        <div className="flex flex-wrap items-center gap-8 py-6 border-y border-slate-100 dark:border-slate-800/50">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-8 py-6 border-y border-slate-100 dark:border-slate-800/50">
           {formattedDate && (
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">

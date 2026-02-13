@@ -1,7 +1,7 @@
 'use client';
 
-import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguageToggle() {
   const [mounted, setMounted] = useState(false);
@@ -37,7 +37,7 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900 text-violet-700 dark:text-violet-200 hover:bg-violet-200 dark:hover:bg-violet-800 transition-colors duration-200 font-medium text-sm"
+      className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900 text-violet-700 dark:text-violet-200 hover:bg-violet-200 dark:hover:bg-violet-800 transition-colors duration-200 font-medium text-sm whitespace-nowrap shrink-0"
       aria-label="Alternar idioma"
       title={i18n.language === 'pt-BR' ? 'Switch to English' : 'Mudar para Português'}
     >

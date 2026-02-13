@@ -97,7 +97,7 @@ function renderBlock(block: StrapiBlock): string {
   switch (type) {
     case 'heading':
       const headingLevel = level || 1;
-      return `<h${headingLevel} class="mb-4">${processedChildren}</h${headingLevel}>`;
+      return `<h${headingLevel} class="mb-4 break-words">${processedChildren}</h${headingLevel}>`;
 
     case 'paragraph':
       return `<p class="mb-4">${processedChildren}</p>`;
@@ -117,7 +117,7 @@ function renderBlock(block: StrapiBlock): string {
       return `<blockquote class="mb-4">${processedChildren}</blockquote>`;
 
     case 'code':
-      return `<pre class="mb-4"><code>${processedChildren}</code></pre>`;
+      return `<pre class="mb-4 overflow-x-auto"><code>${processedChildren}</code></pre>`;
 
     case 'link':
       const url = rest.url || rest.href || '#';
@@ -126,7 +126,7 @@ function renderBlock(block: StrapiBlock): string {
     case 'image':
       const imageUrl = rest.url || rest.src || '';
       const imageAlt = rest.alt || '';
-      return `<img src="${imageUrl}" alt="${imageAlt}" class="mb-4" />`;
+      return `<img src="${imageUrl}" alt="${imageAlt}" class="mb-4 max-w-full h-auto" />`;
 
     default:
       // Para tipos desconhecidos, tenta renderizar como parágrafo
