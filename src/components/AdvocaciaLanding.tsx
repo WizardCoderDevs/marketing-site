@@ -379,37 +379,37 @@ export default function AdvocaciaLanding() {
         {/* SEÇÃO 5: SOBRE A BRANDS */}
         <section id="sobre" className="py-32 bg-slate-100 dark:bg-slate-950 px-6 relative overflow-hidden">
            {/* Sophisticated background flare */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[120px] pointer-events-none" />
            
            <div className="container mx-auto max-w-5xl relative z-10">
               <div className="bg-white/95 dark:bg-slate-900/40 backdrop-blur-2xl border border-slate-200 dark:border-white/5 rounded-[3rem] p-12 md:p-20 relative overflow-hidden group">
                  {/* Internal decorative lines */}
-                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
+                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
                                   <div className="flex flex-col items-center text-center space-y-10 relative z-10">
                     <div className="relative">
-                       <div className="absolute inset-0 bg-amber-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
-                       <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-amber-500/30">
+                       <div className="absolute inset-0 bg-violet-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity" />
+                       <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-3xl flex items-center justify-center relative z-10 border border-violet-500/30">
                           <Image src="/lightning-icon.svg" width={48} height={48} alt="Logo" className="w-12 h-12" />
                        </div>
                     </div>
                     
                     <div className="space-y-6 max-w-3xl">
                        <h2 className="text-3xl md:text-5xl font-playfair font-bold text-slate-900 dark:text-white tracking-tight">
-                         {t('advocaciaLanding.about.title')} <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">{t('advocaciaLanding.about.highlight')}</span>
+                         {t('advocaciaLanding.about.title')} <br className="md:hidden"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400">{t('advocaciaLanding.about.highlight')}</span>
                        </h2>
                        
-                       <div className="h-px w-20 bg-amber-500/30 mx-auto" />
+                       <div className="h-px w-20 bg-violet-500/30 mx-auto" />
                        
                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-xl font-light">
                          {t('advocaciaLanding.about.content')}
                        </p>
                     </div>
 
-                    <div className="pt-4 flex items-center gap-4 text-amber-500/60 font-bold text-xs uppercase tracking-[0.4em]">
-                       <span className="w-12 h-px bg-amber-500/20"></span>
+                    <div className="pt-4 flex items-center gap-4 text-violet-500/60 font-bold text-xs uppercase tracking-[0.4em]">
+                       <span className="w-12 h-px bg-violet-500/20"></span>
                        {t('advocaciaLanding.about.badge')}
-                       <span className="w-12 h-px bg-amber-500/20"></span>
+                       <span className="w-12 h-px bg-violet-500/20"></span>
                     </div>
                   </div>
               </div>
