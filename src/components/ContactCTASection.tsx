@@ -24,7 +24,7 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
   return (
     <section
       id="contact-cta-section"
-      className="content-visibility-auto py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-white/5"
+      className="content-visibility-auto py-24 relative overflow-hidden bg-transparent"
       style={{ '--cvis-size': '420px' } as CSSProperties}
     >
       {/* Decorative background flare */}
@@ -38,9 +38,9 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-white dark:bg-slate-950 p-6 sm:p-12 md:p-20 rounded-[3rem] border border-slate-200 dark:border-white/5 shadow-2xl text-center space-y-10 relative overflow-hidden group">
+          <div className="bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl p-6 sm:p-12 md:p-20 rounded-[3rem] border border-stone-200/60 dark:border-white/10 shadow-2xl text-center space-y-10 relative overflow-hidden group">
             {/* Subtle internal gradient */}
-            <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
             
             <div className="space-y-6">
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-slate-900 dark:text-white leading-tight tracking-tight break-words">
@@ -77,9 +77,9 @@ export default function ContactCTASection({ onOpenForm }: ContactCTASectionProps
 
             {/* Premium badge */}
             <div className="pt-8 flex items-center justify-center gap-4 text-slate-400 dark:text-slate-500 font-bold text-[10px] uppercase tracking-[0.4em]">
-              <span className="w-12 h-px bg-slate-200 dark:bg-slate-800"></span>
+              <span className="w-12 h-px bg-stone-200 dark:bg-slate-800"></span>
               BRANDS Elite Standard
-              <span className="w-12 h-px bg-slate-200 dark:bg-slate-800"></span>
+              <span className="w-12 h-px bg-stone-200 dark:bg-slate-800"></span>
             </div>
           </div>
         </motion.div>
