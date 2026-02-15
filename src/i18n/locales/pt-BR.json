@@ -112,6 +112,25 @@
     "loading": "Preparando áudio...",
     "unsupported": "Seu navegador não oferece suporte à leitura em voz alta."
   },
+  "newsletter": {
+    "title": "Fique por dentro das novidades",
+    "description": "Inscreva-se em nossa newsletter e receba conteúdos exclusivos e atualizações do mercado diretamente em seu e-mail.",
+    "badge": "Newsletter",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Seu nome",
+      "email": "E-mail",
+      "emailPlaceholder": "seu@email.com",
+      "whatsapp": "WhatsApp",
+      "whatsappPlaceholder": "+55 (00) 00000-0000",
+      "button": "Inscrever-se",
+      "buttonLoading": "Enviando...",
+      "successTitle": "Sucesso!",
+      "successDescription": "Obrigado por se inscrever em nossa newsletter!",
+      "error": "Ocorreu um erro ao enviar. Por favor, tente novamente.",
+      "recaptchaError": "Por favor, complete o reCAPTCHA para continuar."
+    }
+  },
   "newsletterConfirmation": {
     "badge": "Newsletter BRANDS",
     "title": "Assinatura confirmada!",

@@ -1,6 +1,7 @@
 import { getHubSpotCookie, submitToHubSpot } from '@/utils/hubspot';
 import type { FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useTranslation } from 'react-i18next';
 
 // Configurações do HubSpot
@@ -18,12 +19,15 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
   const { i18n, t } = useTranslation();
   const modalRef = useRef<HTMLDivElement>(null);
   const modalContentRef = useRef<HTMLDivElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const currentLang = i18n.language.startsWith('en') ? 'en' : 'pt';
+  const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     nome: '',
@@ -74,6 +78,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
       }
       setIsSubmitted(false);
       setError(null);
+      setRecaptchaToken(null);
       setFormData({ 
         nome: '', 
         empresa: '', 
@@ -90,6 +95,12 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      setError(t('newsletter.form.recaptchaError') || 'Por favor, complete o reCAPTCHA para continuar.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
@@ -129,6 +140,9 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
       setIsSubmitted(true);
     } else {
       setError(t('advocacia.form.error') || 'Ocorreu um erro ao enviar. Por favor, tente novamente.');
+      // Reset recaptcha on error
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
     }
     
     setIsSubmitting(false);
@@ -365,11 +379,26 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                     </div>
                   )}
 
+                  <div className="space-y-2 flex justify-center py-2">
+                    {RECAPTCHA_SITE_KEY ? (
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_SITE_KEY}
+                        onChange={(token) => setRecaptchaToken(token)}
+                        theme="light"
+                      />
+                    ) : (
+                      <div className="text-xs text-red-500 bg-red-50 p-2 rounded-lg border border-red-100">
+                        reCAPTCHA Site Key não configurada no .env
+                      </div>
+                    )}
+                  </div>
+
                   <div className="flex justify-end pt-2">
                     <button 
                       type="submit" 
-                      disabled={isSubmitting}
-                      className={`bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(124,58,237,0.5)] flex items-center justify-center group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-95'}`}
+                      disabled={isSubmitting || !recaptchaToken}
+                      className={`bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 text-white font-bold px-10 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(124,58,237,0.5)] flex items-center justify-center group ${isSubmitting || !recaptchaToken ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-95'}`}
                     >
                       {isSubmitting ? (
                         <>

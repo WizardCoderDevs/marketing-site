@@ -112,6 +112,25 @@
     "loading": "Preparing audio...",
     "unsupported": "Your browser does not support read aloud."
   },
+  "newsletter": {
+    "title": "Stay Tuned",
+    "description": "Subscribe to our newsletter and receive exclusive content and market updates directly in your email.",
+    "badge": "Newsletter",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "name@email.com",
+      "whatsapp": "WhatsApp",
+      "whatsappPlaceholder": "+1 (000) 000-0000",
+      "button": "Subscribe",
+      "buttonLoading": "Sending...",
+      "successTitle": "Success!",
+      "successDescription": "Thank you for subscribing to our newsletter!",
+      "error": "An error occurred while sending. Please try again.",
+      "recaptchaError": "Please complete the reCAPTCHA to continue."
+    }
+  },
   "newsletterConfirmation": {
     "badge": "BRANDS Newsletter",
     "title": "Subscription confirmed!",
