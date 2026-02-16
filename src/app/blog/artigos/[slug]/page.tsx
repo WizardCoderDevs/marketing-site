@@ -138,9 +138,11 @@ export default async function ArtigoPage({ params }: ArtigoPageProps) {
             title={post.attributes.title}
             content={content}
             publishedAt={post.attributes.publishedAt}
+            updatedAt={post.attributes.updatedAt}
             backLink="/blog/artigos"
             backLinkKey="blog.artigos.backLink"
             publishedKey="blog.artigos.published"
+            updatedKey="blog.artigos.updated"
           />
         </div>
       </article>

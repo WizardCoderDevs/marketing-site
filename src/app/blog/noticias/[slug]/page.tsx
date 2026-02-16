@@ -138,9 +138,11 @@ export default async function NoticiaPage({ params }: NoticiaPageProps) {
             title={post.attributes.title}
             content={content}
             publishedAt={post.attributes.publishedAt}
+            updatedAt={post.attributes.updatedAt}
             backLink="/blog/noticias"
             backLinkKey="blog.noticias.backLink"
             publishedKey="blog.noticias.published"
+            updatedKey="blog.noticias.updated"
           />
         </div>
       </article>

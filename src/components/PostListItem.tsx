@@ -13,6 +13,7 @@ interface PostListItemProps {
       title: string;
       content?: string;
       publishedAt?: string;
+      updatedAt?: string;
     };
     imageUrl: string | null;
   };
@@ -36,6 +37,14 @@ export function PostListItem({ post, basePath, readMoreText, isFeatured = false 
   const contentPreview = getContentPreview(post.attributes.content, isFeatured ? 400 : 250);
   const formattedDate = post.attributes.publishedAt
     ? new Date(post.attributes.publishedAt).toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+    : null;
+
+  const formattedUpdateDate = post.attributes.updatedAt && post.attributes.updatedAt !== post.attributes.publishedAt
+    ? new Date(post.attributes.updatedAt).toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
@@ -82,6 +91,11 @@ export function PostListItem({ post, basePath, readMoreText, isFeatured = false 
                 <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400 font-bold text-[10px] uppercase tracking-[0.2em]">
                   <Calendar className="w-3.5 h-3.5" />
                   <time dateTime={post.attributes.publishedAt}>{formattedDate}</time>
+                  {formattedUpdateDate && (
+                    <span className="ml-2 pl-2 border-l border-slate-200 dark:border-slate-800">
+                      Modificado em: {formattedUpdateDate}
+                    </span>
+                  )}
                 </div>
               )}
             </div>

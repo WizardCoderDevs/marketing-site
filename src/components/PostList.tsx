@@ -11,6 +11,7 @@ interface PostListProps {
       title: string;
       content?: string;
       publishedAt?: string;
+      updatedAt?: string;
     };
     imageUrl: string | null;
   }>;

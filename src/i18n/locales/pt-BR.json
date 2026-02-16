@@ -460,14 +460,16 @@
       "backLink": "← Voltar para Artigos",
       "readMore": "Ler mais",
       "noPosts": "Nenhum artigo encontrado no momento.",
-      "published": "Publicado em"
+      "published": "Publicado em",
+      "updated": "Atualizado em"
     },
     "noticias": {
       "title": "Notícias",
       "backLink": "← Voltar para Notícias",
       "readMore": "Ler mais",
       "noPosts": "Nenhuma notícia encontrada no momento.",
-      "published": "Publicado em"
+      "published": "Publicado em",
+      "updated": "Atualizado em"
     }
   },
   "advocaciaLanding": {
