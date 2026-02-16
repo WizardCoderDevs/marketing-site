@@ -20,8 +20,8 @@ function buildItemPath(post: Awaited<ReturnType<typeof fetchStrapiPosts>>[number
 
 export async function GET() {
   const [articles, news] = await Promise.all([
-    fetchStrapiPosts('article'),
-    fetchStrapiPosts('news'),
+    fetchStrapiPosts('article', 1000),
+    fetchStrapiPosts('news', 1000),
   ]);
 
   const combinedPosts = [...articles, ...news];

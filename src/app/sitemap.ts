@@ -83,10 +83,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Busca posts do Strapi
+  // Busca posts do Strapi com limite expandido para garantir inclusão de todos os artigos/notícias
   const [articlePosts, newsPosts] = await Promise.all([
-    fetchStrapiPosts('article').catch(() => []),
-    fetchStrapiPosts('news').catch(() => []),
+    fetchStrapiPosts('article', 1000).catch(() => []),
+    fetchStrapiPosts('news', 1000).catch(() => []),
   ]);
 
   // Artigos do blog - prioridade alta para conteúdo

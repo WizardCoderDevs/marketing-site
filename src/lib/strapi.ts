@@ -43,7 +43,7 @@ interface StrapiResponse {
   };
 }
 
-export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<ProcessedStrapiPost[]> {
+export async function fetchStrapiPosts(tag: 'article' | 'news', limit: number = 25): Promise<ProcessedStrapiPost[]> {
   const apiUrl = process.env.NEXT_STRAPI_API_URL;
   const apiKey = process.env.NEXT_STRAPI_API_KEY;
 
@@ -78,7 +78,7 @@ export async function fetchStrapiPosts(tag: 'article' | 'news'): Promise<Process
   }
 
   try {
-    const strapiUrl = `${normalizedApiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc`;
+    const strapiUrl = `${normalizedApiUrl}/api/posts?filters[tags][name][$eq]=${tag}&populate=*&sort=publishedAt:desc&pagination[limit]=${limit}`;
 
     console.log('[fetchStrapiPosts] Buscando posts:', { 
       tag, 
