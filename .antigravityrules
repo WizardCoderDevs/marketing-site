@@ -5,3 +5,5 @@
 3. O projeto está usando Next.js como biblioteca front-end. Considere isso antes de começar a fazer modificações.
 4. A linguagem de resposta deve ser sempre o Português (Brasil).
 5. O projeto está usando o Strapi como CMS. Considere isso antes de começar a fazer modificações.
+6. Sempre que for necessário, utilize o comando 'bun run build' para verificar se o projeto está funcionando corretamente.
+7. Plano de implementação e Walkthrough: sempre em portugues do brasil.

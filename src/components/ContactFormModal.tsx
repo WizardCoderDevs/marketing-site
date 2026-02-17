@@ -217,16 +217,32 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{t('advocacia.form.successTitle')}</h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {t('advocacia.form.successDescription')}
-                  </p>
-                  <button 
-                    onClick={onClose}
-                    className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-xl font-bold transition-all hover:scale-105"
-                  >
-                    {t('cookies.close')}
-                  </button>
+                  <div className="space-y-2">
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white">{t('advocacia.form.successTitle')}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-lg">
+                      {t('advocacia.form.successDescription')}
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <a 
+                      href="https://calendly.com/contato-brands/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-violet-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-[0_10px_30px_-10px_rgba(124,58,237,0.5)] flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {t('advocacia.form.calendlyButton')}
+                    </a>
+                    <button 
+                      onClick={onClose}
+                      className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-8 py-4 rounded-xl font-bold transition-all hover:bg-slate-200 dark:hover:bg-slate-700"
+                    >
+                      {t('cookies.close')}
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

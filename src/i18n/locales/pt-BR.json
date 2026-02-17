@@ -93,8 +93,9 @@
       "mensagemPlaceholder": "Como podemos ajudar?",
       "button": "Enviar",
       "buttonLoading": "Enviando...",
-      "successTitle": "Mensagem Enviada!",
-      "successDescription": "Obrigado pelo seu interesse. Nossa equipe entrará em contato com você em breve.",
+      "successTitle": "Quase pronto!",
+      "successDescription": "Para darmos o próximo passo, agende uma conversa rápida de 30 minutos com nossa equipe.",
+      "calendlyButton": "Agendar no Calendly",
       "sendAgain": "Enviar outra mensagem",
       "securityNote": "Seus dados estão seguros."
     }

@@ -93,8 +93,9 @@
       "mensagemPlaceholder": "How can we help?",
       "button": "Send",
       "buttonLoading": "Sending...",
-      "successTitle": "Message Sent!",
-      "successDescription": "Thank you for your interest. Our team will contact you within 24 hours.",
+      "successTitle": "Almost there!",
+      "successDescription": "To take the next step, schedule a quick 30-minute talk with our team.",
+      "calendlyButton": "Schedule on Calendly",
       "sendAgain": "Send another message",
       "securityNote": "Your data is secure."
     }
