@@ -8,7 +8,7 @@ import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
-import Script from 'next/script';
+import { GoogleTagManager } from '@next/third-parties/google';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
@@ -141,39 +141,19 @@ interface RootLayoutProps {
 
 // Componente RootLayout, que envolve todo o conteúdo da aplicação
 export default function RootLayout({ children }: RootLayoutProps) {
-  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
-
   return (
     <html
       lang="pt-BR"
       className={`${comfortaa.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <GoogleTagManager gtmId="GTM-WPLKTX37" />
+      </head>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200" suppressHydrationWarning>
-        {/* Google tag (gtag.js) */}
-        {googleTagId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-              strategy="afterInteractive"
-            />
-            <Script
-              id="gtag-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleTagId}', {
-                  'anonymize_ip': true,
-                  'page_path': window.location.pathname + window.location.search
-                });
-              `,
-              }}
-            />
-          </>
-        )}
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPLKTX37" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
+        </noscript>
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <CookieProvider>
