@@ -1,5 +1,6 @@
 import CookieBanner from '@/components/CookieBanner';
 import GoogleTagTracker from '@/components/GoogleTagTracker';
+import { StapeGTM } from '@/components/StapeGTM';
 import { ContactFormProvider } from '@/contexts/ContactFormContext';
 import { ConversionProvider } from '@/contexts/ConversionContext';
 import { CookieProvider } from '@/contexts/CookieContext';
@@ -8,7 +9,6 @@ import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
-import { GoogleTagManager } from '@next/third-parties/google';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
@@ -148,12 +148,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <head>
-        <GoogleTagManager gtmId="GTM-WPLKTX37" />
       </head>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200" suppressHydrationWarning>
-        <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPLKTX37" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
-        </noscript>
+        <StapeGTM gtmId="GTM-WPLKTX37" gtmUrl="https://stape.brands.ppg.br" />
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <CookieProvider>
