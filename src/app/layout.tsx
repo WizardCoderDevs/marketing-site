@@ -150,6 +150,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4246041173257940" />
         <GoogleTagManager gtmId="GTM-WPLKTX37" gtmScriptUrl="https://stape.brands.ppg.br/ns.html" />
         <Script
           async
