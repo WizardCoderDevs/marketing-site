@@ -10,6 +10,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
+import Script from 'next/script';
 import React from 'react'; // Import React para tipos JSX
 import './globals.css';
 
@@ -149,6 +150,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4246041173257940"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
         <GoogleTagManager gtmId="GTM-WPLKTX37" gtmScriptUrl="https://stape.brands.ppg.br/ns.html" />
       </head>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200" suppressHydrationWarning>
