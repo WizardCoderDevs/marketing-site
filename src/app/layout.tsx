@@ -6,6 +6,7 @@ import { ConversionProvider } from '@/contexts/ConversionContext';
 import { CookieProvider } from '@/contexts/CookieContext';
 import I18nProvider from '@/i18n/I18nProvider';
 import { siteUrl, siteUrlWithSlash } from '@/utils/siteUrl';
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Comfortaa, Poppins } from 'next/font/google';
@@ -148,6 +149,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
     >
       <head>
+        <GoogleTagManager gtmId="GTM-WPLKTX37" gtmScriptUrl="https://stape.brands.ppg.br/ns.html" />
       </head>
       <body className="min-h-screen bg-stone-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-comfortaa leading-relaxed tracking-wide transition-colors duration-200" suppressHydrationWarning>
         <StapeGTM gtmId="GTM-WPLKTX37" gtmUrl="https://stape.brands.ppg.br" />
